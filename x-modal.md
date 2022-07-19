@@ -38,8 +38,24 @@ Now wrap the content:
 @endsection
 ```
 
-That's it! Now when you want to load this route into a view, simply use the `modal` attribute on the `Link` component:
+And that's it! Now when you want to load this route into a view, simply use the `modal` attribute on the `Link` component:
 
 ```blade
 <Link modal href="/users/create">Create new user</Link>
+```
+
+## Slideover
+
+To load the page into a slideover, replace the `modal` attribute with the `slideover` attribute. You don't have to change your view.
+
+```blade
+<Link slideover href="/users/create">Create new user</Link>
+```
+
+## Size
+
+You can control the size of the modal with the `max-width` attribute. Valid values are `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl` and `7xl`. The default is `2xl` for a modal, and `md` for a slideover.
+
+```blade
+<x-splade-modal max-width="lg">
 ```
