@@ -57,16 +57,13 @@ The dedicated form component allows you to send forms asynchronously. It catches
 
 First, let's explain what the `x-form` component actually is: it's a wrapper around a Vue component. Yes, each Splade component consists of a renderless Vue component (where all interactive magic happens), wrapped in a Blade component.
 
-In the example below, we give the form component some default data, that of the authenticated user.
+In the example below, we give the form component some default data, that of the authenticated user. Note that the user data is passed to the frontend, so make sure sensitive attributes are [hidden](https://laravel.com/docs/9.x/eloquent-serialization#hiding-attributes-from-json).
 
 ```blade
 <x-form :action="route('user.current.update')" :default="auth()->user()">
     <input type="name" v-model="form.name" placeholder="Full name" />
     <p v-text="form.errors.name" />
 
-    <input type="email" v-model="form.email" placeholder="Email address" />
-    <p v-text="form.errors.email" />
-
-    <button type="submit">Save</button>
+    <button type="submit">Update</button>
 </x-form>
 ```
