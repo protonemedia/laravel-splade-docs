@@ -120,7 +120,7 @@ If you redirect back to the same page after a successful request, you may choose
 
 ## State
 
-There are several other props that you can use to show the state of the form:
+There are several props that you can use to show the state of the form:
 
 ```blade
 <x-splade-form>
