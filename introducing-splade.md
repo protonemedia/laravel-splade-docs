@@ -4,7 +4,18 @@ Splade provides a **super easy** way to build *Single Page Applications* (SPA) u
 
 **Wow! Sounds interesting? Let's take a closer look.**
 
-## The easiest example: a toggle
+## Navigation example
+
+To leverage the SPA capabilities of Splade, you may use the `<Link>` component instead of the `<a>` element. This prevents full page reloads, and only fetches the new page. The `<Link>` component is essentially a wrapper around `<a>`, so there's not much to learn:
+
+```blade
+<Link href="/">Home</Link>
+<Link href="{{ route('contact') }}">Contact</Link>
+```
+
+If you're using an existing app, or maybe you don't like the `Link` component, you may configure Splade to automatically transform all `<a>` elements.
+
+## The simplest component: a toggle
 
 In the example below we show an excerpt of the blog post. When the user clicks on the *Expand* button, it hides the excerpt and shows the full content. By default, all Splade components are prefixed with `splade`, but you may configure it without a prefix, resulting in a more readable `<x-toggle>` component.
 
@@ -67,17 +78,6 @@ In the example below, we give the form component some default data, that of the 
     <button type="submit">Update</button>
 </x-form>
 ```
-
-## Navigation example
-
-To leverage the SPA capabilities of Splade, you may use the `<Link>` component instead of the `<a>` element. This prevents full page reloads, and only fetches the new page. The `<Link>` component is essentially a wrapper around `<a>`, so there's not much to learn:
-
-```blade
-<Link href="/">Home</Link>
-<Link href="{{ route('contact') }}">Contact</Link>
-```
-
-If you're using an existing app, or maybe you don't like the `Link` component, you may configure Splade to automatically transform all `<a>` elements.
 
 ## What's more?
 

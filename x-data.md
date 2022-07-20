@@ -5,7 +5,7 @@ You may use the **Data Component** to interact with a set of reactive data *insi
 ```blade
 <x-splade-data>
     <input v-model="data.name" />
-    <p>Your name is <span v-text="data.name /></p>
+    <p>Your name is <span v-text="data.name" /></p>
 </x-splade-data>
 ```
 

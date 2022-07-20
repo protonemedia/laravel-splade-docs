@@ -11,8 +11,10 @@ Route::middleware('splade')->group(function () {
 
 Now when you use the `<Link>` component, Splade will prevent a full page reload, and only load the new page:
 
+
 ```blade
 <h1>Welcome!</h1>
+
 
 <Link href="/contact">Visit contact page</Link>
 ```
