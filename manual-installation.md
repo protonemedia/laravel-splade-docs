@@ -35,3 +35,19 @@ In your Blade root layout, you may use the `@splade` directive. This will render
     </body>
 </html>
 ```
+
+Lastly, in the `vite.config.js` file, you need to add an alias for the [Vue template compiler](https://vuejs.org/guide/scaling-up/tooling.html#note-on-in-browser-template-compilation):
+
+```js
+export default defineConfig({
+    ...
+
+    resolve: {
+        alias: {
+            vue: 'vue/dist/vue.esm-bundler'
+        }
+    },
+
+    ...
+});
+```
