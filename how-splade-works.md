@@ -67,4 +67,6 @@ Splade comes with a magical `<Render>` Vue component that luckily, you'll never 
 </template>
 ```
 
-The `<Render>` component allows you to pass in *other* Vue components, which Vue will render on-the-fly. This is why we can pass a fully rendered Blade view (having Vue components) to the `<Render>` component.
+The `Render` component allows you to pass in *other* Vue components, which Vue will render on-the-fly. This is why we can pass a fully rendered Blade view (having Vue components) to the `Render` component.
+
+When requesting a route that returns a Blade view, Splade will grab the rendered Blade view and pass it to the `Render` component. When navigating to a subsequent route, it will pass the freshly returned Blade view to the `Render` component, essentially replacing the previous page.
