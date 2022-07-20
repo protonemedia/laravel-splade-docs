@@ -23,7 +23,7 @@ class Kernel extends HttpKernel
 }
 ```
 
-Then in the routes file, typically `web.php`, use may use the `splade` middleware:
+Then in the routes file, typically `web.php`, you may use the Middleware:
 
 ```php
 Route::middleware('splade')->group(function () {
