@@ -7,9 +7,6 @@
 On the frontend, you need to make sure [Tailwind CSS 3.0](https://tailwindcss.com) and [Vue 3.0](https://vuejs.org) are configured properly. In your Tailwind configuration file, make sure you add the Splade package to the content array:
 
 ```js
-const defaultTheme = require('tailwindcss/defaultTheme');
-
-/** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
         ...
