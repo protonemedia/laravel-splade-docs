@@ -11,10 +11,10 @@ For example, here's a page to create a new user. This is a regular, full page vi
 
 <h1>Create new user</h1>
 
-<x-form>
+<x-splade-form>
     <input v-model="form.name" placeholder="Name" />
     <button type="submit">Create</button>
-</x-form>
+</x-splade-form>
 
 @endsection
 ```
