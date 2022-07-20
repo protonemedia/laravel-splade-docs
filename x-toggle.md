@@ -6,14 +6,14 @@ The **Toggle Component** is a simplified variant of the Data Component, primaril
 <x-splade-toggle>
     <button @click.prevent="toggle">Show text</button>
 
-    <div v-show="toggled>
+    <div v-show="toggled">
         <p>...</p>
         <button @click.prevent="setToggle(false)">Hide text</button>
     </div>
 </x-splade-toggle>
 ```
 
-Of course, you may specify a default state:
+You may specify a default state with the `data` attribute:
 
 ```blade
 <x-splade-toggle :data="true">
@@ -21,7 +21,7 @@ Of course, you may specify a default state:
 
 ## Multiple toggles
 
-Sometimes, you may want to toggle multiple values. Instead of using multiple components, you can specify all keys in the `data` property. This will slightly alter the exposed props. You can use the key directly, and the `toggle` and `setToggle` props now require a key:
+Sometimes, you may want to toggle multiple values. Instead of using multiple components, you can specify all keys in the `data` attribute. This will slightly alter the exposed props. You can use the key directly, and the `toggle` and `setToggle` props now require a key:
 
 ```blade
 <x-splade-toggle data="isCompany, hasVatNumber">
