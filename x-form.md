@@ -1,4 +1,4 @@
-# X-Splade-Defer Component
+# X-Splade-Form Component
 
 The **Form Component** allows you to send forms asynchronously. This prevents full page reloads, and it can present validation errors without having to reevaluate the form with old submitted data. You may use the `form` prop to do two-way binding. The default method is `POST`.
 
