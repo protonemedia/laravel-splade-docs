@@ -26,7 +26,7 @@ Sometimes, you may want to toggle multiple values. Instead of using multiple com
 ```blade
 <x-splade-toggle data="isCompany, hasVatNumber">
     <button @click.prevent="toggle('isCompany')">Switch account type</button>
-    <input type="text name="company_name" v-if="isCompany" />
+    <input name="company_name" v-if="isCompany" />
 
     <button @click.prevent="setToggle('hasVatNumber', true)">Enable Vat Invoice</button>
 
