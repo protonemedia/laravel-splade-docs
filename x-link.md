@@ -26,3 +26,15 @@ You may customize the confirmation dialog:
     Danger Zone
 </Link>
 ```
+
+## Transform all anchors
+
+If you don't want to use the `Link` component, but want Splade to transform all `<a>` elements, you need to update the plugin options in the `app.js` file:
+
+```js
+createApp({ render: renderSpladeApp({ el }) })
+    .use(SpladePlugin, {
+        'transform_anchors': true,
+    })
+    .mount(el);
+```
