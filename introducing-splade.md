@@ -6,7 +6,7 @@ Splade provides a super easy way to build *Single Page Applications* (SPA) using
 
 ## The easiest example: a toggle
 
-In the example below we show a excerpt of the blog post. When the user clicks on the *Expand* button, it hides the excerpt and shows the full content. By default, all Splade components are prefixed with `splade`, but you may configure it without a prefix, resulting in a more readable `<x-toggle>` component.
+In the example below we show an excerpt of the blog post. When the user clicks on the *Expand* button, it hides the excerpt and shows the full content. By default, all Splade components are prefixed with `splade`, but you may configure it without a prefix, resulting in a more readable `<x-toggle>` component.
 
 ```blade
 @extends('layout')
@@ -23,5 +23,48 @@ In the example below we show a excerpt of the blog post. When the user clicks on
         <button @click="toggle">Expand</button>
     </div>
 </x-splade-toggle>
+
 @endsection
+```
+
+## Form example
+
+The dedicated form component allows you to send forms asynchronously. It catches validation errors and it supports two-way binding. You don't even need to specify a structure for the data.
+
+```blade
+@extends('layout')
+
+@section('content')
+
+<h1>Create new user</h1>
+
+<x-form action="/user/new">
+    <input type="name" v-model="form.name" placeholder="Full name" />
+    <p v-text="form.errors.name" />
+
+    <input type="email" v-model="form.email" placeholder="Email address" />
+    <p v-text="form.errors.email" />
+
+    <button type="submit">Save</button>
+</x-form>
+
+@endsection
+```
+
+**Want to see something even cooler?**
+
+First, let's explain what the `x-form` component actually is: it's a wrapper around a Vue component. Yes, each Splade component consists of a renderless Vue component (where all interactive magic happens), wrapped in a Blade component.
+
+In the example below, we give the form component some default data, that of the authenticated user.
+
+```blade
+<x-form :action="route('user.current.update')" :default="auth()->user()">
+    <input type="name" v-model="form.name" placeholder="Full name" />
+    <p v-text="form.errors.name" />
+
+    <input type="email" v-model="form.email" placeholder="Email address" />
+    <p v-text="form.errors.email" />
+
+    <button type="submit">Save</button>
+</x-form>
 ```
