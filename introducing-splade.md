@@ -93,4 +93,4 @@ Here's a summary of all cool things Splade can do:
 * `<x-modal>` component to load *any* route into a modal or slideover. Supports nested modals as well.
 * `<x-state>` component to interact with validation errors, flashed data, and shared data.
 * `<x-toggle>` component to easily toggle boolean values on your page.
-* `Toast` component to display toasts on your page. Supports nine positions, four styles, backdrop and auto-dismiss.
+* `Toast` component to display toasts on your page. Supports nine positions, four styles, backdrop background, and auto-dismiss.
