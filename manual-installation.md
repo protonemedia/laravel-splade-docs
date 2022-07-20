@@ -2,9 +2,59 @@
 
 ## Server-side
 
+install the Laravel Splade package using composer:
+
+```bash
+composer install protonemedia/laravel-splade
+```
+
+Add the Route Middleware to the `Http/Kernel.php` file:
+
+```php
+class Kernel extends HttpKernel
+{
+    protected $routeMiddleware = [
+        ...
+
+        'splade' => \ProtoneMedia\Splade\Http\SpladeMiddleware::class,
+
+        ...
+    ];
+}
+```
+
+Then in the routes file, typically `web.php`, use may use the `splade` middleware:
+
+```php
+Route::middleware('splade')->group(function () {
+    Route::view('/', 'welcome');
+    Route::view('/contact', 'contact');
+});
+```
+
+Lastly, in the `register` method of the `Exceptions/Handler.php` file, you need to register Splade's Exception Handler:
+
+```php
+use ProtoneMedia\Splade\SpladeCore;
+
+class Handler extends ExceptionHandler
+{
+    public function register()
+    {
+        $this->renderable(SpladeCore::exceptionHandler($this));
+    }
+}
+```
+
 ## Client-side
 
-On the frontend, you need to make sure [Tailwind CSS 3.0](https://tailwindcss.com) and [Vue 3.0](https://vuejs.org) are configured properly. In your Tailwind configuration file, make sure you add the Splade package to the content array:
+On the frontend, you need to make sure [Tailwind CSS 3.0](https://tailwindcss.com) and [Vue 3.0](https://vuejs.org) are configured properly. Then, install the Splade frontend package:
+
+```bash
+npm install @protonemedia/laravel-splade
+```
+
+In your Tailwind configuration file, make sure you add the Splade package to the content array:
 
 ```js
 module.exports = {
