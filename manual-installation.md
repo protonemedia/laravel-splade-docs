@@ -2,7 +2,7 @@
 
 ## Server-side
 
-install the Laravel Splade package using composer:
+Install the Laravel Splade package using composer:
 
 ```bash
 composer install protonemedia/laravel-splade
