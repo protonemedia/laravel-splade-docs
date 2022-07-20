@@ -16,6 +16,7 @@ In the `broadcastWith` method of your event, use `Splade::redirectOnEvent()` to 
 <?php
 
 use App\Models\Order;
+use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use ProtoneMedia\Splade\Facades\Splade;
 
@@ -23,7 +24,6 @@ class OrderWasPaid implements ShouldBroadcast
 {
     public function __construct(public Order $order)
     {
-        $this->order = $order;
     }
 
     public function broadcastOn()
@@ -44,4 +44,69 @@ Now in your Blade template, specify the channel and event you want to listen to.
 
 ```blade
 <x-splade-event private channel="customer-1" listen="OrderWasPaid" />
+```
+
+## Refresh on event
+
+Similar to redirecting, you may also just refresh the current page.
+
+```php
+<?php
+
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use ProtoneMedia\Splade\Facades\Splade;
+
+class OrderStatusWasUpdated implements ShouldBroadcast
+{
+    public function broadcastWith()
+    {
+        return [
+            Splade::refreshOnEvent(),
+        ];
+    }
+}
+```
+
+## Toast on event
+
+Splade allows you to send toasts to the frontend using broadcasted events. Use the `Splade::toastOnEvent()` method to instantiate a new toast.
+
+```php
+<?php
+
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use ProtoneMedia\Splade\Facades\Splade;
+
+class HighServerLoadDetected implements ShouldBroadcast
+{
+    public function broadcastWith()
+    {
+        return [
+            Splade::toastOnEvent('High server load detected')->warning(),
+        ];
+    }
+}
+```
+
+## Listen for multiple events
+
+You may specify multiple events to listen to:
+
+```blade
+<x-splade-event private channel="customer-1" listen="OrderWasCancelled, OrderWasPaid" />
+```
+
+## Using raw event data
+
+Instead of the features above, you may also use the raw event data. There are `subscribed` and `events` props:
+
+```blade
+<x-splade-event private channel="admins" listen="IncomingEmail, IncomingSupportBubble">
+    <p v-if="subscribed">Subscribed!</p>
+
+    <div v-for="event in events">
+        <p v-text="event.name" />
+        <p v-text="event.data.username" />
+    </div>
+</x-splade-event>
 ```
