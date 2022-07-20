@@ -2,7 +2,7 @@
 
 Splade provides a super easy way to build *Single Page Applications* (SPA) using regular [Laravel Blade](https://laravel.com/docs/9.x/blade) templates, enhanced with [renderless Vue 3 components](https://adamwathan.me/renderless-components-in-vuejs/). In essence, you can just write your app using the simplicity of Blade, and besides that magic *SPA-feeling*, you can sparkle it to make it interactive. All without ever leaving Blade.
 
-Wow! Already confused? Let's take a closer look.
+**Wow! Sounds interesting? Let's take a closer look.**
 
 ## The easiest example: a toggle
 
