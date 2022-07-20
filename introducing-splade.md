@@ -68,7 +68,7 @@ In the example below, we give the form component some default data, that of the 
 </x-form>
 ```
 
-## Navigation
+## Navigation example
 
 To leverage the SPA capabilities of Splade, you may use the `<Link>` component instead of the `<a>` element. This prevents full page reloads, and only fetches the new page. The `<Link>` component is essentially a wrapper around `<a>`, so there's not much to learn:
 
@@ -79,3 +79,18 @@ To leverage the SPA capabilities of Splade, you may use the `<Link>` component i
 
 If you're using an existing app, or maybe you don't like the `Link` component, you may configure Splade to automatically transform all `<a>` elements.
 
+## What's more?
+
+Here's a summary of all cool things Splade can do:
+
+* `<Link>` component to prevent full page reloads, giving you that *SPA-feeling*.
+* `<x-data>` component to interact with reactive data (two-way binding). Support for default values, remembering its state between pages, and even remembering its state in local storage.
+* `<x-defer>` component to asynchronously load or poll data.
+* `<x-errors>` component to show validation errors *outside* of a form.
+* `<x-event>` component to listen for broadcasted events. Support for redirecting, refreshing, showing toasts, and interacting with the event data.
+* `<x-flash>` component to interact with flashed data.
+* `<x-form>` component to send forms asynchronously. Supports default values, validation errors, two-way binding, file uploads, confirmation popup, and state management.
+* `<x-modal>` component to load *any* route into a modal or slideover. Supports nested modals as well.
+* `<x-state>` component to interact with validation errors, flashed data, and shared data.
+* `<x-toggle>` component to easily toggle boolean values on your page.
+* `Toast` component to display toasts on your page. Supports nine positions, four styles, backdrop and auto-dismiss.
