@@ -27,6 +27,8 @@ In the example below we show an excerpt of the blog post. When the user clicks o
 @endsection
 ```
 
+As you can see, inside the component you can use both Blade and Vue markup. Keep in mind that Blade is rendered first.
+
 ## Form example
 
 The dedicated form component allows you to send forms asynchronously. It catches validation errors and it supports two-way binding. You don't even need to specify a structure for the data.
