@@ -45,3 +45,26 @@ Again, the `x-defer` Blade component is a wrapper around its corresponding Vue c
 ```
 
 So keep in mind: Blade is rendered first, Vue is rendered second. What you'll pass to the Blade component, will end up in the Vue component.
+
+
+## Routing and Rendering
+
+Splade comes with a magical `<Render>` Vue component that luckily, you'll never have to interact with manually. Do you know Vue's `v-html` attribute? It can render HTML, but it doesn't interpret Vue components:
+
+```vue
+<script setup>
+    const html = "<div class='w-full'>Content</div>";
+
+    const template = "<VueComponent>Content</VueComponent>";
+</script>
+
+<template>
+    <!-- this works -->
+    <div v-html="html" />
+
+    <!-- this doesn't -->
+    <div v-html="template" />
+</template>
+```
+
+The `<Render>` component allows you to pass in *other* Vue components, which Vue will render on-the-fly. This is why we can pass a fully rendered Blade view (having Vue components) to the `<Render>` component.
