@@ -1,6 +1,6 @@
 # Introducing Splade
 
-Splade provides a super easy way to build *Single Page Applications* (SPA) using regular [Laravel Blade](https://laravel.com/docs/9.x/blade) templates, enhanced with [renderless Vue 3 components](https://adamwathan.me/renderless-components-in-vuejs/). In essence, you can just write your app using the simplicity of Blade, and besides that magic *SPA-feeling*, you can sparkle it to make it interactive. All without ever leaving Blade.
+Splade provides a **super easy** way to build *Single Page Applications* (SPA) using regular [Laravel Blade](https://laravel.com/docs/9.x/blade) templates, enhanced with [renderless Vue 3 components](https://adamwathan.me/renderless-components-in-vuejs/). In essence, you can just write your app using the simplicity of Blade, and besides that magic *SPA-feeling*, you can sparkle it to make it interactive. All without ever leaving Blade.
 
 **Wow! Sounds interesting? Let's take a closer look.**
 
@@ -67,3 +67,15 @@ In the example below, we give the form component some default data, that of the 
     <button type="submit">Update</button>
 </x-form>
 ```
+
+## Navigation
+
+To leverage the SPA capabilities of Splade, you may use the `<Link>` component instead of the `<a>` element. This prevents full page reloads, and only fetches the new page. The `<Link>` component is essentially a wrapper around `<a>`, so there's not much to learn:
+
+```blade
+<Link href="/">Home</Link>
+<Link href="{{ route('contact') }}">Contact</Link>
+```
+
+If you're using an existing app, or maybe you don't like the `Link` component, you may configure Splade to automatically transform all `<a>` elements.
+
