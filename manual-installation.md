@@ -48,7 +48,7 @@ class Handler extends ExceptionHandler
 
 ## Client-side
 
-On the frontend, you need to make sure [Tailwind CSS 3.0](https://tailwindcss.com) and [Vue 3.0](https://vuejs.org) are configured properly. Then, install the Splade frontend package:
+On the frontend, you must ensure [Tailwind CSS 3.0](https://tailwindcss.com) and [Vue 3.0](https://vuejs.org) are correctly configured. Then, install the Splade frontend package:
 
 ```bash
 npm install @protonemedia/laravel-splade
@@ -69,7 +69,7 @@ module.exports = {
 };
 ```
 
-In the `createApp` section your main JavaScript file, you need to use the Splade plugin, as well as the custom render method:
+In the `createApp` section of your main JavaScript file, you need to use the Splade plugin, as well as the custom render method:
 
 ```js
 import { createApp } from 'vue'

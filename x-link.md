@@ -1,6 +1,6 @@
 # Link Component
 
-The **Link Component** is a Vue component that is a wrapper around the `<a>` element. This element prevents a full refresh, but loads the linked page asynchronously.
+Unlike most Splade components, the **Link Component** is a Vue component. It's a wrapper around the `<a>` element, which prevents a full refresh but loads the linked page asynchronously.
 
 ```blade
 <Link href="/users">All Users</Link>
@@ -14,7 +14,7 @@ You may use the `confirm` attribute to show a confirmation dialog before Splade 
 <Link confirm href="/danger">Danger Zone</Link>
 ```
 
-You may customize the confirmation dialog:
+In addition, you may customize the confirmation dialog:
 
 ```blade
 <Link
@@ -29,7 +29,7 @@ You may customize the confirmation dialog:
 
 ## Transform all anchors
 
-If you don't want to use the `Link` component, but want Splade to transform all `<a>` elements, you need to update the plugin options in the `app.js` file:
+If you don't want to use the `Link` component but want Splade to transform all `<a>` elements, you need to update the plugin options in the `app.js` file:
 
 ```js
 createApp({ render: renderSpladeApp({ el }) })

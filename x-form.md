@@ -1,6 +1,6 @@
 # X-Splade-Form Component
 
-The **Form Component** allows you to send forms asynchronously. This prevents full page reloads, and it can present validation errors without having to reevaluate the form with old submitted data. You may use the `form` prop to do two-way binding. The default method is `POST`.
+The **Form Component** allows you to send forms asynchronously. This way, you'll prevent full page reloads and can present validation errors without reevaluating the form with old submitted data. In addition, you may use the `form` prop to do two-way binding. The default method is `POST`.
 
 ```blade
 <x-splade-form action="/users/store">
@@ -12,7 +12,7 @@ The **Form Component** allows you to send forms asynchronously. This prevents fu
 
 ## Method and Validation errors
 
-Just like regular forms, there's a `method` attribute. You may use the `form.errors` prop to evaluate validation errors:
+Just like traditional forms, there's a `method` attribute. In addition, you may use the `form.errors` prop to evaluate validation errors:
 
 ```blade
 <x-splade-form method="put">
@@ -26,7 +26,7 @@ Just like regular forms, there's a `method` attribute. You may use the `form.err
 
 You may use the `default` attribute to pass a default set of data.
 
-Note how this is a *JavaScript* object. The value passed to the `default` attribute will be parsed by Vue, not by PHP.
+Note how this is a *JavaScript* object. Therefore, the value passed to the `default` attribute will be parsed by Vue, not PHP.
 
 ```blade
 <x-splade-form default="{ name: 'Laravel Splade' }>
@@ -42,7 +42,7 @@ If you want to parse the value by PHP, you may use the `:default` attribute (not
 </x-splade-form>
 ```
 
-As you can see, this allows you to pass in arrays, but you can use `Arrayable`, `Jsonable` or `JsonSerializable` classes as well. For example, you may pass an Eloquent Model:
+As you can see, this allows you to pass in arrays, but you can also use `Arrayable`, `Jsonable` or `JsonSerializable` classes. So, for example, you may pass an Eloquent Model:
 
 ```blade
 <x-splade-form :default="\App\Models\User::first()">
@@ -58,7 +58,7 @@ You may use the `confirm` attribute to show a confirmation dialog before the for
 <x-splade-form confirm>
 ```
 
-You may customize the confirmation dialog:
+In addition, you may customize the confirmation dialog:
 
 ```blade
 <x-splade-form
@@ -71,7 +71,7 @@ You may customize the confirmation dialog:
 
 ## File uploads
 
-When the submitted data contains a file, the form will be sent using a `FormData` object instead of a JSON-encoded string. This is done automatically for you. You may use the input event to bind the selected file to your form data:
+Splade will send the form using a `FormData` object instead of a JSON-encoded string when the submitted data contains a file. This is done automatically for you. In addition, you may use the input event to bind the selected file to your form data:
 
 ```blade
 <x-splade-form>
@@ -81,7 +81,7 @@ When the submitted data contains a file, the form will be sent using a `FormData
 </x-splade-form>
 ```
 
-If for some reason you want to force using a `FormData` object, you may use the `force-form-data` attribute:
+If for some reason, you want to force using a `FormData` object, you may use the `force-form-data` attribute:
 
 ```blade
 <x-splade-form force-form-data>
@@ -111,7 +111,7 @@ Similarly, there's a `form.restore` method to restore the default values.
 
 ### Reset and restore on success
 
-If you redirect back to the same page after a successful request, you may choose to automatically reset or restore the form data. You can do this with the `reset-on-success` and `restore-on-success` attributes:
+If you redirect back to the same page after a successful request, you may choose to reset or restore the form data automatically. You can do this with the `reset-on-success` and `restore-on-success` attributes:
 
 ```blade
 <x-splade-form reset-on-success>

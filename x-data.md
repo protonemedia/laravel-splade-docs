@@ -13,7 +13,7 @@ You may use the **Data Component** to interact with a set of reactive data *insi
 
 You may use the `default` attribute to pass a default set of data.
 
-Note how this is a *JavaScript* object. The value passed to the `default` attribute will be parsed by Vue, not by PHP.
+Note how this is a *JavaScript* object. Therefore, the value passed to the `default` attribute will be parsed by Vue, not by PHP.
 
 ```blade
 <x-splade-data default="{ name: 'Laravel Splade' }>
@@ -29,7 +29,7 @@ If you want to parse the value by PHP, you may use the `:default` attribute (not
 </x-splade-data>
 ```
 
-As you can see, this allows you to pass in arrays, but you can use `Arrayable`, `Jsonable` or `JsonSerializable` classes as well. For example, you may pass an Eloquent Model:
+As you can see, this allows you to pass in arrays, but you can also use `Arrayable`, `Jsonable`, or `JsonSerializable` classes. So, for example, you may pass an Eloquent Model:
 
 ```blade
 <x-splade-data :default="\App\Models\User::first()">
@@ -39,7 +39,7 @@ As you can see, this allows you to pass in arrays, but you can use `Arrayable`, 
 
 ## Remember
 
-You may use the `remember` attribute to keep the state of the component while users navigate through your app. For example, you could keep track of opened tabs in a menu. The `remember` attribute requires key that's unique throughout your app.
+You may use the `remember` attribute to keep the component's state while users navigate your app. For example, you could keep track of opened tabs in a menu. The `remember` attribute requires a key that's unique throughout your app.
 
 ```blade
 <x-splade-data remember="menu" default="{ tab1: false, tab2: false, tab3: false }>
@@ -59,7 +59,7 @@ You may use the `remember` attribute to keep the state of the component while us
 
 ## Local Storage
 
-The remembered state will be lost whenever the user performs a full refresh of the app. You may use the `local-storage` attribute to keep the state of the component in the browser's local storage.
+The remembered state will be lost whenever the user fully refreshes the app. You may use the `local-storage` attribute to keep the component's state in the browser's local storage.
 
 ```blade
 <x-splade-data remember="cookie-popup" local-storage default="{ accepted: false }">

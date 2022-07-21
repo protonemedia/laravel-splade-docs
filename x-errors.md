@@ -1,6 +1,6 @@
 # X-Splade-Errors Component
 
-You may use the **Errors Component** to show validation errors. As the value for a key is always an array, there's a helper method to retrieve the first error of the key:
+You may use the **Errors Component** to show validation errors. For each key, Laravel returns an array of errors, so there's a helper method to retrieve the first error of the key:
 
 ```blade
 <x-splade-errors>

@@ -1,8 +1,8 @@
 # X-Splade-Modal Component
 
-With the **Modal Component**, Splade has built-in support for modals and slideover. This allows you to load *any* route into a modal. To prepare a view for use inside a modal, you simply have to wrap the content in a `<x-splade-modal>` component. Nothing changes when requesting the view *outside* of the modal, everything will work as used to be.
+With the **Modal Component**, Splade has built-in support for modals and slideover. This component allows you to load *any* route into a modal. To prepare a view so you can use it inside a modal, you have to wrap the content in a `<x-splade-modal>` component. Nothing changes when requesting the view *outside* of the modal. Everything will work as it used to be.
 
-For example, here's a page to create a new user. This is a regular, full page view that extends the base layout.
+For example, here's a page to create a new user. This page is a regular, full-page view that extends the base layout.
 
 ```blade
 @extends('layout')
@@ -38,7 +38,7 @@ Now wrap the content:
 @endsection
 ```
 
-And that's it! Now when you want to load this route into a view, simply use the `modal` attribute on the `Link` component:
+And that's it! Now when you want to load this route into a view, use the `modal` attribute on the `Link` component:
 
 ```blade
 <Link modal href="/users/create">Create new user</Link>
@@ -54,7 +54,7 @@ To load the page into a slideover, replace the `modal` attribute with the `slide
 
 ## Size
 
-You can control the size of the modal with the `max-width` attribute. Valid values are `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl` and `7xl`. The default is `2xl` for a modal, and `md` for a slideover.
+You can control the size of the modal with the `max-width` attribute. Valid values are `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, `5xl`, `6xl` and `7xl`. The default is `2xl` for a modal and `md` for a slideover.
 
 ```blade
 <x-splade-modal max-width="lg">

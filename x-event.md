@@ -1,16 +1,16 @@
 # X-Splade-Event Component
 
-The **Event Component** might be the coolest Splade component of all. It allows you to listen for broadcasted events using [Laravel Echo](https://laravel.com/docs/9.x/broadcasting#client-side-installation).
+The **Event Component** might be the most incredible Splade component of all. It allows you to listen for broadcasted events using [Laravel Echo](https://laravel.com/docs/9.x/broadcasting#client-side-installation).
 
 ## Setup
 
-This component assumes you've setup Laravel Echo as in the official docs. Basically, you need to make sure the Echo instance is accessable through `window.Echo`. Future releases of Splade might allow for other implementations.
+This component assumes you've set up Laravel Echo as in the official docs. You need to make sure the Echo instance is accessible through `window.Echo`. Future releases of Splade might allow for other implementations.
 
 ## Refresh on event
 
-Imagine your app allows customers to make payments. The payment providers redirects back to a *status* page, and it performs a webhook request once the payment has succeeded. On the status page, you may poll for an updated status, but you may also listen for a broadcasted event. With Splade, you may instruct the status page to listen to the `OrderWasPaid` event and redirect to another page when the event is fired.
+Imagine your app allows customers to make payments. The payment provider redirects back to a *status* page, and performs a webhook request once the payment has succeeded. On the status page, you may poll for an updated status, but also listen for a broadcasted event. With Splade, you may instruct the status page to listen to the `OrderWasPaid` event and redirect to another page when the event is fired.
 
-In the `broadcastWith` method of your event, use `Splade::redirectOnEvent()` to generate an URL to redirect to. Under the hood, it uses Laravel's `Redirector` class, so you can use common methods like `route` and `to`:
+In the `broadcastWith` method of your event, use `Splade::redirectOnEvent()` to generate an URL to redirect to. Under the hood, it uses Laravel's `Redirector` class, so that you can use standard methods like `route` and `to`:
 
 ```php
 <?php
@@ -40,7 +40,7 @@ class OrderWasPaid implements ShouldBroadcast
 }
 ```
 
-Now in your Blade template, specify the channel and event you want to listen to. You may use the `private` attribute to indicate that a channel is private.
+In your Blade template, specify the channel and event you want to listen to. You may use the `private` attribute to indicate that a channel is private.
 
 ```blade
 <x-splade-event private channel="customer-1" listen="OrderWasPaid" />
@@ -48,7 +48,7 @@ Now in your Blade template, specify the channel and event you want to listen to.
 
 ## Refresh on event
 
-Similar to redirecting, you may also just refresh the current page.
+Similar to redirecting, you may also refresh the current page.
 
 ```php
 <?php
@@ -98,7 +98,7 @@ You may specify multiple events to listen to:
 
 ## Using raw event data
 
-Instead of the features above, you may also use the raw event data. There are `subscribed` and `events` props:
+Instead of the features above, you may also use the raw event data. In addition, there are `subscribed` and `events` props:
 
 ```blade
 <x-splade-event private channel="admins" listen="IncomingEmail, IncomingSupportBubble">

@@ -1,6 +1,6 @@
 # X-Splade-Toggle Component
 
-The **Toggle Component** is a simplified variant of the Data Component, primarily meant to toggle boolean values. It exposes `toggle`, `setToggle` and `toggled` properties:
+The **Toggle Component** is a simplified variant of the Data Component, primarily meant to toggle boolean values. It exposes `toggle`, `setToggle`, and `toggled` properties:
 
 ```blade
 <x-splade-toggle>

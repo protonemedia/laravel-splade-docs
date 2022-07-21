@@ -12,7 +12,7 @@ The **Defer Component** allows you to load data asynchronously. The component ex
 
 ## Request body
 
-By default, the component peforms a `GET` request with a `application/json` accept header. You may change this with the `method` and `accept-header` attributes. In case you need to post data, you may use the `request` attribute:
+By default, the component performs a `GET` request with an `application/json` accept header. You may change this with the `method` and `accept-header` attributes. In case you need to post data, you may use the `request` attribute:
 
 ```blade
 <x-splade-defer method="POST" url="/post/increase" request="{ post_id: 1 }">

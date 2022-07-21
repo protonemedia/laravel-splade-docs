@@ -4,7 +4,7 @@ The **State Component** is a convenient wrapper around validation errors, flash 
 
 ## Errors
 
-The `state` prop has a `hasError` method, and you may access the first error of a key with the `state.errors` object. If you want full access to the server-side error bag, you may use the `rawErrors` object. To determine if there are errors at all, you may use the `hasErrors` boolean.
+The `state` prop has a `hasError` method, and you may access the first error of a key with the `state.errors` object. If you want full access to the server-side error bag, you may use the `rawErrors` object. To determine if there are any errors, you may use the `hasErrors` boolean.
 
 ```blade
 <x-splade-state>

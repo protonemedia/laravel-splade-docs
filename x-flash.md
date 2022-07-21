@@ -1,6 +1,6 @@
 # X-Splade-Flash Component
 
-You may use the **Flash Component** to interact with [Flash Data](https://laravel.com/docs/9.x/session#flash-data). This is helpful when you navigate back to the same page, as Splade won't reload the page by default, and thus server-side rendered Flash Data won't be updated.
+You may use the **Flash Component** to interact with [Flash Data](https://laravel.com/docs/9.x/session#flash-data). First, of course, you may render Flash Data server-side with Blade, but if you redirect back to the same page, for example, after form submission, Splade won't reload the page by default. So, the browser won't update the server-side rendered Flash Data.
 
 ```blade
 <x-splade-flash>
@@ -9,4 +9,4 @@ You may use the **Flash Component** to interact with [Flash Data](https://larave
 ```
 
 > **Warning**
-> By default, Splade will share *all* Flash Data to the frontend. You may disable this behaviour with the `splade.share_session_flash_data` configuration key.
+> By default, Splade will share *all* Flash Data to the frontend. You may disable this behavior with the `splade.share_session_flash_data` configuration key.
