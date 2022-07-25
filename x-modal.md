@@ -29,10 +29,10 @@ Now wrap the content:
 <x-splade-modal>
     <h1>Create new user</h1>
 
-    <x-form>
+    <x-splade-form>
         <input v-model="form.name" placeholder="Name" />
         <button type="submit">Create</button>
-    </x-form>
+    </x-splade-form>
 </x-splade-modal>
 
 @endsection
