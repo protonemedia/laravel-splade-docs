@@ -5,9 +5,9 @@ You may use the `SEO` facade to set your page's title, description, and keywords
 ```php
 use ProtoneMedia\Splade\Facades\SEO;
 
-class NavigationController
+class CourseController
 {
-    public function one()
+    public function show()
     {
         SEO::title('Laravel Splade Course')
             ->description('Become the Splade expert!')
