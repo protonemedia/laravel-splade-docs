@@ -59,3 +59,14 @@ You can control the size of the modal with the `max-width` attribute. Valid valu
 ```blade
 <x-splade-modal max-width="lg">
 ```
+
+## Close Modal / Slideover
+
+You can manually close the modal / slideover with the `modal.setIsOpen()` function. You can see more about controlling the Modal on the [HeadlessUI Documentation](https://headlessui.com/vue/dialog#showing-and-hiding-your-dialog) page.
+
+```blade
+<x-splade-modal>
+    <button type="button" @click="modal.setIsOpen(false)">Cancel</button>
+</x-splade-modal>
+```
+
