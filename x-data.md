@@ -37,6 +37,8 @@ As you can see, this allows you to pass in arrays, but you can also use `Arrayab
 </x-splade-data>
 ```
 
+Note that the user data is passed to the frontend, so please be sure sensitive attributes [hidden](https://laravel.com/docs/9.x/eloquent-serialization#hiding-attributes-from-json).
+
 ## Remember
 
 You may use the `remember` attribute to keep the component's state while users navigate your app. For example, you could keep track of opened tabs in a menu. The `remember` attribute requires a key that's unique throughout your app.
