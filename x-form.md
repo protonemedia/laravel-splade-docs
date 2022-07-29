@@ -29,8 +29,8 @@ You may use the `default` attribute to pass a default set of data.
 Note how this is a *JavaScript* object. Therefore, the value passed to the `default` attribute will be parsed by Vue, not PHP.
 
 ```blade
-<x-splade-form default="{ name: 'Laravel Splade' }>
-    <input v-model="data.name" />
+<x-splade-form default="{ name: 'Laravel Splade' }">
+    <input v-model="form.name" />
 </x-splade-form>
 ```
 
@@ -38,7 +38,7 @@ If you want to parse the value by PHP, you may use the `:default` attribute (not
 
 ```blade
 <x-splade-form :default="['name' => 'Laravel Splade']">
-    <input v-model="data.name" />
+    <input v-model="form.name" />
 </x-splade-form>
 ```
 
@@ -46,9 +46,11 @@ As you can see, this allows you to pass in arrays, but you can also use `Arrayab
 
 ```blade
 <x-splade-form :default="\App\Models\User::first()">
-    <input v-model="data.name" />
+    <input v-model="form.name" />
 </x-splade-form>
 ```
+
+Note that the user data is passed to the frontend, so please be sure sensitive attributes [hidden](https://laravel.com/docs/9.x/eloquent-serialization#hiding-attributes-from-json).
 
 ## Confirmation
 

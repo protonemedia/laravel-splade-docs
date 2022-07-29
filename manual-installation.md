@@ -84,9 +84,13 @@ createApp({
     .mount(el);
 ```
 
-In your Blade root layout, you may use the `@splade` directive inside the `body`. This will render the default `<div id="app"></div>` element where the Vue app will be mounted:
+In your Blade root layout, you may use the `@splade` directive inside the `body`, and the `@spladeHead` directive inside the `head`. This will render the title and meta tags, and the default `<div id="app"></div>` element where the Vue app will be mounted.
 
 ```blade
+<head>
+    @spladeHead
+</head>
+
 <body class="antialiased">
     @splade
 </body>
