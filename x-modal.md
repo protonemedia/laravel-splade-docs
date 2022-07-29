@@ -67,3 +67,15 @@ The modal and slideover have a *close button*, which you can disable with the `c
 ```blade
 <x-splade-modal :close-button="false">
 ```
+
+You can manually close the modal or slideover with the `modal.close()` or `modal.setIsOpen()` methods. Under the hood, it uses [HeadlessUI's dialog component](https://headlessui.com/vue/dialog#showing-and-hiding-your-dialog).
+
+
+```blade
+<x-splade-modal>
+    <button type="button" @click="modal.close">Cancel</button>
+
+    <button type="button" @click="modal.setIsOpen(false)">Cancel</button>
+</x-splade-modal>
+```
+
