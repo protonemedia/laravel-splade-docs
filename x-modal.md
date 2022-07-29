@@ -59,3 +59,11 @@ You can control the size of the modal with the `max-width` attribute. Valid valu
 ```blade
 <x-splade-modal max-width="lg">
 ```
+
+## Close Button
+
+The modal and slideover have a *close button*, which you can disable with the `close-button` attribute.
+
+```blade
+<x-splade-modal :close-button="false">
+```
