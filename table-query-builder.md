@@ -6,7 +6,7 @@ Besides rendering the head, body and pagination of table, the component supports
 
 With the `searchInput` method, you can specify which attributes are searchable. Search queries are passed to the URL query as a filter. This integrates seamlessly with the [filtering feature](https://spatie.be/docs/laravel-query-builder/v5/features/filtering) of the Laravel Query Builder package.
 
-Though it's enough to pass in the column key, you may specify a custom label and default value.
+Though it's enough to pass in the column key, you may specify a custom label.
 
 ```php
 SpladeTable::for($users)
@@ -14,7 +14,6 @@ SpladeTable::for($users)
     ->searchInput(
         key: 'framework',
         label: 'Find your framework',
-        defaultValue: 'Laravel'
     );
 ```
 
