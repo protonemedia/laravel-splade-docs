@@ -15,7 +15,7 @@ SPLADE_SSR_ENABLED=true
 By running `npm run build`, Vite will build the SSR entry point and save it at `bootstrap/ssr/ssr.mjs`. Now you can use `node` to start the server:
 
 ```bash
-node bootstrap/ssr/ssr.js
+node bootstrap/ssr/ssr.mjs
 ```
 
 By default, it starts on port 9000, but you may choose another port. Don't forget to update the port in the `splade.php` configuration file.
