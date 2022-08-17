@@ -6,7 +6,7 @@ The **Textarea Component** is based mainly on the [Input component](/form-input.
 <x-splade-textarea name="biography" autosize />
 ```
 
-If you want to enable autosize on every textarea element, you may use the static `defaultAutosize` on the `Textarea` class:
+If you want to enable autosize on every textarea element, you may use the static `defaultAutosize` on the `Textarea` class, for example, in the `AppServiceProvider` class:
 
 ```php
 use ProtoneMedia\Splade\Components\Form\Textarea;

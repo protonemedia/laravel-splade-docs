@@ -57,7 +57,7 @@ You can instantiate Flatpickr with a [custom set of options](https://flatpickr.j
 
 ### Default settings
 
-You may set the default formatting by using static methods on the `Input` class:
+You may set the default formatting by using static methods on the `Input` class, for example, in the `AppServiceProvider` class:
 
 ```php
 use ProtoneMedia\Splade\Components\Form\Input;

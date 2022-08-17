@@ -88,7 +88,7 @@ You can instantiate Choices.js with a [custom set of options](https://github.com
 
 ### Default settings
 
-If you want to use Choices.js for every select element by default, you may use the static `defaultChoices` method on the `Select` class:
+If you want to use Choices.js for every select element by default, you may use the static `defaultChoices` method on the `Select` class, for example, in the `AppServiceProvider` class:
 
 ```php
 use ProtoneMedia\Splade\Components\Form\Select;
