@@ -1,10 +1,12 @@
 # X-Splade-Input Component
 
-The **Input Component**
+The **Input Component** can be used for all kinds of input, like texts, emails, passwords and dates. The `type` attribute defaults to `text`.
 
 ```blade
 <x-splade-form :default="$user">
-    <x-splade-input name="email" label="Email address" />
+    <x-splade-input name="username" />
+    <x-splade-input name="job_title" label="Your Job Title" />
+    <x-splade-input name="email" type="email" placeholder="Your Email Address" />
 </x-splade-form>
 ```
 

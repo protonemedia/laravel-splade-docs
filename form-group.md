@@ -1,6 +1,6 @@
 # X-Splade-Group Component
 
-With the **Group Component**, you can group checkboxes and radio elements. You can use the `inline` attribute to arrange the children horizontally. Like other components, the component also supports the `label` and `name` attributes.
+With the **Group Component**, you can group [checkboxes](/form-checkbox.md) and [radio](/form-radio.md) elements. You can use the `inline` attribute to arrange the children horizontally. Like other components, the component also supports the `label` and `name` attributes.
 
 You often don't want to show validation errors on each radio element, so the validation errors are hidden by default on the `<x-splade-radio>` component. Instead, you can use the Group component to show the error just once.
 

@@ -2,6 +2,17 @@
 
 Splade comes with a set of **Form Components** to rapidly build forms. It supports model binding and validation, includes default styling, and is still fully customizable! It integrates with [Autosize](https://www.jacklmoore.com/autosize/) to automatically adjust textarea height, [Choices.js](https://github.com/Choices-js/Choices) to make selects searchable and taggable, and [Flatpickr](https://flatpickr.js.org) to provide a powerful datetime picker.
 
+Available components:
+
+* [Input](/form-input.md)
+* [Textarea](/form-textarea.md)
+* [Select](/form-select.md)
+* [Checkbox](/form-checkbox.md)
+* [Radio](/form-radio.md)
+* [File](/form-file.md)
+* [Group](/form-group.md)
+* [Submit](/form-submit.md)
+
 ## Model Binding
 
 To bind a resource to a form, for example, an [Eloquent Model](https://laravel.com/docs/9.x/eloquent), you may use the `default` attribute. Instead of using the `v-model` attribute on the input element, you may now use the `name` attribute. Splade will take care of the two-way binding with the User model.
