@@ -12,25 +12,32 @@ The **Input Component** can be used for all kinds of input, like texts, emails, 
 
 ## Flatpickr
 
-To enable the date picker, add the `date` attribute to the Input component. You don't have to set the `type` attribute to `date`.
+The [Flatpickr](https://flatpickr.js.org/) integration comes with a default stylesheet which you should import into the main JavaScript file. If you've used the automatic installer, it has already done this for you.
+
+```js
+import "@protonemedia/laravel-splade/dist/style.css";
+import { renderSpladeApp, SpladePlugin } from "@protonemedia/laravel-splade";
+```
+
+To enable the **date** picker, add the `date` attribute to the Input component. You don't have to set the `type` attribute to `date`.
 
 ```blade
 <x-splade-input name="published_at" date />
 ```
 
-To enable to time picker, add the `time` attribute to the Input component.
+To enable the **time** picker, add the `time` attribute to the Input component.
 
 ```blade
 <x-splade-input name="scheduled_at" time />
 ```
 
-If you want a date + time picker, add both attributes.
+If you want a **date + time** picker, add both attributes.
 
 ```blade
 <x-splade-input name="scheduled_at" date time />
 ```
 
-If you want to select a date range, add the `range` attribute.
+If you want to select a **date range**, add the `range` attribute.
 
 ```blade
 <x-splade-input name="scheduled_period" date range />

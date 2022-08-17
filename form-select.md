@@ -25,7 +25,7 @@ You can provide a slot to the select element as well:
 If you want a select element where multiple options can be selected, add the `multiple` attribute to the element.
 
 ```blade
-<x-form-select name="countries[]" :options="$countries" multiple />
+<x-splade-select name="countries[]" :options="$countries" multiple />
 ```
 
 ## Placeholder
@@ -52,7 +52,7 @@ The component has built-in support for `BelongsToMany` and `MorphToMany` relatio
 In the example below, you can attach one or more tags to the video. Using the `relation` attribute will correctly retrieve the selected options (attached tags) from the database.
 
 ```blade
-<x-splade-form :$default="$video">
+<x-splade-form :default="$video">
     <x-splade-select name="tags[]" :options="$tags" multiple relation />
 </x-splade-form>
 ```
