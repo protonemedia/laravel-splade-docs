@@ -47,9 +47,9 @@ Rendered HTML:
 
 ## Eloquent Relationships
 
-The component has built-in support for `BelongsToMany` and `MorphToMany` relationships. To utilize this feature, you must add both the `multiple` and `relation` attribute to the select element.
+The component has built-in support for `BelongsToMany` and `MorphToMany` relationships. To utilize this feature, you must add both the `multiple` and `relation` attributes to the select element.
 
-In the example below, you can attach one or more tags to the video. By using the `relation` attribute, it will correctly retrieve the selected options (attached tags) from the database.
+In the example below, you can attach one or more tags to the video. Using the `relation` attribute will correctly retrieve the selected options (attached tags) from the database.
 
 ```blade
 <x-splade-form :$default="$video">
@@ -59,7 +59,7 @@ In the example below, you can attach one or more tags to the video. By using the
 
 ## Choices.js
 
-The Choices.js integration comes with a default stylesheet which you should import in the main JavaScript file. If you've used the automatic installer, it has already done this for you.
+The [Choices.js](https://github.com/Choices-js/Choices) integration comes with a default stylesheet which you should import into the main JavaScript file. If you've used the automatic installer, it has already done this for you.
 
 ```js
 import "@protonemedia/laravel-splade/dist/style.css";
@@ -78,7 +78,7 @@ It works for selecting multiple values as well:
 <x-splade-select name="frameworks[]" :options="$frameworks" mulitple choices />
 ```
 
-You can instantiate Choices.js with a [custom set of options](https://github.com/Choices-js/Choices#setup) by passing a *JavaScript* object to the `choices` attribute. If you want to pass a PHP array, you may use the `:choices` attribute (note the colon).
+You can instantiate Choices.js with a [custom set of options](https://github.com/Choices-js/Choices#setup) by passing a *JavaScript* object to the `choices` attribute. To pass a PHP array, you may use the `:choices` attribute (note the colon).
 
 ```blade
 <x-splade-select name="framework" :options="$frameworks" choices="{ searchEnabled: false }" />
@@ -106,10 +106,16 @@ Select::defaultChoices([
 
 ### Customize Choices.js styling
 
+Choices.js uses a *SCSS* stylesheet to style the library. Our stylesheet extends the vendor stylesheet (of Choices.js) and adds some Tailwind-specific tweaks. Make sure your bundler handles SCSS stylesheets correctly, for example, by installing `sass`. The `splade:publish-form-stylesheets` Artisan command copies the stylesheet to the `resources` directory of your app.
+
 ```bash
 npm install sass -D
 
 php artisan splade:publish-form-stylesheets
 ```
 
-`resources/css/choices.scss`
+Then import the stylesheet in your main JavaScript file (instead of the default `@protonemedia/laravel-splade/dist/style.css` stylesheet):
+
+```js
+import "../css/choices.scss"
+```
