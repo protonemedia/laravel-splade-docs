@@ -133,3 +133,7 @@ There are several props that you can use to show the state of the form:
     <p v-if="form.recentlySuccessful">Flash message to show success!</p>
 </x-splade-form>
 ```
+
+## Form components
+
+Splade comes with a wide variety of components to build forms even faster. Make sure to check out the [documentation page](/form-overview.md)!

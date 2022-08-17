@@ -5,7 +5,7 @@ The **Radio Component** behaves the same as [checkboxes](/form-checkbox.md), exc
 You can [group](/form-group.md) checkbox and radio elements on the same horizontal row by adding an `inline` attribute.
 
 ```blade
-<x-splade-group name="notification_channel" label="How do you want to receive your notifications?" inline>
+<x-splade-group name="notification_channel" label="Preferred notification channel" inline>
     <x-splade-radio name="notification_channel" value="mail" label="Mail" />
     <x-splade-radio name="notification_channel" value="slack" label="Slack" />
 </x-splade-group>
