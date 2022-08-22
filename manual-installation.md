@@ -72,6 +72,8 @@ module.exports = {
 In the `createApp` section of your main JavaScript file, you need to use the Splade plugin, as well as the custom render method:
 
 ```js
+import "@protonemedia/laravel-splade/dist/style.css";
+
 import { createApp } from 'vue'
 import { renderSpladeApp, SpladePlugin } from '@protonemedia/laravel-splade'
 
@@ -84,6 +86,8 @@ createApp({
     .mount(el);
 ```
 
+As you can see at the top, there's also a default stylesheet to support the Choices.js and Flatpickr integrations of the [Form Components](/form-overview.md). Though you probably want to import this default stylesheet into your main JavaScript file, it's completely optional.
+
 In your Blade root layout, you may use the `@splade` directive inside the `body`, and the `@spladeHead` directive inside the `head`. This will render the title and meta tags, and the default `<div id="app"></div>` element where the Vue app will be mounted.
 
 ```blade
@@ -94,6 +98,12 @@ In your Blade root layout, you may use the `@splade` directive inside the `body`
 <body class="antialiased">
     @splade
 </body>
+```
+
+Splade assumes the path of this file is `resources/views/root.blade.php`. If you want to change it, you may call the `setRootView` method on the Splade facade, for example, in the `AppServiceProvider` class:
+
+```php
+Splade::setRootView('base-layout');
 ```
 
 Lastly, in the `vite.config.js` file, you need to add an alias for the [Vue template compiler](https://vuejs.org/guide/scaling-up/tooling.html#note-on-in-browser-template-compilation):
