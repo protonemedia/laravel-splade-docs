@@ -4,14 +4,46 @@ Splade comes with a set of **Form Components** to rapidly build forms. It suppor
 
 Available components:
 
-* [Input](/form-input.md)
-* [Textarea](/form-textarea.md)
-* [Select](/form-select.md)
 * [Checkbox](/form-checkbox.md)
-* [Radio](/form-radio.md)
 * [File](/form-file.md)
 * [Group](/form-group.md)
+* [Input](/form-input.md)
+* [Radio](/form-radio.md)
+* [Select](/form-select.md)
 * [Submit](/form-submit.md)
+* [Textarea](/form-textarea.md)
+
+## Labels
+
+All elements allow passing in a label, which will be rendered above the input element. Just like other attributes, the label can also be computed.
+
+```blade
+<x-splade-form>
+    <x-splade-input name="email" label="Email address" />
+
+    <x-splade-input name="username" :label="__('Username')" />
+
+    <x-splade-submit>
+</x-splade-form>
+```
+
+If you want to eliminate the `splade` prefix, you may update the `blade.component_prefix` key in the `splade.php` configuration file:
+
+```php
+return [
+    ...
+
+    'blade' => [
+
+        'component_prefix' => '',
+
+    ],
+
+    ...
+];
+```
+
+This will result in more readable `<x-form>`, `<x-input>`, and `<x-submit>` components.
 
 ## Model Binding
 
@@ -23,7 +55,7 @@ To bind a resource to a form, for example, an [Eloquent Model](https://laravel.c
 </x-splade-form>
 ```
 
-Note that the user data is passed to the frontend, so please be sure sensitive attributes [hidden](https://laravel.com/docs/9.x/eloquent-serialization#hiding-attributes-from-json).
+Note that the user data is passed to the frontend, so be careful with sensitive attributes. By default, it only passes the attributes to the frontend that you use. So in this example, only the `email` attribute will be passed to the frontend. To customize this behavior, check out the [Model Binding Attributes](/form-model-binding-attributes.md) section.
 
 ## Validation Errors
 
