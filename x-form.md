@@ -34,7 +34,7 @@ Note how this is a *JavaScript* object. Therefore, the value passed to the `defa
 </x-splade-form>
 ```
 
-If you want to parse the value by PHP, you may use the `:default` attribute (note the colon).
+If you want to parse the value by PHP, you may use the `:default` attribute (note the colon). Note that, just like the previous example, the data is passed to the frontend, so be careful with sensitive data.
 
 ```blade
 <x-splade-form :default="['name' => 'Laravel Splade']">
@@ -45,12 +45,24 @@ If you want to parse the value by PHP, you may use the `:default` attribute (not
 As you can see, this allows you to pass in arrays, but you can also use `Arrayable`, `Jsonable` or `JsonSerializable` classes. So, for example, you may pass an Eloquent Model:
 
 ```blade
-<x-splade-form :default="\App\Models\User::first()">
+<x-splade-form :default="\App\Models\User::first()" unguarded>
     <input v-model="form.name" />
 </x-splade-form>
 ```
 
-Note that the user data is passed to the frontend, so please be sure sensitive attributes [hidden](https://laravel.com/docs/9.x/eloquent-serialization#hiding-attributes-from-json).
+You might have noticed the `unguarded` attribute. Eloquent Models often contain sensitive data, so by default, `Fluent` and `Model` instances will be fully guarded. This means their attributes won't be passed to the client-side unless the form is unguarded.
+
+Instead of fully unguardening the form, you may specify which attributes to unguard. You can do this with an array or string.
+
+```blade
+<x-splade-form ... unguarded="name" />
+
+<x-splade-form ... unguarded="name, email" />
+
+<x-splade-form ... :unguarded="['name', 'email']" />
+```
+
+Even better, the dedicated [Form Components](/form-overview.md) handle this automatically for you.
 
 ## Confirmation
 
@@ -133,3 +145,7 @@ There are several props that you can use to show the state of the form:
     <p v-if="form.recentlySuccessful">Flash message to show success!</p>
 </x-splade-form>
 ```
+
+## Form components
+
+While writing traditional input elements is fine, Splade comes with various components to build forms even faster. Make sure to check out the [documentation page](/form-overview.md)!
