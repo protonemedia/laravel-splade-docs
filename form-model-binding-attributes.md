@@ -8,7 +8,7 @@ When using Form Components, only the attributes used in the form are passed to t
 </x-splade-form>
 ```
 
-Instead of fully unguardening the form, you may specify which attributes to unguard. You can do this with an array or string.
+Instead of fully unguarding the form, you may specify which attributes to unguard. You can do this with an array or string.
 
 ```blade
 <x-splade-form ... unguarded="name" />
