@@ -2,6 +2,8 @@
 
 Splade has an advanced Table component that supports auto-fill, searching, filtering, sorting, toggling columns, and pagination. It's fully integrated and doesn't require any additional dependencies. Though optional, it integrates beautifully with Spatie's [Laravel Query Builder](https://github.com/spatie/laravel-query-builder).
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FPYNvO7GyoM?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Basic example
 
 You may use the `SpladeTable` class to configure the table in your controller.
@@ -43,3 +45,4 @@ If you want to write the head or body yourself, you may use slots.
     </x-slot>
 </x-splade-table>
 ```
+
