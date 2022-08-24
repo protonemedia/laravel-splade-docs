@@ -125,11 +125,12 @@ Similarly, there's a `form.restore` method to restore the default values.
 
 ### Reset and restore on success
 
-If you redirect back to the same page after a successful request, you may choose to reset or restore the form data automatically. You can do this with the `reset-on-success` and `restore-on-success` attributes:
+If you redirect back to the same page after a successful request and want to preserve the page's current state, add the `stay` attribute. You may choose to reset or restore the form data automatically. You can do this with the `reset-on-success` and `restore-on-success` attributes:
 
 ```blade
-<x-splade-form reset-on-success>
-<x-splade-form restore-on-success>
+<x-splade-form stay reset-on-success>
+
+<x-splade-form stay restore-on-success>
 ```
 
 ## State
@@ -141,7 +142,9 @@ There are several props that you can use to show the state of the form:
     <p v-if="form.processing">Submitting the data...</p>
 
     <p v-if="form.wasSuccessful">Successfully submitted!</p>
+</x-splade-form>
 
+<x-splade-form stay>
     <p v-if="form.recentlySuccessful">Flash message to show success!</p>
 </x-splade-form>
 ```
