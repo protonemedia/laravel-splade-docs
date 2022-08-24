@@ -125,7 +125,7 @@ Similarly, there's a `form.restore` method to restore the default values.
 
 ### Reset and restore on success
 
-If you redirect back to the same page after a successful request, and you want preserve the current state of the page, add the `stay` attribute. You may choose to reset or restore the form data automatically. You can do this with the `reset-on-success` and `restore-on-success` attributes:
+If you redirect back to the same page after a successful request and want to preserve the page's current state, add the `stay` attribute. You may choose to reset or restore the form data automatically. You can do this with the `reset-on-success` and `restore-on-success` attributes:
 
 ```blade
 <x-splade-form stay reset-on-success>
