@@ -140,11 +140,11 @@ There are several props that you can use to show the state of the form:
 ```blade
 <x-splade-form>
     <p v-if="form.processing">Submitting the data...</p>
-
-    <p v-if="form.wasSuccessful">Successfully submitted!</p>
 </x-splade-form>
 
 <x-splade-form stay>
+    <p v-if="form.wasSuccessful">Successfully submitted!</p>
+
     <p v-if="form.recentlySuccessful">Flash message to show success!</p>
 </x-splade-form>
 ```
