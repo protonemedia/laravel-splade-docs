@@ -81,6 +81,10 @@ In the following example, the form component is given some default data, that of
 
 ## What's more?
 
+Check out the Splade introduction video:
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9V9BUHtvwXI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Here's a summary of all the cool things Splade can do:
 
 * `<Link>` component to prevent full page reloads, giving you that *SPA-feeling*.
@@ -94,3 +98,5 @@ Here's a summary of all the cool things Splade can do:
 * `<x-state>` component to interact with validation errors, flashed data, and shared data.
 * `<x-toggle>` component to easily toggle boolean values on your page.
 * `Toast` component to display toasts on your page. It supports nine positions, four styles, backdrop background, and auto-dismiss.
+* `Table` component to automatically generate tables with support for auto-fill, searching, filtering, sorting, toggling columns, and pagination.
+* `Form` components to rapidly build forms. Support for model binding, validation, Eloquent Relationships, textarea autosize, Choices.js searchable/taggable selects, and Flatpickr for date/time/range picking.
