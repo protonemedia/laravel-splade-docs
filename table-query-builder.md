@@ -116,7 +116,7 @@ class UserIndexController
             ->defaultSort('name')
             ->allowedSorts(['name', 'email', 'language_code'])
             ->allowedFilters(['name', 'email', 'language_code', $globalSearch])
-            ->paginate()
+            ->paginate(request()->query('perPage', 15))
             ->withQueryString();
 
         return view('users.index', [
