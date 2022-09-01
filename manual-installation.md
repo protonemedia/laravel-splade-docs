@@ -5,7 +5,7 @@
 Install the Laravel Splade package using composer:
 
 ```bash
-composer install protonemedia/laravel-splade
+composer require protonemedia/laravel-splade
 ```
 
 Add the Route Middleware to the `Http/Kernel.php` file:
