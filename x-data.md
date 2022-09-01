@@ -45,15 +45,15 @@ You may use the `remember` attribute to keep the component's state while users n
 
 ```blade
 <x-splade-data remember="menu" default="{ tab1: false, tab2: false, tab3: false }">
-    <aside v-show="tab1">
+    <aside v-show="data.tab1">
         ...
     </aside>
 
-    <aside v-show="tab2">
+    <aside v-show="data.tab2">
         ...
     </aside>
 
-    <aside v-show="tab3">
+    <aside v-show="data.tab3">
         ...
     </aside>
 </x-splade-data>
