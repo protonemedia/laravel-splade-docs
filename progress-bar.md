@@ -1,6 +1,6 @@
 # Progress Bar
 
-Splade's page loading capabilities are asynchronous, so you probably want to display a loading bar whenever it performs requests. You can enable it in the plugin options of the `app.js` file with `progress_bar` key:
+Splade's page loading capabilities are asynchronous, so you probably want to display a loading bar whenever it performs requests. You can enable it in the plugin options of the `app.js` file with the `progress_bar` key:
 
 ```js
 createApp({ render: renderSpladeApp({ el }) })
