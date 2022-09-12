@@ -15,7 +15,7 @@ If you have a fieldset of multiple checkboxes, you can group them with the `x-sp
 </x-splade-group>
 ```
 
-## X-Splade-Checkbox*es* Component
+## X-Splade-Checkboxes Component
 
 You can shorten and rewrite the example above with the `x-splade-checkboxes` component that automatically renders the group and checkboxes based on a *key-value* array. This component behaves similarly to the [select component](/form-select.md).
 
