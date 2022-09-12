@@ -17,3 +17,11 @@ If you still want to show validation errors on the Radio component, you can use 
 <x-splade-radio name="theme" value="dark" label="Dark theme" :show-errors="true" />
 <x-splade-radio name="theme" value="light" label="Light theme" :show-errors="true" />
 ```
+
+## X-Splade-Radio*s* Component
+
+You can shorten and rewrite the example above with the `x-splade-radios` component that automatically renders the group and radios based on a *key-value* array. This component behaves similarly to the [select component](/form-select.md).
+
+```blade
+<x-splade-radios name="notification_channel" label="Preferred notification channel" :options="$channels" />
+```

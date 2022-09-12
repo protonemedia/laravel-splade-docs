@@ -14,3 +14,23 @@ If you have a fieldset of multiple checkboxes, you can group them with the `x-sp
     <x-splade-checkbox name="tags[]" :show-errors="false" value="tailwindcss" label="Tailwind" />
 </x-splade-group>
 ```
+
+## X-Splade-Checkbox*es* Component
+
+You can shorten and rewrite the example above with the `x-splade-checkboxes` component that automatically renders the group and checkboxes based on a *key-value* array. This component behaves similarly to the [select component](/form-select.md).
+
+```blade
+<x-splade-checkboxes name="tags" label="Pick one or more interests" :options="$tags" />
+```
+
+## Eloquent Relationships
+
+Just like the [select component](/form-select.md), there's built-in support for `BelongsToMany` and `MorphToMany` relationships. To utilize this feature, you must add the `relation` attributes to the `checkbox` or `checkboxes` element.
+
+In the example below, you can attach one or more tags to the video. Using the `relation` attribute will correctly retrieve the selected options (attached tags) from the database.
+
+```blade
+<x-splade-form :default="$video">
+    <x-splade-checkboxes name="tags" label="Tags" :options="$tags" relation />
+</x-splade-form>
+```
