@@ -83,7 +83,7 @@ In the following example, the form component is given some default data, that of
 
 Check out the Splade introduction video:
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9V9BUHtvwXI?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9V9BUHtvwXI?controls=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Here's a summary of all the cool things Splade can do:
 
