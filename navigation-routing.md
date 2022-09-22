@@ -17,4 +17,4 @@ Now when you use the `<Link>` component, Splade will prevent a full page reload 
 <Link href="/contact">Visit contact page</Link>
 ```
 
-You may also configure Splade to transform all `<a>` elements as described in the Link Component section.
+You may also configure Splade to transform all `<a>` elements as described in the [Link Component section](/x-link.md).

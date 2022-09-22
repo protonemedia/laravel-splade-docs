@@ -29,3 +29,7 @@ You may also use this component to poll for new data. With the `poll` attribute,
     <p v-text="response" />
 </x-splade-defer>
 ```
+
+## Async templates
+
+If you want to load sections of your template asynchronously, check out the [Lazy Loading](/lazy-loading.md) section.
