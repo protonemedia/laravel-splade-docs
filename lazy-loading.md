@@ -1,6 +1,6 @@
-# X-Splade-Lazy Component
+# Lazy Loading
 
-The **Teleport Component** allows you to load sections of your template lazily. Wrap the section that you want to lazy loading into the component, and Splade magically handles it for you.
+The **Lazy Component** allows you to load sections of your template lazily. Wrap the section that you want to lazy loading into the component, and Splade magically handles it for you.
 
 ```blade
 <h1>Today's news items</h1>
