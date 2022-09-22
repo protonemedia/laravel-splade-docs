@@ -67,7 +67,7 @@ Note that when the content is loaded, and the user hides the notifications after
 
 ## Load from another URL
 
-If you don't want to include the content directly into the slot, you may define a custom URL to tell Splade where to fetch the content. Not that the endpoint should use the [Splade's Middleware](/navigation-routing.md) as well.
+If you don't want to include the content directly into the slot, you may define a custom URL to tell Splade where to fetch the content. Note that the endpoint should use the [Splade's Middleware](/navigation-routing.md) as well.
 
 ```blade
 <x-splade-lazy url="/notifications">
