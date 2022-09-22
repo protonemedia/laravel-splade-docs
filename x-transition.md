@@ -59,3 +59,7 @@ Now you can use the preset in your template:
     ...
 </x-splade-transition>
 ```
+
+## Included animations
+
+The included animations are `default`, `opacity`, `fade`, and `slide-right`.
