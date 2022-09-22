@@ -35,3 +35,7 @@ Sometimes, you may want to toggle multiple values. Instead of using multiple com
     </div>
 </x-splade-toggle>
 ```
+
+## Animations
+
+If you want to use animations, check out the built-in [Transition component](/x-transition.md).
