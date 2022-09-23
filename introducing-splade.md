@@ -94,9 +94,12 @@ Here's a summary of all the cool things Splade can do:
 * `<x-event>` component to listen for broadcasted events. Support for redirecting, refreshing, showing toasts, and interacting with the event data.
 * `<x-flash>` component to interact with flashed data.
 * `<x-form>` component to send forms asynchronously. It supports default values, validation errors, two-way binding, file uploads, confirmation popup, and state management.
+* `<x-lazy>` component to to load sections of your template lazily. Support for conditionally loading data, placeholder, and loading from a different endpoint.
 * `<x-modal>` component to load *any* route into a modal or slideover. It supports nested modals as well.
 * `<x-state>` component to interact with validation errors, flashed data, and shared data.
+* `<x-teleport>` component to  teleport sections of a template into another DOM node.
 * `<x-toggle>` component to easily toggle boolean values on your page.
+* `<x-transition>` component to add animations to your templates.
 * `Toast` component to display toasts on your page. It supports nine positions, four styles, backdrop background, and auto-dismiss.
 * `Table` component to automatically generate tables with support for auto-fill, searching, filtering, sorting, toggling columns, and pagination.
 * `Form` components to rapidly build forms. Support for model binding, validation, Eloquent Relationships, textarea autosize, Choices.js searchable/taggable selects, and Flatpickr for date/time/range picking.
