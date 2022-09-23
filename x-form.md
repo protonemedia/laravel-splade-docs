@@ -85,7 +85,7 @@ In addition, you may customize the confirmation dialog:
 
 ## File uploads
 
-Splade will send the form using a `FormData` object instead of a JSON-encoded string when the submitted data contains a file. This is done automatically for you. In addition, you may use the input event to bind the selected file to your form data:
+You may use the input event to bind the selected file to your form data:
 
 ```blade
 <x-splade-form>
@@ -95,11 +95,7 @@ Splade will send the form using a `FormData` object instead of a JSON-encoded st
 </x-splade-form>
 ```
 
-If for some reason, you want to force using a `FormData` object, you may use the `force-form-data` attribute:
-
-```blade
-<x-splade-form force-form-data>
-```
+The dedicated [File Component](/form-file.md) provides a cleaner solution, and has support for selecting multiple files as well as displaying the filename of the selected file.
 
 ## Reset and restore form
 

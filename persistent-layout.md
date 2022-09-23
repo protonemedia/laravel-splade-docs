@@ -42,7 +42,7 @@ Next, make sure the `$slot` is echoed out, and add the elements you want to pers
 
 ## Utilizing the Layout
 
-Now you may use the `video-layout` component in other Blade views. To keep the `video` element alive, all navigation should use the [Link component](x-link.md).
+Now you may use the `video-layout` component in other Blade views. To keep the `video` element alive, all navigation should use the [Link component](/x-link.md).
 
 ```blade
 <x-video-layout>
