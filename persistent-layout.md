@@ -26,7 +26,7 @@ class VideoLayout extends PersistentComponent
 }
 ```
 
-Next, make sure the `$slot` is echoed out, and add the elements you want to persist across different pages.
+Next, in the corresponding view, make sure the `$slot` is echoed out, and add the elements you want to persist across different pages.
 
 ```blade
 <div>
