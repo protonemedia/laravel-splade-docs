@@ -9,7 +9,9 @@ Splade has an advanced Table component that supports auto-fill, searching, filte
 You may use the `SpladeTable` class to configure the table in your controller.
 
 ```php
-$users = User::paginate();
+$perPage = request()->query('perPage', 15);
+
+$users = User::paginate($perPage);
 
 return view('users.index', [
     'users' => SpladeTable::for($users)
@@ -25,6 +27,24 @@ In your Blade template, use the `x-splade-table` component to render the table.
 ```
 
 That's all! It will automatically render the head, body, and pagination.
+
+## Pagination
+
+When the dataset is paginated, it will, by default, show a select dropdown to customize the number of rows per page. You may define a custom set of options using the `perPageOptions` method on the `SpladeTable`:
+
+```php
+SpladeTable::for($users)
+    ->perPageOptions([50, 100, 200])
+    ->...
+```
+
+You may also set this globally using the static `defaultPerPageOptions` method, for example, in the `AppServiceProvider` class:
+
+```php
+SpladeTable::defaultPerPageOptions([250, 500]);
+```
+
+If you want to disable the select dropdown, you may pass an empty array.
 
 ## Custom head and body
 
