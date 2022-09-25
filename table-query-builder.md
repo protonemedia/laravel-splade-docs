@@ -63,6 +63,12 @@ SpladeTable::for($users)
     );
 ```
 
+By default, the `canBeHidden` value is set to `true`, which makes every column toggleable by default. You may change this behaviour by using the static `defaultColumnCanBeHidden` method on the `SpladeTable` class, for example, in the `AppServiceProvider` class:
+
+```php
+SpladeTable::defaultColumnCanBeHidden(false);
+```
+
 The `searchable` boolean is a shortcut to the `searchInput` method. The example below will essentially call `$table->searchInput('name', 'User Name')`.
 
 ## Global Search
