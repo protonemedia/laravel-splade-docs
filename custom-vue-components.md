@@ -77,7 +77,7 @@ You may use the the global `$splade` variable to interact with the Splade core, 
 export default {
     methods: {
         visitCheckout() {
-            this.$splade.visit("/");
+            this.$splade.visit("/checkout");
         }
     },
 };
