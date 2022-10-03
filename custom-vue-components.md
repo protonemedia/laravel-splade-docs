@@ -1,4 +1,4 @@
-## Custom Vue components
+# Custom Vue components
 
 Using custom Vue components in a Splade app works the same as any other Vue application. Imagine this Counter component, stored in the `resources/js/Components` folder as `Counter.vue`:
 
