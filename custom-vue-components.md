@@ -1,0 +1,42 @@
+## Custom Vue components
+
+Using custom Vue components in a Splade app works the same as any other Vue application. Imagine this Counter component, stored in the `resources/js/Components` folder as `Counter.vue`:
+
+```vue
+<template>
+    <button @click="count++">{{ count }}</button>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const count = ref(1);
+</script>
+```
+
+In the main `app.js` file, you must import and register the component by passing both a name string and a component definition. If you're using [SSR](/ssr.md), make sure to import the component in `ssr.js` as well.
+
+```js
+import Counter from "./Components/Counter.vue";  // [tl! add]
+
+createApp({
+    render: renderSpladeApp({ el })
+})
+    .use(SpladePlugin, {
+        "max_keep_alive": 10,
+        "transform_anchors": false,
+        "progress_bar": true
+    })
+    .component('Counter', Counter)   // [tl! add]
+    .mount(el);
+```
+
+Now you may use the component in a Blade template:
+
+```blade
+<x-layout>
+    <div class="text-2xl">
+        <Counter />
+    </div>
+</x-layout>
+```
