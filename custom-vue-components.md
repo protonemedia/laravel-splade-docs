@@ -100,9 +100,9 @@ function visitCheckout() {
 
 ## Renderless Vue component
 
-Using renderless Vue component allows you to separate the template from the script. The built-in Splade components are built this way. This allows you to put all the logic in the Vue component, and keep the template and styling in Blade.
+Using renderless Vue component allows you to separate the template from the script. The built-in Splade components are built this way. This allows you to put all the logic in the Vue component and keep the template and styling in Blade.
 
-Let's take the Counter example, extract the `increase` method, and add a `render` method that exposes the `count` value and the `increase` method:
+Let's take the Counter example, extract the `increase` method and add a `render` method that exposes the `count` value and the `increase` method:
 
 ```vue
 <script>
@@ -139,7 +139,7 @@ Now you can use the renderless Vue component in a Blade template, and use the `i
 <x-layout>
 ```
 
-Note that you can't use the `{{ counter.count }}` Vue syntax, as the template is rendered first by the Blade engine. You could use `@{{ counter.count }}`, but using the `v-text` attribute seems neater.
+Note that you can't use the `{{ counter.count }}` Vue syntax to echo out the count value, as the template is rendered first by the Blade engine, and Blade [uses the same syntax](https://laravel.com/docs/9.x/blade#blade-and-javascript-frameworks). You may use the `@` symbol to inform Blade the expression should remain untouched. This would result in `@{{ counter.count }}`. Though this works fine, using the `v-text` attribute seems neater.
 
 You may also use the *destructuring assignment syntax* in the slot:
 
