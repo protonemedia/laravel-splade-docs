@@ -59,3 +59,41 @@ Now you may use the component in a Blade template:
     </div>
 </x-layout>
 ```
+
+## Passing data
+
+If you need to pass data to a Vue component (as a property), you may use the `@js` directive:
+
+```blade
+<Cart :products="@js($products)" />
+```
+
+## Using Splade inside a Vue component
+
+You may use the the global `$splade` variable to interact with the Splade core, for example, to visit another page:
+
+```vue
+<script>
+export default {
+    methods: {
+        visitCheckout() {
+            this.$splade.visit("/");
+        }
+    },
+};
+</script>
+```
+
+If you're using the `setup` attribute on a `<script>` block, you may use [Vue's `inject` function](https://vuejs.org/guide/components/provide-inject.html#inject).
+
+```vue
+<script setup>
+import { inject } from "vue";
+
+const Splade = inject("$splade");
+
+function visitCheckout() {
+    Splade.visit("/checkout");
+}
+</script>
+```
