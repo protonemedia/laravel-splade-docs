@@ -28,7 +28,7 @@ createApp({
     .mount(el);
 ```
 
-Now you may use the library in a Blade template. Note how we loop over the `$products` items *inside* the Vue Carousel component.
+Now you may use the library in a Blade template. Note how we loop over the `$products` items with the Blade `@foreach` directive, *inside* the Vue Carousel component.
 
 ```blade
 <x-layout>
