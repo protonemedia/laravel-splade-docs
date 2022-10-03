@@ -97,3 +97,56 @@ function visitCheckout() {
 }
 </script>
 ```
+
+## Renderless Vue component
+
+Using renderless Vue component allows you to separate the template from the script. The built-in Splade components are built this way. This allows you to put all the logic in the Vue component, and keep the template and styling in Blade.
+
+Let's take the Counter example, extract the `increase` method, and add a `render` method that exposes the `count` value and the `increase` method:
+
+```vue
+<script>
+export default {
+    data() {
+        return {
+            count: 1
+        };
+    },
+
+    methods: {  // [tl! add]
+        increase() {  // [tl! add]
+            this.count++;  // [tl! add]
+        }  // [tl! add]
+    },  // [tl! add]
+
+    render() {  // [tl! add]
+        return this.$slots.default({  // [tl! add]
+            count: this.count,  // [tl! add]
+            increase: this.increase,  // [tl! add]
+        });  // [tl! add]
+    },  // [tl! add]
+};
+</script>
+```
+
+Now you can use the renderless Vue component in a Blade template, and use the `increase` method and `count` value.
+
+```blade
+<x-layout>
+    <Counter v-slot="counter">
+        <button @click="counter.increase" v-text="counter.count" />
+    </Counter>
+<x-layout>
+```
+
+Note that you can't use the `{{ counter.count }}` Vue syntax, as the template is rendered first by the Blade engine. You could use `@{{ counter.count }}`, but using the `v-text` attribute seems neater.
+
+You may also use the *destructuring assignment syntax* in the slot:
+
+```blade
+<x-layout>
+    <Counter v-slot="{ count, increase }">
+        <button @click="increase" v-text="count" />
+    </Counter>
+<x-layout>
+```
