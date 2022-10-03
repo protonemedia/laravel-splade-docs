@@ -31,6 +31,25 @@ createApp({
     .mount(el);
 ```
 
+Instead of calling the `component` method for each component, you may also use the `components` key and pass an object:
+
+```js
+import Counter from "./Components/Counter.vue";  // [tl! add]
+
+createApp({
+    render: renderSpladeApp({ el })
+})
+    .use(SpladePlugin, {
+        "max_keep_alive": 10,
+        "transform_anchors": false,
+        "progress_bar": true,
+        "components": { // [tl! add]
+            Counter, // [tl! add]
+        },  // [tl! add]
+    })
+    .mount(el);
+```
+
 Now you may use the component in a Blade template:
 
 ```blade

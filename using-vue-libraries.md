@@ -28,6 +28,28 @@ createApp({
     .mount(el);
 ```
 
+Instead of calling the `component` method for each component, you may also use the `components` key and pass an object:
+
+```js
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';      // [tl! add]
+
+createApp({
+    render: renderSpladeApp({ el })
+})
+    .use(SpladePlugin, {
+        "max_keep_alive": 10,
+        "transform_anchors": false,
+        "progress_bar": true,
+        "components": { // [tl! add]
+            Carousel,   // [tl! add]
+            CarouselSlide: Slide,   // [tl! add]
+            CarouselPagination: Pagination, // [tl! add]
+            CarouselNavigation: Navigation,  // [tl! add]
+        },  // [tl! add]
+    })
+    .mount(el);
+```
+
 Now you may use the library in a Blade template. Note how we loop over the `$products` items with the Blade `@foreach` directive, *inside* the Vue Carousel component.
 
 ```blade
