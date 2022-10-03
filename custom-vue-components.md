@@ -100,7 +100,7 @@ function visitCheckout() {
 
 ## Renderless Vue component
 
-Using renderless Vue component allows you to separate the template from the script. The built-in Splade components are built this way. This allows you to put all the logic in the Vue component and keep the template and styling in Blade.
+Using renderless Vue components allows you to separate the template from the script. The built-in Splade components are built this way. This allows you to put all the logic in the Vue component and keep the template and styling in Blade.
 
 Let's take the Counter example, extract the `increase` method and add a `render` method that exposes the `count` value and the `increase` method:
 
