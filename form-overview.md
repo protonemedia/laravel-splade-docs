@@ -74,3 +74,11 @@ If you want to override how Splade will resolve the validation, you may use the 
 ```blade
 <x-splade-input name="email" validation-key="email_address" />
 ```
+
+By default, Splade scrolls to the first element with a validation error. You may disable this with the `scroll-on-error` attribute:
+
+```blade
+<x-splade-form :scroll-on-error="false">
+    ...
+</x-splade-form>
+```

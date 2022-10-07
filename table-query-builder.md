@@ -163,6 +163,20 @@ SpladeTable::for($users)
     ->rowLink(fn (User $user) => route('users.edit', ['id' => $user->id]))
 ```
 
+## Debounce
+
+The filter and selects elements have a default debounce time of 350ms. You may customize this:
+
+```blade
+<x-splade-table :for="$users" search-debounce="500" />
+```
+
+You may also set it globally using the static `defaultSearchDebounce` method, for example, in the `AppServiceProvider` class:
+
+```php
+SpladeTable::defaultSearchDebounce(750);
+```
+
 ## Striped table
 
 You may use the `striped` attribute to add a striped layout to the table.

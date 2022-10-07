@@ -38,13 +38,17 @@ SpladeTable::for($users)
     ->...
 ```
 
-You may also set this globally using the static `defaultPerPageOptions` method, for example, in the `AppServiceProvider` class:
+You may also set this globally using the static `defaultPerPageOptions` method, for example, in the `AppServiceProvider` class. If you want to disable the select dropdown, you may pass an empty array.
 
 ```php
 SpladeTable::defaultPerPageOptions([250, 500]);
 ```
 
-If you want to disable the select dropdown, you may pass an empty array.
+You may want the hide the pagination when the resource contains only one page, resulting in a somewhat cleaner UI. You may use the static `hidePaginationWhenResourceContainsOnePage()` method:
+
+```php
+SpladeTable::hidePaginationWhenResourceContainsOnePage();
+```
 
 ## Custom head and body
 
