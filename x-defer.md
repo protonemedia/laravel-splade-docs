@@ -57,6 +57,9 @@ The component can watch a passed value for changes using the `watch-value` attri
     </x-splade-defer>
 </x-splade-form>
 ```
+
+If you want to watch all form data, you may pass `form.$all` to the `watch-value` attribute.
+
 ## Async templates
 
 If you want to load sections of your template asynchronously, check out the [Lazy Loading](/lazy-loading.md) section.
