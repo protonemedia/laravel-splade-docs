@@ -1,4 +1,4 @@
-# Table with Spatie's Laravel Query Builder
+# Table with Spatie's Query Builder
 
 The Table component works seamlessly with Spatie's Laravel Query Builder package. You may use both an *inline* SpladeTable instance, as well as a dedicated Table class. Note that a Table class is required in order to use Bulk Actions and Exports.
 

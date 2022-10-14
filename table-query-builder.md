@@ -1,4 +1,4 @@
-# Table Query Builder
+# Table built-in Query Builder
 
 Besides rendering the head, body and pagination of table, the component supports many other features like filtering and searching.
 
