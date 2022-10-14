@@ -1,6 +1,6 @@
-# Table Bulk Actions
+# Table Exports
 
-The Table component supports Exports. First, you need to register a supporting route using the `spladeTable()` method on the `Route` facade. As of version 0.6, the automatic installer does this for you. If you need to manually register the route, make sure it uses the `web` and `splade` Middleware, for example, in `web.php`:
+The Table component supports Exports. First, you must register a supporting route using the `spladeTable()` method on the `Route` facade. As of version 0.6, the automatic installer does this for you. If you need to register the route manually, make sure it uses the `web` and `splade` Middleware, for example, in `web.php`:
 
 ```php
 Route::middleware('splade')->group(function () {
@@ -12,7 +12,7 @@ Lastly, you need to install the [`maatwebsite/excel`](https://github.com/Spartne
 
 ## Configure an Export
 
-You may enable exporting with the `export()` method on the `SpladeTable` instance. This will configure an Excel Export.
+You may enable exporting with the `export()` method on the `SpladeTable` instance. It will configure an Excel Export by default.
 
 ```php
 public function configure(SpladeTable $table)
@@ -21,7 +21,7 @@ public function configure(SpladeTable $table)
 }
 ```
 
-Of course, you may customize the export, or add multiple exports.
+Of course, you may customize the export or add multiple exports.
 
 ```php
 use Maatwebsite\Excel\Excel;
@@ -38,7 +38,7 @@ public function configure(SpladeTable $table)
 
 ## Customizing the export
 
-The `column` method has additional arguments that you may use to customize the export. With the `exportAs` argument, you may transform the value, or disable the column from the export:
+The `column` method has additional arguments you may use to customize the export. With the `exportAs` argument, you may transform the value or exclude the column from the export:
 
 ```php
 $table
@@ -56,7 +56,7 @@ $table
     ->column('amount', NumberFormat::FORMAT_CURRENCY_EUR_SIMPLE);
 ```
 
-Lastly, with the `exportStyling` method, you may style the column with an array, or a callable:
+Lastly, with the `exportStyling` method, you may style the column with an array or a callable:
 
 ```php
 use PhpOffice\PhpSpreadsheet\Style\Style;
