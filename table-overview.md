@@ -108,51 +108,6 @@ You may want the hide the pagination when the resource contains only one page, r
 SpladeTable::hidePaginationWhenResourceContainsOnePage();
 ```
 
-### Custom column cells
-
-When using auto-fill, you may want to transform the presented data for a specific column while leaving the other columns untouched. For this, you may use a cell template. This example is taken from the Example Controller above.
-
-```blade
-<x-splade-table :for="$users">
-    @cell('actions', $user)
-        <a href="/users/{{ $user->id }}/edit"> Edit </a>
-    @endcell
-</x-splade-table>
-```
-
-## Row Link
-
-You may use the `rowLink` method to make one entire row clickable.
-
-```php
-SpladeTable::for($users)
-    ->rowLink(fn (User $user) => route('users.edit', ['id' => $user->id]))
-```
-
-If you want to open the URL in a [Modal or Slideover](/x-modal.md), you may use the `rowModal` or `rowSlideover` method.
-
-## Debounce
-
-The filter and selects elements have a default debounce time of 350ms. You may customize this:
-
-```blade
-<x-splade-table :for="$users" search-debounce="500" />
-```
-
-You may also set it globally using the static `defaultSearchDebounce` method, for example, in the `AppServiceProvider` class:
-
-```php
-SpladeTable::defaultSearchDebounce(750);
-```
-
-## Striped table
-
-You may use the `striped` attribute to add a striped layout to the table.
-
-```blade
-<x-splade-table :for="$users" striped />
-```
-
 ## Custom head and body
 
 If you want to write the head or body yourself, you may use slots.
