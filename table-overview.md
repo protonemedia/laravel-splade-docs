@@ -1,6 +1,6 @@
 # Table (DataTables) Component
 
-Splade has an advanced Table component that supports auto-fill, searching, filtering, sorting, toggling columns, and pagination. It's fully integrated and doesn't require any additional dependencies. Though optional, it integrates beautifully with Spatie's [Laravel Query Builder](https://github.com/spatie/laravel-query-builder).
+Splade has an advanced Table component that supports auto-fill, searching, filtering, sorting, toggling columns, and pagination. You may also peform bulk actions and exports. Though optional, it integrates beautifully with Spatie's [Laravel Query Builder](https://github.com/spatie/laravel-query-builder).
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FPYNvO7GyoM?controls=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -9,14 +9,11 @@ Splade has an advanced Table component that supports auto-fill, searching, filte
 You may use the `SpladeTable` class to configure the table in your controller.
 
 ```php
-$perPage = request()->query('perPage', 15);
-
-$users = User::paginate($perPage);
-
 return view('users.index', [
-    'users' => SpladeTable::for($users)
+    'users' => SpladeTable::for(User::class)
         ->column('name')
-        ->column('email'),
+        ->column('email')
+        ->paginate(15),
 ]);
 ```
 
@@ -28,12 +25,88 @@ In your Blade template, use the `x-splade-table` component to render the table.
 
 That's all! It will automatically render the head, body, and pagination.
 
+## Table Class
+
+Instead of using an *inline* `SpladeTable` in the controller, you may also create a dedicated Table class. This allows you to keep the configuration out of the controller, and lets you reuse the Table class. If you want to use Bulk Actions and Exports, a Table class is required.
+
+There's an Artisan command to create a Table class:
+
+```bash
+php artisan make:table Users
+```
+
+You'll find the new Table class in the `app/Tables` folder. You may this class in the controller, instead of the *inline* instance:
+
+```php
+use App\Tables\Users;
+
+return view('users.index', [
+    'users' => SpladeTable::for(User::class)      // [tl! remove]
+        ->column('name')      // [tl! remove]
+        ->column('email')      // [tl! remove]
+        ->paginate(15),      // [tl! remove]
+
+    'users' => Users::class,      // [tl! add]
+]);
+```
+
+The class consists of three methods that you'll need to implement: `authorize`, `for` and `configure`.
+
+### Implementing the `for` method
+
+If you create a new Table class, the `for` method has a default implemention. It returns a new query builder of the corresponding Eloquent Model:
+
+```php
+public function for()
+{
+    return User::query();
+}
+```
+
+You may add additional constraints and apply scopes to query:
+
+```php
+public function for()
+{
+    return User::query()->where('is_admin', 0);
+}
+```
+
+Note that this will apply to all results. If you want to choose in the frontend between *admins* and *non-admins*, this is not the right place to apply the constraint.
+
+### Implementing the `configure` method
+
+The `configure` method gives you an instance of `SpladeTable`. Just like the *inline* example, here you may configure the columns, filters, pagination, search inputs, and more:
+
+```php
+public function configure(SpladeTable $table)
+{
+    $table
+        ->column('name')
+        ->column('email')
+        ->paginate(15);
+}
+```
+
+### Implementing the `authorize` method
+
+The `authorize` method is only used for Bulk Actions and Exports. Just like [Form Requests](https://laravel.com/docs/9.x/validation#authorizing-form-requests), you may determine if the user has the authority to perform such actions:
+
+```php
+public function authorize(Request $request)
+{
+    return $request->user()->is_admin;
+}
+```
+
+Instead of always returning `true`, you may also remove the method if you don't want to use authorization.
+
 ## Pagination
 
 When the dataset is paginated, it will, by default, show a select dropdown to customize the number of rows per page. You may define a custom set of options using the `perPageOptions` method on the `SpladeTable`:
 
 ```php
-SpladeTable::for($users)
+SpladeTable::for(User::class)
     ->perPageOptions([50, 100, 200])
     ->...
 ```

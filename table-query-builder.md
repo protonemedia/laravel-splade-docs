@@ -1,15 +1,15 @@
-# Table with Laravel Query Builder
+# Table built-in Query Builder
 
-Besides rendering the head, body and pagination of table, the component supports many other features that goes great hand in hand with Spatie's Laravel Query Builder package.
+Besides rendering the head, body and pagination of table, the component supports many other features like filtering, searching and sorting.
 
 ## Search Fields
 
-With the `searchInput` method, you can specify which attributes are searchable. Search queries are passed to the URL query as a filter. This integrates seamlessly with the [filtering feature](https://spatie.be/docs/laravel-query-builder/v5/features/filtering) of the Laravel Query Builder package.
+With the `searchInput` method, you can specify which attributes are searchable. Search queries are passed to the URL query as a filter.
 
 Though it's enough to pass in the column key, you may specify a custom label.
 
 ```php
-SpladeTable::for($users)
+$table
     ->searchInput('name')
     ->searchInput(
         key: 'framework',
@@ -19,29 +19,27 @@ SpladeTable::for($users)
 
 ## Select Filters
 
-Select Filters are similar to search fields but use a `select` element instead of an `input` element. This way, you can present the user a predefined set of options. Under the hood, this uses the same filtering feature of the Laravel Query Builder package.
+Select Filters are similar to search fields but use a `select` element instead of an `input` element. This way, you can present the user a predefined set of options.
 
 The `selectFilter` method requires two arguments: the key, and a key-value array with the options.
 
 ```php
-SpladeTable::for($users)
-    ->selectFilter('language_code', [
-        'en' => 'English',
-        'nl' => 'Dutch',
-    ]);
+$table->selectFilter('language_code', [
+    'en' => 'English',
+    'nl' => 'Dutch',
+]);
 ```
 
 The `selectFilter` will, by default, add a *no filter* option to the array. You may disable this or specify a custom label for it.
 
 ```php
-SpladeTable::for($users)
-    ->selectFilter(
-        key: 'language_code',
-        options: $languages,
-        label: 'Language',
-        noFilterOption: true
-        noFilterOptionLabel: 'All languages'
-    );
+$table->selectFilter(
+    key: 'language_code',
+    options: $languages,
+    label: 'Language',
+    noFilterOption: true
+    noFilterOptionLabel: 'All languages'
+);
 ```
 
 
@@ -50,9 +48,8 @@ SpladeTable::for($users)
 With the `column` method, you can specify which columns you want to be toggleable, sortable, and searchable. You must pass in at least a key or label for each column.
 
 ```php
-SpladeTable::for($users)
+$table
     ->column('email', 'User Email')
-
     ->column(
         key: 'name',
         label: 'User Name',
@@ -71,86 +68,116 @@ SpladeTable::defaultColumnCanBeHidden(false);
 
 The `searchable` boolean is a shortcut to the `searchInput` method. The example below will essentially call `$table->searchInput('name', 'User Name')`.
 
+### Default sort
+
+You may configure the default sorting with the `defaultSort()` method:
+
+```php
+$table->defaultSort('name');
+```
+
+### Sort by Relationship column
+
+The Table supports sorting the results by a [Relationship](https://laravel.com/docs/9.x/eloquent-relationships) column. This requires the installation of the [`kirschbaum-development/eloquent-power-joins`](https://github.com/kirschbaum-development/eloquent-power-joins) package.
+
+```php
+$table->column(
+    key: 'user.organization.name',
+    label: 'Organization',
+    sortable: true
+);
+```
+
 ## Global Search
 
 You may enable Global Search with the `withGlobalSearch` method, and optionally specify a placeholder.
 
 ```php
-SpladeTable::for($users)
-    ->withGlobalSearch();
-
-SpladeTable::for($users)
-    ->withGlobalSearch('Search through the data...');
+$table->withGlobalSearch(columns: ['name', 'email']);
 ```
-
-If you want to enable Global Search for every table by default, you may use the static `defaultGlobalSearch` method, for example, in the `AppServiceProvider` class:
 
 ```php
-SpladeTable::defaultGlobalSearch();
-SpladeTable::defaultGlobalSearch('Default custom placeholder');
-SpladeTable::defaultGlobalSearch(false); // disable
+$table->withGlobalSearch('Search through the data...', ['name', 'email']);
 ```
 
-## Example controller
+## Example Table
 
 ```php
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Tables;
 
 use App\Models\User;
-use Illuminate\Support\Collection;
+use ProtoneMedia\Splade\AbstractTable;
 use ProtoneMedia\Splade\SpladeTable;
-use Spatie\QueryBuilder\AllowedFilter;
-use Spatie\QueryBuilder\QueryBuilder;
 
-class UserIndexController
+class Users extends AbstractTable
 {
-    public function __invoke()
+    public function for()
     {
-        $globalSearch = AllowedFilter::callback('global', function ($query, $value) {
-            $query->where(function ($query) use ($value) {
-                Collection::wrap($value)->each(function ($value) use ($query) {
-                    $query
-                        ->orWhere('name', 'LIKE', "%{$value}%")
-                        ->orWhere('email', 'LIKE', "%{$value}%");
-                });
-            });
-        });
+        return User::query();
+    }
 
-        $users = QueryBuilder::for(User::class)
+    public function configure(SpladeTable $table)
+    {
+        $table
+            ->withGlobalSearch(columns: ['name', 'email'])
             ->defaultSort('name')
-            ->allowedSorts(['name', 'email', 'language_code'])
-            ->allowedFilters(['name', 'email', 'language_code', $globalSearch])
-            ->paginate(request()->query('perPage', 15))
-            ->withQueryString();
-
-        return view('users.index', [
-            'users' => SpladeTable::for($users),
-                ->withGlobalSearch()
-                ->defaultSort('name')
-                ->column(key: 'name', searchable: true, sortable: true, canBeHidden: false)
-                ->column(key: 'email', searchable: true, sortable: true)
-                ->column(key: 'language_code', label: 'Language')
-                ->column(label: 'Actions')
-                ->selectFilter(key: 'language_code', label: 'Language', options: [
-                    'en' => 'English',
-                    'nl' => 'Dutch',
-                ]);
-        ]);
+            ->column(key: 'name', searchable: true, sortable: true, canBeHidden: false)
+            ->column(key: 'email', searchable: true, sortable: true)
+            ->column(key: 'language_code', label: 'Language')
+            ->column(label: 'Actions')
+            ->selectFilter(key: 'language_code', label: 'Language', options: [
+                'en' => 'English',
+                'nl' => 'Dutch',
+            ])
+            ->paginate(15);
     }
 }
 ```
 
 ### Custom column cells
 
-When using auto-fill, you may want to transform the presented data for a specific column while leaving the other columns untouched. For this, you may use a cell template. This example is taken from the Example Controller above.
+When using auto-fill, you may want to transform the presented data for a specific column while leaving the other columns untouched. For this, you may use a `cell` component. This example is taken from the Example Table above.
 
 ```blade
 <x-splade-table :for="$users">
-    @cell('actions', $user)
+    <x-splade-cell actions>
+        <a href="/users/{{ $item->id }}/edit"> Edit </a>
+    </x-splade-cell>
+</x-splade-table>
+```
+
+If you want to change the `$item` variable, you may use use the `as` attribute on the component:
+
+```blade
+<x-splade-cell actions as="$user">
+    <a href="/users/{{ $user->id }}/edit"> Edit </a>
+</x-splade-cell>
+```
+
+This component is a *scoped* component, so variables from outside the slot won't be available by default. If you still want to use a variable, you may use the `use` attribute:
+
+```blade
+@php $message = 'Hello, world!'; @endphp
+
+<x-splade-cell actions as="$user" use="$message">
+    <p> {{ $message }} </p>
+    <a href="/users/{{ $user->id }}/edit"> Edit </a>
+</x-splade-cell>
+```
+
+When your templates uses multiple custom cells, you may set these variables as defaults on the parent table:
+
+```blade
+<x-splade-table :for="$users" as="$user">
+    <x-splade-cell name>
+        <p class="text-red-500"> {{ $user->name }}</p>
+    </x-splade-cell>
+
+    <x-splade-cell actions>
         <a href="/users/{{ $user->id }}/edit"> Edit </a>
-    @endcell
+    </x-splade-cell>
 </x-splade-table>
 ```
 
@@ -159,9 +186,10 @@ When using auto-fill, you may want to transform the presented data for a specifi
 You may use the `rowLink` method to make one entire row clickable.
 
 ```php
-SpladeTable::for($users)
-    ->rowLink(fn (User $user) => route('users.edit', ['id' => $user->id]))
+$table->rowLink(fn (User $user) => route('users.edit', ['id' => $user->id]))
 ```
+
+If you want to open the URL in a [Modal or Slideover](/x-modal.md), you may use the `rowModal` or `rowSlideover` method.
 
 ## Debounce
 
