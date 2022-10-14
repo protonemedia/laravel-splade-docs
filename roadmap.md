@@ -8,4 +8,4 @@ Splade is in its early stages and has just been released. Here's a little roadma
 * <del>More examples of combining Blade and Vue</del> ✅
 * Show all features on splade.dev
 * Demo application (like Ping CRM)
-* Support for actions and exports in the Table Component
+* <del>Support for actions and exports in the Table Component</del> ✅

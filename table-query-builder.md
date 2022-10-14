@@ -1,6 +1,6 @@
 # Table built-in Query Builder
 
-Besides rendering the head, body and pagination of table, the component supports many other features like filtering, searching and sorting.
+Besides rendering the head, body, and pagination, the component supports many other features like filtering, searching, sorting, and more.
 
 ## Search Fields
 
@@ -21,7 +21,7 @@ $table
 
 Select Filters are similar to search fields but use a `select` element instead of an `input` element. This way, you can present the user a predefined set of options.
 
-The `selectFilter` method requires two arguments: the key, and a key-value array with the options.
+The `selectFilter` method requires two arguments: the key and a key-value array with the options.
 
 ```php
 $table->selectFilter('language_code', [
@@ -60,7 +60,7 @@ $table
     );
 ```
 
-By default, the `canBeHidden` value is set to `true`, which makes every column toggleable by default. You may change this behaviour by using the static `defaultColumnCanBeHidden` method on the `SpladeTable` class, for example, in the `AppServiceProvider` class:
+By default, the `canBeHidden` value is set to `true`, making every column toggleable. However, you may change this behavior by using the static `defaultColumnCanBeHidden` method on the `SpladeTable` class, for example, in the `AppServiceProvider` class:
 
 ```php
 SpladeTable::defaultColumnCanBeHidden(false);
@@ -156,7 +156,7 @@ If you want to change the `$item` variable, you may use use the `as` attribute o
 </x-splade-cell>
 ```
 
-This component is a *scoped* component, so variables from outside the slot won't be available by default. If you still want to use a variable, you may use the `use` attribute:
+This is a *scoped* component, so variables outside the slot won't be available by default. If you still want to use a variable, you may use the `use` attribute:
 
 ```blade
 @php $message = 'Hello, world!'; @endphp
@@ -167,7 +167,7 @@ This component is a *scoped* component, so variables from outside the slot won't
 </x-splade-cell>
 ```
 
-When your templates uses multiple custom cells, you may set these variables as defaults on the parent table:
+When your template uses multiple custom cells, you may set these variables as defaults on the parent table:
 
 ```blade
 <x-splade-table :for="$users" as="$user">
@@ -193,7 +193,7 @@ If you want to open the URL in a [Modal or Slideover](/x-modal.md), you may use 
 
 ## Debounce
 
-The filter and selects elements have a default debounce time of 350ms. You may customize this:
+The filter and select elements have a default debounce time of 350ms. You may customize this:
 
 ```blade
 <x-splade-table :for="$users" search-debounce="500" />
