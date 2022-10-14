@@ -52,8 +52,7 @@ The `exportFormat` allows you to [format](https://docs.laravel-excel.com/3.1/exp
 ```php
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
-$table
-    ->column('amount', NumberFormat::FORMAT_CURRENCY_EUR_SIMPLE);
+$table->column('amount', NumberFormat::FORMAT_CURRENCY_EUR_SIMPLE);
 ```
 
 Lastly, with the `exportStyling` method, you may style the column with an array or a callable:

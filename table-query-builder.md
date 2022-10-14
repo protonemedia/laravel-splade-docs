@@ -1,6 +1,6 @@
 # Table built-in Query Builder
 
-Besides rendering the head, body and pagination of table, the component supports many other features like filtering and searching.
+Besides rendering the head, body and pagination of table, the component supports many other features like filtering, searching and sorting.
 
 ## Search Fields
 
@@ -9,7 +9,7 @@ With the `searchInput` method, you can specify which attributes are searchable. 
 Though it's enough to pass in the column key, you may specify a custom label.
 
 ```php
-SpladeTable::for(User::class)
+$table
     ->searchInput('name')
     ->searchInput(
         key: 'framework',
@@ -24,24 +24,22 @@ Select Filters are similar to search fields but use a `select` element instead o
 The `selectFilter` method requires two arguments: the key, and a key-value array with the options.
 
 ```php
-SpladeTable::for(User::class)
-    ->selectFilter('language_code', [
-        'en' => 'English',
-        'nl' => 'Dutch',
-    ]);
+$table->selectFilter('language_code', [
+    'en' => 'English',
+    'nl' => 'Dutch',
+]);
 ```
 
 The `selectFilter` will, by default, add a *no filter* option to the array. You may disable this or specify a custom label for it.
 
 ```php
-SpladeTable::for(User::class)
-    ->selectFilter(
-        key: 'language_code',
-        options: $languages,
-        label: 'Language',
-        noFilterOption: true
-        noFilterOptionLabel: 'All languages'
-    );
+$table->selectFilter(
+    key: 'language_code',
+    options: $languages,
+    label: 'Language',
+    noFilterOption: true
+    noFilterOptionLabel: 'All languages'
+);
 ```
 
 
@@ -50,9 +48,8 @@ SpladeTable::for(User::class)
 With the `column` method, you can specify which columns you want to be toggleable, sortable, and searchable. You must pass in at least a key or label for each column.
 
 ```php
-SpladeTable::for(User::class)
+$table
     ->column('email', 'User Email')
-
     ->column(
         key: 'name',
         label: 'User Name',
@@ -71,17 +68,24 @@ SpladeTable::defaultColumnCanBeHidden(false);
 
 The `searchable` boolean is a shortcut to the `searchInput` method. The example below will essentially call `$table->searchInput('name', 'User Name')`.
 
+### Default sort
+
+You may configure the default sorting with the `defaultSort()` method:
+
+```php
+$table->defaultSort('name');
+```
+
 ### Sort by Relationship column
 
 The Table supports sorting the results by a [Relationship](https://laravel.com/docs/9.x/eloquent-relationships) column. This requires the installation of the [`kirschbaum-development/eloquent-power-joins`](https://github.com/kirschbaum-development/eloquent-power-joins) package.
 
 ```php
-SpladeTable::for(User::class)
-    ->column(
-        key: 'user.organization.name',
-        label: 'Organization',
-        sortable: true
-    );
+$table->column(
+    key: 'user.organization.name',
+    label: 'Organization',
+    sortable: true
+);
 ```
 
 ## Global Search
@@ -89,51 +93,52 @@ SpladeTable::for(User::class)
 You may enable Global Search with the `withGlobalSearch` method, and optionally specify a placeholder.
 
 ```php
-SpladeTable::for(User::class)
-    ->withGlobalSearch(columns: ['name', 'email']);
-
-SpladeTable::for(User::class)
-    ->withGlobalSearch('Search through the data...', ['name', 'email']);
+$table->withGlobalSearch(columns: ['name', 'email']);
 ```
 
-## Example controller
+```php
+$table->withGlobalSearch('Search through the data...', ['name', 'email']);
+```
+
+## Example Table
 
 ```php
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Tables;
 
 use App\Models\User;
-use Illuminate\Support\Collection;
+use ProtoneMedia\Splade\AbstractTable;
 use ProtoneMedia\Splade\SpladeTable;
-use Spatie\QueryBuilder\AllowedFilter;
-use Spatie\QueryBuilder\QueryBuilder;
 
-class UserIndexController
+class Users extends AbstractTable
 {
-    public function __invoke()
+    public function for()
     {
-        return view('users.index', [
-            'users' => SpladeTable::for(User::class),
-                ->withGlobalSearch(columns: ['name', 'email'])
-                ->defaultSort('name')
-                ->column(key: 'name', searchable: true, sortable: true, canBeHidden: false)
-                ->column(key: 'email', searchable: true, sortable: true)
-                ->column(key: 'language_code', label: 'Language')
-                ->column(label: 'Actions')
-                ->selectFilter(key: 'language_code', label: 'Language', options: [
-                    'en' => 'English',
-                    'nl' => 'Dutch',
-                ])
-                ->paginate(15);
-        ]);
+        return User::query();
+    }
+
+    public function configure(SpladeTable $table)
+    {
+        $table
+            ->withGlobalSearch(columns: ['name', 'email'])
+            ->defaultSort('name')
+            ->column(key: 'name', searchable: true, sortable: true, canBeHidden: false)
+            ->column(key: 'email', searchable: true, sortable: true)
+            ->column(key: 'language_code', label: 'Language')
+            ->column(label: 'Actions')
+            ->selectFilter(key: 'language_code', label: 'Language', options: [
+                'en' => 'English',
+                'nl' => 'Dutch',
+            ])
+            ->paginate(15);
     }
 }
 ```
 
 ### Custom column cells
 
-When using auto-fill, you may want to transform the presented data for a specific column while leaving the other columns untouched. For this, you may use a `cell` component. This example is taken from the Example Controller above.
+When using auto-fill, you may want to transform the presented data for a specific column while leaving the other columns untouched. For this, you may use a `cell` component. This example is taken from the Example Table above.
 
 ```blade
 <x-splade-table :for="$users">
@@ -181,8 +186,7 @@ When your templates uses multiple custom cells, you may set these variables as d
 You may use the `rowLink` method to make one entire row clickable.
 
 ```php
-SpladeTable::for(User::class)
-    ->rowLink(fn (User $user) => route('users.edit', ['id' => $user->id]))
+$table->rowLink(fn (User $user) => route('users.edit', ['id' => $user->id]))
 ```
 
 If you want to open the URL in a [Modal or Slideover](/x-modal.md), you may use the `rowModal` or `rowSlideover` method.

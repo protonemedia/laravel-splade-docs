@@ -35,7 +35,22 @@ There's an Artisan command to create a Table class:
 php artisan make:table Users
 ```
 
-You'll find the new Table class in the `app/Tables` folder. The class consists of three methods that you'll need to implement: `authorize`, `for` and `configure`.
+You'll find the new Table class in the `app/Tables` folder. You may this class in the controller, instead of the *inline* instance:
+
+```php
+use App\Tables\Users;
+
+return view('users.index', [
+    'users' => SpladeTable::for(User::class)      // [tl! remove]
+        ->column('name')      // [tl! remove]
+        ->column('email')      // [tl! remove]
+        ->paginate(15),      // [tl! remove]
+
+    'users' => Users::class,      // [tl! add]
+]);
+```
+
+The class consists of three methods that you'll need to implement: `authorize`, `for` and `configure`.
 
 ### Implementing the `for` method
 
