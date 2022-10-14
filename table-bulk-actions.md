@@ -34,7 +34,7 @@ $table->bulkAction(
 
 ## Confirmation
 
-You may use the `confirm` argument to show a confirmation dialog before Splade perform the action:
+You may use the `confirm` argument to show a confirmation dialog before Splade performs the action:
 
 ```php
 $table->bulkAction(

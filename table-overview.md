@@ -1,6 +1,6 @@
 # Table (DataTables) Component
 
-Splade has an advanced Table component that supports auto-fill, searching, filtering, sorting, toggling columns, and pagination. You may also peform bulk actions and exports. Though optional, it integrates beautifully with Spatie's [Laravel Query Builder](https://github.com/spatie/laravel-query-builder).
+Splade has an advanced Table component that supports auto-fill, searching, filtering, sorting, toggling columns, and pagination. You may also perform bulk actions and exports. Though optional, it integrates beautifully with Spatie's [Laravel Query Builder](https://github.com/spatie/laravel-query-builder).
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FPYNvO7GyoM?controls=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -27,7 +27,7 @@ That's all! It will automatically render the head, body, and pagination.
 
 ## Table Class
 
-Instead of using an *inline* `SpladeTable` in the controller, you may also create a dedicated Table class. This allows you to keep the configuration out of the controller, and lets you reuse the Table class. If you want to use Bulk Actions and Exports, a Table class is required.
+Instead of using an *inline* `SpladeTable` in the controller, you may create a dedicated Table class. A Table class lets you keep the configuration out of the controller and reuse the Table class. If you want to use Bulk Actions and Exports, a Table class is required.
 
 There's an Artisan command to create a Table class:
 
@@ -35,7 +35,7 @@ There's an Artisan command to create a Table class:
 php artisan make:table Users
 ```
 
-You'll find the new Table class in the `app/Tables` folder. You may this class in the controller, instead of the *inline* instance:
+You'll find the new Table class in the `app/Tables` folder. You may use this class in the controller instead of the *inline* instance:
 
 ```php
 use App\Tables\Users;
@@ -50,11 +50,11 @@ return view('users.index', [
 ]);
 ```
 
-The class consists of three methods that you'll need to implement: `authorize`, `for` and `configure`.
+The class consists of three methods you'll need to implement: `authorize`, `for`, and `configure`.
 
 ### Implementing the `for` method
 
-If you create a new Table class, the `for` method has a default implemention. It returns a new query builder of the corresponding Eloquent Model:
+If you create a new Table class, the `for` method has a default implementation. It returns a new query builder of the corresponding Eloquent Model:
 
 ```php
 public function for()
@@ -72,7 +72,7 @@ public function for()
 }
 ```
 
-Note that this will apply to all results. If you want to choose in the frontend between *admins* and *non-admins*, this is not the right place to apply the constraint.
+Note that this will apply to all results. So, for example, if you want to choose in the frontend between *admins* and *non-admins*, this is not the right place to use the constraint.
 
 ### Implementing the `configure` method
 
@@ -103,7 +103,7 @@ Instead of always returning `true`, you may also remove the method if you don't 
 
 ## Pagination
 
-When the dataset is paginated, it will, by default, show a select dropdown to customize the number of rows per page. You may define a custom set of options using the `perPageOptions` method on the `SpladeTable`:
+When the dataset is paginated, it will, by default, show a select dropdown to customize the number of rows per page. In addition, you may define a custom set of options using the `perPageOptions` method on the `SpladeTable`:
 
 ```php
 SpladeTable::for(User::class)
@@ -125,7 +125,7 @@ SpladeTable::hidePaginationWhenResourceContainsOnePage();
 
 ## Custom head and body
 
-If you want to write the head or body yourself, you may use slots.
+You may use slots if you want to write the head or body yourself.
 
 ```blade
 <x-splade-table :for="$users">
