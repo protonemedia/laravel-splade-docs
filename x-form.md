@@ -99,6 +99,24 @@ You may use the input event to bind the selected file to your form data:
 
 The dedicated [File Component](/form-file.md) provides a cleaner solution, and has support for selecting multiple files as well as displaying the filename of the selected file.
 
+## Submit on change
+
+Sometimes you want to submit the form whenever a value changes, for example, on a settings page that you want to save immediately. For this, you may use the `submit-on-change` attribute.
+
+```
+<x-splade-form submit-on-change>
+```
+
+You may optionally specify one or more values (with an `array` or `string`) that should be watched, instead of all values.
+
+```
+<x-splade-form submit-on-change="name">
+
+<x-splade-form submit-on-change="name, email">
+
+<x-splade-form :submit-on-change="['name', 'email']">
+```
+
 ## Reset and restore form
 
 You may use the `form.reset` method to clear all form data.
