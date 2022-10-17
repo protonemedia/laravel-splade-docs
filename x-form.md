@@ -10,6 +10,8 @@ The **Form Component** allows you to send forms asynchronously. This way, you'll
 </x-splade-form>
 ```
 
+The example above uses regular HTML form inputs, but Splade also comes with a collection of feature-rich [Form Components](/form-overview.md). These components all support labels, validation, data-binding, are more.
+
 ## Method and Validation errors
 
 Just like traditional forms, there's a `method` attribute. In addition, you may use the `form.errors` prop to evaluate validation errors:
@@ -119,9 +121,17 @@ Similarly, there's a `form.restore` method to restore the default values.
 </x-splade-form>
 ```
 
+### Prevent navigation on submit
+
+If you want to stay on the same page after a successful request and want to preserve the page's current state, add the `stay` attribute.
+
+```blade
+<x-splade-form stay>
+```
+
 ### Reset and restore on success
 
-If you redirect back to the same page after a successful request and want to preserve the page's current state, add the `stay` attribute. You may choose to reset or restore the form data automatically. You can do this with the `reset-on-success` and `restore-on-success` attributes:
+You may choose to reset or restore the form data automatically. You can do this with the `reset-on-success` and `restore-on-success` attributes:
 
 ```blade
 <x-splade-form stay reset-on-success>
