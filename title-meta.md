@@ -24,7 +24,7 @@ The `keywords` method accepts an array as well:
 SEO::keywords(['laravel', 'splade', 'course']);
 ```
 
-In the `splade.php` configuration file, you may set the default content:
+In the `splade.php` [configuration file](/customization.md), you may set the default content:
 
 ```php
 return [

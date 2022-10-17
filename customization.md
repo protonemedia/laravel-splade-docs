@@ -8,7 +8,7 @@ php artisan vendor:publish --provider="ProtoneMedia\Splade\ServiceProvider" --ta
 
 Now the templates are available in the `/resources/views/vendor/splade` folder.
 
-## Laravel Configuration File
+## Laravel Configuration File (config/splade.php)
 
 You may also publish the configuration file. This allows you to configure settings like the Blade Component prefix, SEO defaults, SSR settings, and more.
 

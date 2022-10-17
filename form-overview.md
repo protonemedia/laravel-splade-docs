@@ -29,7 +29,7 @@ All elements allow passing in a label, which will be rendered above the input el
 </x-splade-form>
 ```
 
-If you want to eliminate the `splade` prefix, you may update the `blade.component_prefix` key in the `splade.php` configuration file:
+If you want to eliminate the `splade` prefix, you may update the `blade.component_prefix` key in the `splade.php` [configuration file](/customization.md):
 
 ```php
 return [
