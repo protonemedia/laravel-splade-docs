@@ -103,13 +103,13 @@ The dedicated [File Component](/form-file.md) provides a cleaner solution, and h
 
 Sometimes you want to submit the form whenever a value changes, for example, on a settings page that you want to save immediately. For this, you may use the `submit-on-change` attribute.
 
-```
+```blade
 <x-splade-form submit-on-change>
 ```
 
-You may optionally specify one or more values (with an `array` or `string`) that should be watched, instead of all values.
+In addition, you may optionally specify one or more values (with an `array` or `string`) that Splade should watch instead of all values.
 
-```
+```blade
 <x-splade-form submit-on-change="name">
 
 <x-splade-form submit-on-change="name, email">
