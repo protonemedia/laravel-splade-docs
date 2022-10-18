@@ -4,6 +4,8 @@ When Splade performs a page load, Vue will, under the hood, rerender the page an
 
 Luckily, Splade lets you use a Persistent Layout. So, instead of documenting all options, let's build the example with the media player step-by-step.
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3B3fr8st4pk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Make a Layout
 
 Create a new Blade Component using the Laravel Artisan CLI. You can read more about building Layouts with Blade Components in the [Laravel documentation](https://laravel.com/docs/9.x/blade#layouts-using-components).
