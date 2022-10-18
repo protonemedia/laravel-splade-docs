@@ -13,11 +13,11 @@ To leverage the SPA capabilities of Splade, you may use the `<Link>` component i
 <Link href="{{ route('contact') }}">Contact</Link>
 ```
 
-If you're using an existing app, or maybe you don't like the `Link` component, you may configure Splade to transform all `<a>` elements automatically.
+If you're using an existing app, or maybe you don't like the `Link` component, you may configure Splade to transform all `<a>` elements automatically as described in the [Link Component section](/x-link.md).
 
 ## The simplest component: a toggle
 
-In the example below, we show an excerpt of the blog post. When the user clicks on the *Expand* button, it hides the excerpt and shows the full content. All Splade components are default prefixed with `splade`, but you may configure it without a prefix, resulting in a more readable `<x-toggle>` component.
+In the example below, we show an excerpt of the blog post. When the user clicks on the *Expand* button, it hides the excerpt and shows the full content. All Splade components are default prefixed with `splade`, but you may [configure it](/customization.md) without a prefix, resulting in a more readable `<x-toggle>` component.
 
 ```blade
 @extends('layout')

@@ -9,4 +9,4 @@ You may use the **Flash Component** to interact with [Flash Data](https://larave
 ```
 
 > **Warning**
-> By default, Splade will share *all* Flash Data to the frontend. You may disable this behavior with the `splade.share_session_flash_data` configuration key.
+> By default, Splade will share *all* Flash Data to the frontend. You may disable this behavior with the `splade.share_session_flash_data` [configuration key](/customization.md).
