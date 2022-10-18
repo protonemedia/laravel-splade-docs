@@ -23,7 +23,7 @@ You may also configure Splade to transform all `<a>` elements as described in th
 
 When the user navigates through the app, the browser will reset the scroll position of scrollable elements. In some cases, this might not be a great user experience.
 
-One example is a sidebar menu that's taller than the window height and thus has a vertical scroll bar. When a user clicks on a menu item in the bottom section and Splade navigates to the next page, you probably want to preserve the scroll position of the sidebar menu.
+One example is a sidebar menu that's taller than the window height and thus has a vertical scrollbar. When a user clicks on a menu item in the bottom section and Splade navigates to the next page, you probably want to preserve the scroll position of the sidebar menu.
 
 You may use the `@preserveScroll` directive on an element to tell Splade to keep track of the scroll position. Be sure to pass a unique name to the directive:
 
