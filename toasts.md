@@ -32,3 +32,22 @@ Toast::title('Whoops!')
     ->backdrop()
     ->autoDismiss(15);
 ```
+
+You may also pass a text value directly to the *position* and *style* methods:
+
+```php
+Toast::warning('No space left!');
+
+Toast::center('Welcome back!');
+```
+
+## Default Toast settings
+
+You may customize the default settings using the `Splade` facade, for example, in the `AppServiceProvider` class:
+
+```php
+Splade::defaultToast(function ($toast) {
+    $toast->info()->leftBottom()->autoDismiss(10);
+});
+```
+
