@@ -16,13 +16,13 @@ Passing data from the Controller to templates is handled very differently. With 
 
 In Splade applications, almost all data is rendered using standard server-side Blade templates. Once rendered in Blade, the raw data won't be available client-side (in the browser). Of course, you may pass data to the frontend, for example, with the [Data](/x-data.md) and [Form](/x-form.md) components, but that’s very explicit. The Form component even helps you guard data against being passed to the browser.
 
-Another inconvenience in development with Inertia.js + Vue is having to define the data and properties twice. First, you pass the data from the Controller, and then you *also* have to explicitly specify the data client-side, for example, in the `props` declaration of the Vue template. With Splade, you can use the data directly in the Blade template without defining it.
+Another inconvenience in development with Inertia.js + Vue is having to define the data and properties twice. First, you pass the data from the Controller, and then you *also* have to explicitly specify the data client-side in the `props` declaration of the Vue template. With Splade, you can use the data directly in the Blade template without defining it.
 
 To summarize:
 * With Inertia.js, you should be very aware that every piece of data you return from the Controller will be visible client-side.
 * This is less of a concern with Splade, as almost everything is rendered server-side, and most raw data will never leave the application.
 * In every application, and also with Splade, there are cases where you still want to pass data to the frontend. Splade provides components to help you do this.
-* Besides returning the server-side, with Inertia.js + Vue, you must also define the data as props *again* in the front-end template. This is not needed with Splade.
+* Besides returning the data server-side, with Inertia.js + Vue, you must also define the data as props *again* in the front-end template. This is not needed with Splade.
 
 ## Laravel integration
 
