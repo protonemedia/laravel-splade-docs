@@ -1,4 +1,4 @@
-# Table built-in Query Builder
+# Table with the built-in Query Builder
 
 Besides rendering the head, body, and pagination, the component supports many other features like filtering, searching, sorting, and more.
 
@@ -143,7 +143,7 @@ When using auto-fill, you may want to transform the presented data for a specifi
 ```blade
 <x-splade-table :for="$users">
     <x-splade-cell actions>
-        <a href="/users/{{ $item->id }}/edit"> Edit </a>
+        <Link href="/users/{{ $item->id }}/edit"> Edit </Link>
     </x-splade-cell>
 </x-splade-table>
 ```
@@ -152,7 +152,7 @@ If you want to change the `$item` variable, you may use use the `as` attribute o
 
 ```blade
 <x-splade-cell actions as="$user">
-    <a href="/users/{{ $user->id }}/edit"> Edit </a>
+    <Link href="/users/{{ $user->id }}/edit"> Edit </Link>
 </x-splade-cell>
 ```
 
@@ -163,7 +163,7 @@ This is a *scoped* component, so variables outside the slot won't be available b
 
 <x-splade-cell actions as="$user" use="$message">
     <p> {{ $message }} </p>
-    <a href="/users/{{ $user->id }}/edit"> Edit </a>
+    <Link href="/users/{{ $user->id }}/edit"> Edit </Link>
 </x-splade-cell>
 ```
 
@@ -176,10 +176,12 @@ When your template uses multiple custom cells, you may set these variables as de
     </x-splade-cell>
 
     <x-splade-cell actions>
-        <a href="/users/{{ $user->id }}/edit"> Edit </a>
+        <Link modal href="/users/{{ $user->id }}/edit"> Edit </Link>
     </x-splade-cell>
 </x-splade-table>
 ```
+
+*Note the `modal` attribute on the Link element in the example above. Instead of navigating to another page, you may open a [Modal or Slideover](/x-modal.md) from a Table.*
 
 ## Row Link
 
