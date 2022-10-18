@@ -181,7 +181,7 @@ When your template uses multiple custom cells, you may set these variables as de
 </x-splade-table>
 ```
 
-*Note the `modal` attribute on the Link element in the example above. Instead of navigating to another page, you may open a [Modal or Slideover](/x-modal.md) from a Table.
+*Note the `modal` attribute on the Link element in the example above. Instead of navigating to another page, you may open a [Modal or Slideover](/x-modal.md) from a Table.*
 
 ## Row Link
 
