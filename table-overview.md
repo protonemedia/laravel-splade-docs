@@ -1,3 +1,8 @@
+---
+description: Splade has an advanced Table component that supports auto-fill, searching, filtering, sorting, toggling columns, and pagination. You may also perform bulk actions and exports.
+keywords: laravel datatable, laravel datatables, laravel table, laravel table component, laravel tables
+---
+
 # Table (DataTables) Component
 
 Splade has an advanced Table component that supports auto-fill, searching, filtering, sorting, toggling columns, and pagination. You may also perform bulk actions and exports. Though optional, it integrates beautifully with Spatie's [Laravel Query Builder](https://github.com/spatie/laravel-query-builder).

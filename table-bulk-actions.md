@@ -1,3 +1,8 @@
+---
+description: The Splade Table component supports Bulk Actions. It can perform the action on the selected rows, on all rows on the current page, or on all rows on all pages.
+keywords: laravel datatables bulk actions, laravel datatables actions, laravel table bulk action, laravel tables bulk action
+---
+
 # Table Bulk Actions
 
 The Table component supports performing Bulk Actions. First, you must register a supporting route using the `spladeTable()` method on the `Route` facade. As of version 0.6, the automatic installer does this for you. If you need to register the route manually, make sure it uses the `web` and `splade` Middleware, for example, in `web.php`:

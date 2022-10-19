@@ -1,3 +1,8 @@
+---
+description: The Splade Table component supports exporting to Excel, CSV, PDF, and other formats. You may enable exporting with the export() method, which will configure an Excel Export by default.
+keywords: laravel datatables excel export, laravel datatables pdf export, laravel table export, laravel tables export
+---
+
 # Table Exports
 
 The Table component supports Exports. But first, you must register a supporting route using the `spladeTable()` method on the `Route` facade. As of version 0.6, the automatic installer does this for you. If you need to register the route manually, make sure it uses the `web` and `splade` Middleware, for example, in `web.php`:

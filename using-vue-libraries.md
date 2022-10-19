@@ -1,3 +1,8 @@
+---
+description: You may Vue libraries in a Laravel Splade app by install the library using npm, and then import and register it in the main app.js file. You must import and register the component by passing both a name string and a component definition.
+keywords: laravel blade vue, laravel vue blade, laravel vue library, laravel vue libraries
+---
+
 # Using Vue libraries
 
 Using Vue libraries in a Splade app works the same as any other Vue application. You may install the library using `npm`, and then import and register it in the main `app.js` file. If you're using [SSR](/ssr.md), make sure to import the component in `ssr.js` as well.
