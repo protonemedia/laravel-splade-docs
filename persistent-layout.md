@@ -1,3 +1,8 @@
+---
+description: Laravel Splade lets you use a Persistent Layout with Blade. One example is a media player that must continue playing while your users navigate from one page to the next.
+keywords: laravel persistent layout, blade persistent layout, splade persistent layout, persistent layout, persistent layouts
+---
+
 # Persistent Layout
 
 When Splade performs a page load, Vue will, under the hood, rerender the page and its components. While it's clever enough to minimize the performance impact and thus give you a seamless *SPA*-experience, it will also rerender elements you might want to keep alive. The most common example is a media player that must continue playing while your users navigate your app.
