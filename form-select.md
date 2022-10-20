@@ -75,7 +75,7 @@ Now you may add the `choices` attribute to the component:
 It works for selecting multiple values as well:
 
 ```blade
-<x-splade-select name="frameworks[]" :options="$frameworks" mulitple choices />
+<x-splade-select name="frameworks[]" :options="$frameworks" multiple choices />
 ```
 
 You can instantiate Choices.js with a [custom set of options](https://github.com/Choices-js/Choices#setup) by passing a *JavaScript* object to the `choices` attribute. To pass a PHP array, you may use the `:choices` attribute (note the colon).
