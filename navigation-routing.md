@@ -38,3 +38,21 @@ You may use the `@preserveScroll` directive on an element to tell Splade to keep
     </div>
 </div>
 ```
+
+## Redirects
+
+Splade automatically handles redirects, both internally and externally. The default Laravel redirect methods just work:
+
+```php
+return redirect('home/dashboard');
+
+return redirect()->route('profile', ['id' => 1]);
+
+return redirect()->away('https://www.google.com');
+```
+
+Splade detects when you redirect to an external domain outside of your app. You may use Laravel's [built-in](https://laravel.com/docs/9.x/responses#redirecting-external-domains) `away()` method on the `redirect()` helper method. Still, you may also use the `redirectAway()` method on the Splade facade to explicitly tell Splade to redirect away from the app:
+
+```php
+return Splade::redirectAway('https://www.google.com');
+```
