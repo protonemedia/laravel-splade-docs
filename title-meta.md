@@ -60,7 +60,7 @@ By default, the canonical URL is set to the current URL, but you may override it
 SEO::canonical('https://splade.dev');
 ```
 
-If you don't want to automatically set the canonical URL to the current URL, you may disable this in the `splade-seo.php` config file by setting the `auto_canonical_link` key to `false`.
+Suppose you don't want to automatically set the canonical URL to the current URL. You may disable this in the `splade-seo.php` config file by setting the `auto_canonical_link` key to `false`.
 
 ## Open Graph tags
 
@@ -74,7 +74,7 @@ SEO::openGraphUrl('https://my.app/home');
 SEO::openGraphImage(public_path('home.png'));
 ```
 
-In the `splade-seo.php` configuration file you may set default values, and there's also an `auto_fill` option. When you set this option to `true`, the value passed to the `SEO::title()` method will also be applied to the Open Graph Title tag.
+In the `splade-seo.php` configuration file, you may set default values and an `auto_fill` option. When you set this option to `true`, the value passed to the `SEO::title()` method will also be applied to the Open Graph Title tag.
 
 ## Twitter tags
 
@@ -88,7 +88,7 @@ SEO::twitterDescription('This is the home page of my application');
 SEO::twitterImage(public_path('home.png'));
 ```
 
-In the `splade-seo.php` configuration file you may set default values, and there's also an `auto_fill` option. When you set this option to `true`, values passed to `SEO::title()` and `SEO::description()` method will also be applied to the corresponding Twitter tags.
+In the `splade-seo.php` configuration file, you may set default values and an `auto_fill` option. When you set this option to `true`, values passed to `SEO::title()` and `SEO::description()` methods will also be applied to the corresponding Twitter tags.
 
 ## Custom Meta Tags
 
@@ -114,7 +114,7 @@ SEO::macro('openGraphLocale', function (string $value) {
 });
 ```
 
-Make sure to return from the callback so you may use the facade fluently:
+Make sure to return from the callback, so you may use the facade fluently:
 
 ```php
 SEO::title('Laravel Splade Cursus')
