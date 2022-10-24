@@ -1,9 +1,15 @@
 # X-Splade-Checkbox Component
 
-The **Checkbox Component** has a default value of `1`, but you may customize it with the `value` attribute:
+The **Checkbox Component** has a default value of `true`, but you may customize it with the `value` attribute:
 
 ```blade
-<x-splade-checkbox name="newsletter" value="mailchimp" label="Subscribe to newsletter" />
+<x-splade-checkbox name="newsletter" value="1" label="Subscribe to newsletter" />
+```
+
+The default `true` value works great if you use the `boolean` type [Attribute Casting](https://laravel.com/docs/9.x/eloquent-mutators#attribute-casting) in Eloquent Models. Accordingly, the *unchecked* value is `false`, but you may customize it with the `false-value` attribute:
+
+```blade
+<x-splade-checkbox name="newsletter" value="yes" false-value="no" label="Subscribe to newsletter" />
 ```
 
 If you have a fieldset of multiple checkboxes, you can group them with the `x-splade-group` component. A group is a great way to handle the validation of arrays. If you disable the errors on the individual checkboxes, it will show the validation errors once. The [group component](/form-group.md) has a `show-errors` attribute that defaults to `true`.
