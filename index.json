@@ -1,0 +1,64 @@
+{
+    "Introduction": {
+        "Introducing Splade": "introducing-splade",
+        "Credits": "credits",
+        "Automatic installation": "automatic-installation",
+        "Manual installation": "manual-installation",
+        "Breeze starter kit": "breeze",
+        "Upgrading": "upgrading",
+        "Roadmap": "roadmap",
+        "Inertia.js comparison": "splade-vs-inertia"
+    },
+    "Basics": {
+        "Navigation and routing": "navigation-routing",
+        "Progress bar": "progress-bar",
+        "Toasts": "toasts",
+        "Shared data": "shared-data",
+        "Title and meta tags": "title-meta",
+        "Lazy loading": "lazy-loading",
+        "Server-side rendering (SSR)": "ssr"
+    },
+    "Components": {
+        "Data": "x-data",
+        "Defer": "x-defer",
+        "Errors": "x-errors",
+        "Event": "x-event",
+        "Flash": "x-flash",
+        "Form": "x-form",
+        "Link": "x-link",
+        "Modal": "x-modal",
+        "State": "x-state",
+        "Teleport": "x-teleport",
+        "Toggle": "x-toggle",
+        "Transition": "x-transition"
+    },
+    "Form components": {
+        "Overview": "form-overview",
+        "Input": "form-input",
+        "Textarea": "form-textarea",
+        "Select": "form-select",
+        "Checkbox": "form-checkbox",
+        "Radio": "form-radio",
+        "File": "form-file",
+        "Group": "form-group",
+        "Submit": "form-submit",
+        "Model Binding": "form-model-binding-attributes"
+    },
+    "Table component": {
+        "Overview": "table-overview",
+        "Built-in Query Builder": "table-query-builder",
+        "Bulk Actions": "table-bulk-actions",
+        "Exports": "table-exports",
+        "Spatie Query Builder": "table-spatie-query-builder"
+    },
+    "Vue components and libraries": {
+        "Custom components": "custom-vue-components",
+        "Vue libraries": "using-vue-libraries"
+    },
+    "Advanced": {
+        "State management": "state-management",
+        "Persistent layout": "persistent-layout",
+        "Customization": "customization",
+        "How Splade works": "how-splade-works"
+    }
+}
