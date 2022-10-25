@@ -12,6 +12,8 @@ The **Lazy Component** allows you to load sections of your template lazily. Wrap
 </x-splade-lazy>
 ```
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Vf12p5ma3Is" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Lazy View Data
 
 While excluding a section from your template is nice, you probably also want to exclude data from the initial page load. Most commonly, this is the data you need in your lazily loaded content. You may use the `onInit` and `onLazy` methods on the `Splade` facade to wrap the data in a closure.
