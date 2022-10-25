@@ -66,7 +66,7 @@ By default, the `canBeHidden` value is set to `true`, making every column toggle
 SpladeTable::defaultColumnCanBeHidden(false);
 ```
 
-The `searchable` boolean is a shortcut to the `searchInput` method. The example below will essentially call `$table->searchInput('name', 'User Name')`.
+The `searchable` boolean is a shortcut to the `searchInput` method. The example above will essentially call `$table->searchInput('name', 'User Name')`.
 
 ### Default sort
 
@@ -78,7 +78,7 @@ $table->defaultSort('name');
 
 ### Sort by Relationship column
 
-The Table supports sorting the results by a [Relationship](https://laravel.com/docs/9.x/eloquent-relationships) column. This requires the installation of the [`kirschbaum-development/eloquent-power-joins`](https://github.com/kirschbaum-development/eloquent-power-joins) package.
+The Table component supports sorting the results by a [Relationship](https://laravel.com/docs/9.x/eloquent-relationships) column. This requires the installation of the [`kirschbaum-development/eloquent-power-joins`](https://github.com/kirschbaum-development/eloquent-power-joins) package.
 
 ```php
 $table->column(
