@@ -29,7 +29,7 @@ The `keywords` method accepts an array as well:
 SEO::keywords(['laravel', 'splade', 'course']);
 ```
 
-You may publish and customize the `splade-seo.php` configuration file to set default values. In previous versions of Splade, the SEO configuration was part of the `splade.php` configuration file. As of v0.7, there is a separate file for the SEO configuration.
+You may publish and customize the `splade-seo.php` configuration file to set default values. In previous versions of Splade, the SEO configuration was part of the `splade.php` configuration file. As of v0.6.9, there is a separate file for the SEO configuration.
 
 ```bash
 php artisan vendor:publish --provider="ProtoneMedia\Splade\ServiceProvider" --tag="seo"
