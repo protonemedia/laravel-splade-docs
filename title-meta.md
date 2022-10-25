@@ -95,7 +95,7 @@ SEO::twitterImage(public_path('home.png'));
 
 In the `splade-seo.php` configuration file, you may set default values and an `auto_fill` option. When you set this option to `true`, values passed to `SEO::title()` and `SEO::description()` methods will also be applied to the corresponding Twitter tags.
 
-## Custom Meta Tags
+## Custom meta tags
 
 There are three additional methods to set other meta tags. You can set meta tags by name, property, or by giving a custom set of attributes.
 
