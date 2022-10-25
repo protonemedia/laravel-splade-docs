@@ -1,3 +1,8 @@
+---
+description: The SEO facade lets you set the page's title, description, and keywords. You may also set a default prefix/suffix for the title. There are five helper methods to set Open Graph and Twitter tags.
+keywords: laravel seo, blade seo, splade seo, splade title, splade description, splade meta, splade meta tags, splade keywords, laravel twitter tags, laravel og tags, laravel open graph tags, laravel twitter meta, laravel og meta, laravel open graph meta
+---
+
 # Title and meta tags
 
 You may use the `SEO` facade to set your page's title, description, and keywords.
