@@ -19,6 +19,7 @@
         "Server-side rendering (SSR)": "ssr"
     },
     "Components": {
+        "Content": "x-content",
         "Data": "x-data",
         "Defer": "x-defer",
         "Errors": "x-errors",
