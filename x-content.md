@@ -1,5 +1,7 @@
 # X-Splade-Content Component
 
+All templates are passed to the Vue render engine. Still, sometimes you want to output raw, pre-rendered HTML, and you might want to bypass Vue's interpolation using the **Content Component**. A typical example is pre-rendered Markdown content. Note that the content is static, and you can't pass Splade or Vue components.
+
 ```blade
 <x-splade-content :html="$renderedMarkdown" />
 ```
