@@ -112,7 +112,7 @@ Select::defaultChoices([
 
 ### Remote Options
 
-The componentshas support for loading the options using an asynchronus *ajax* request. You may use the `remote-url` attribute:
+The component has support for loading the options using an asynchronous *ajax* request. For this, you may use the `remote-url` attribute:
 
 ```blade
 <x-splade-select remote-url="/api/locations" />
@@ -131,7 +131,7 @@ The `remote-url` attribute supports *Template literals*, making it perfect for b
 <x-splade-select name="region" remote-url="`/api/regions/${form.country}`" />
 ```
 
-Now when the user selects a country, it will reload the regions based on the selected country. All remote options features work with the Choices.js integration as well. It doesn't support groups yet, but that's coming in a future version of Splade.
+When the user selects a country, it will reload the regions based on the chosen country. All remote options features work with the Choices.js integration as well. It doesn't support groups yet, but that's coming in a future version of Splade.
 
 ### Customize Choices.js styling
 
