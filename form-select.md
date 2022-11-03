@@ -1,6 +1,6 @@
 # X-Splade-Select Component
 
-The **Select Component** can render the options based on an array, with support for groups.
+The **Select Component** can render the options based on a *key-value* array or `Collection`, with support for groups.
 
 ```php
 $countries = [
@@ -11,6 +11,12 @@ $countries = [
 
 ```blade
 <x-splade-select name="country_code" :options="$countries" />
+```
+
+You may also pass a set of objects, like an Eloquent Collection, and specify the *value* and *label* keys for the option elements:
+
+```blade
+<x-splade-select name="company" :options="$companies" option-label="name" option-value="id" />
 ```
 
 You can provide a slot to the select element as well:
@@ -103,6 +109,29 @@ Select::defaultChoices([
     'searchEnabled' => false
 ]);
 ```
+
+### Remote Options
+
+The componentshas support for loading the options using an asynchronus *ajax* request. You may use the `remote-url` attribute:
+
+```blade
+<x-splade-select remote-url="/api/locations" />
+```
+
+Just like the regular pre-defined options, it supports objects as well:
+
+```blade
+<x-splade-select remote-url="/api/servers" option-label="ip" option-value="uuid" />
+```
+
+The `remote-url` attribute supports *Template literals*, making it perfect for building dependent selects:
+
+```blade
+<x-splade-select name="country" :options="$countries" />
+<x-splade-select name="region" remote-url="`/api/regions/${form.country}`" />
+```
+
+Now when the user selects a country, it will reload the regions based on the selected country. All remote options features work with the Choices.js integration as well. It doesn't support groups yet, but that's coming in a future version of Splade.
 
 ### Customize Choices.js styling
 
