@@ -2,7 +2,7 @@
 
 With the **Modal Component**, Splade has built-in support for modals and slideover. This component allows you to load *any* route into a modal. Besides loading the content asynchronously, it also supports pre-loaded content.
 
-First, lets take a look at loading a route into a modal. To prepare a view so you can use it inside a modal, you have to wrap the content in a `<x-splade-modal>` component. Nothing changes when requesting the view *outside* of the modal. Everything will work as it used to be. For example, here's a page to create a new user. This page is a regular, full-page view that extends the base layout.
+First, let's take a look at loading a route into a modal. To prepare a view to use it inside a modal, you have to wrap the content in a `<x-splade-modal>` component. Nothing changes when requesting the view *outside* of the modal. Everything will work as it used to. For example, here's a page to create a new user. This page is a regular, full-page view that extends the base layout.
 
 ```blade
 @extends('layout')
@@ -81,7 +81,7 @@ You can manually close the modal or slideover with the `modal.close()` or `modal
 
 ## Pre-loaded content
 
-Instead of loading the content asynchronously, you may also pass the content along with the page. You may do this by passing a `name` attribute to the component, and use the name along with a `#` prefix in the `Link` component:
+Instead of loading the content asynchronously, you may also pass the content along with the page. You may do this by passing a `name` attribute to the component and use the name along with a `#` prefix in the `Link` component:
 
 ```blade
 <h1>Tickets & Tour Dates</h1>
@@ -95,7 +95,7 @@ Instead of loading the content asynchronously, you may also pass the content alo
 </x-splade-modal>
 ```
 
-If you want to use a slideover, you have to put the attribute on the `x-splade-component` instead of the `Link` component. The `max-width` works with pre-loaded content as well.
+To use a slideover, you must put the attribute on the `x-splade-component` instead of the `Link` component. The `max-width` attribute works with pre-loaded content as well.
 
 ```blade
 <h1>Tickets & Tour Dates</h1>
