@@ -76,6 +76,16 @@ You may configure the default sorting with the `defaultSort()` method:
 $table->defaultSort('name');
 ```
 
+If you want to sort in descending order, you may prefix the key with a `-` character or use the `defaultSortDesc` method. Alternatively, you may use the `defaultSort` method with an additional second argument:
+
+```php
+$table->defaultSort('-name');
+
+$table->defaultSortDesc('name');
+
+$table->defaultSort('name', 'desc');
+```
+
 ### Sort by Relationship column
 
 The Table component supports sorting the results by a [Relationship](https://laravel.com/docs/9.x/eloquent-relationships) column. This requires the installation of the [`kirschbaum-development/eloquent-power-joins`](https://github.com/kirschbaum-development/eloquent-power-joins) package.
