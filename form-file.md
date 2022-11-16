@@ -160,10 +160,6 @@ class StorePodcastRequest extends FormRequest implements HasSpladeFileUploads   
 }
 ```
 
-### Custom temporary directory
-
-By default, Splade uses the `/storage/splade-temporary-file-uploads` directory for temporary uploads. If you want to use a custom [Filesystem disk](https://laravel.com/docs/9.x/filesystem#configuration), you may update the `file_uploads.disk` key in the `splade.php` [configuration file](/customization.md). For now, it only supports local disks.
-
 ### Cleanup temporary uploads
 
 It may happen that temporarily uploaded files are not being used and will fill the temporary directory. Splade comes with a built-in Artisan command to delete all files that are older than one hour:
@@ -173,6 +169,10 @@ php artisan splade:cleanup-uploads
 ```
 
 You may change the lifetime of temporary files with the `file_uploads.temporary_file_lifetime` key in the `splade.php` [configuration file](/customization.md).
+
+### Custom temporary directory
+
+By default, Splade uses the `/storage/splade-temporary-file-uploads` directory for temporary uploads. If you want to use a custom [Filesystem disk](https://laravel.com/docs/9.x/filesystem#configuration), you may update the `file_uploads.disk` key in the `splade.php` [configuration file](/customization.md). For now, it only supports local disks.
 
 ### Customize FilePond styling
 
