@@ -61,7 +61,7 @@ FilePond supports validating the selected file based on the type and size. To va
 <x-splade-file name="avatar" filepond accept="image/png" />
 ```
 
-To validate the size of the file, you may use the `min-size` or `max-size` attribute. You may once them both at once as well:
+You may use the `min-size` or `max-size` attribute to validate the file size. You may use both attributes at once as well:
 
 ```blade
 <x-splade-file name="avatar" filepond min-size="100KB" max-size="5MB" />
@@ -71,7 +71,7 @@ Please be aware that both features are *client-side* validation. For security re
 
 ### Validate images
 
-FilePond supports validating the dimensions of a selected image. To validate the minimum width and height, you may use the `min-width` and `min-height` attributes. Similarly, to validate the maximum width and height, you may use the `max-width` and `max-height` attributes:
+FilePond supports validating the dimensions of a selected image. For example, you may use the `min-width` and `min-height` attributes to validate the minimum width and height. Similarly, to validate the maximum width and height, you may use the `max-width` and `max-height` attributes:
 
 ```blade
 <x-splade-file name="avatar" filepond min-width="200" min-height="200" />
@@ -107,7 +107,7 @@ Next, in the template, add the `server` attribute to the component. From now on,
 <x-splade-file name="avatar" filepond server />
 ```
 
-Splade will store the file in a temporary directory and report the path to the file back to the File component. So when the user submits the form, instead of uploading the file, it will submit this path.
+Splade will store the file in a temporary directory and report the path to the file back to the File component. So when the user submits the form, it will send this path instead of uploading the file.
 
 There are three ways of handling the temporary upload. First, you may use the `HandleSpladeFileUploads` class, for example, in your controller:
 
@@ -143,7 +143,7 @@ Route::post('podcast', StorePodcastController::class)
     ->middleware(HandleSpladeFileUploads::for('photo'));
 ```
 
-The last option is to use [Form Request](https://laravel.com/docs/9.x/validation#form-request-validation). You only have to implement the `HasSpladeFileUploads` interface and make sure to use the `file` validation rule. Splade will automatically extract the keys from the rules.
+The last option is to use [Form Request](https://laravel.com/docs/9.x/validation#form-request-validation). Then, you only have to implement the `HasSpladeFileUploads` interface and use the `file` validation rule. Splade will automatically extract the keys from the rules.
 
 ```php
 use Illuminate\Foundation\Http\FormRequest;
@@ -166,7 +166,7 @@ By default, Splade uses the `/storage/splade-temporary-file-uploads` directory f
 
 ### Cleanup temporary uploads
 
-It may happen that temporary uploaded files are not being used, and end up filling the temporary directory. Splade comes with a built-in Artisan command to delete all files that are older than one hour:
+It may happen that temporarily uploaded files are not being used and will fill the temporary directory. Splade comes with a built-in Artisan command to delete all files that are older than one hour:
 
 ```bash
 php artisan splade:cleanup-uploads
@@ -176,7 +176,7 @@ You may change the lifetime of temporary files with the `file_uploads.temporary_
 
 ### Customize FilePond styling
 
-FilePond uses a *SCSS* stylesheet to style the library. Our stylesheet extends the vendor stylesheet (of FilePond) and adds some Tailwind-specific tweaks. Make sure your bundler handles SCSS stylesheets correctly, for example, by installing `sass`. The `splade:publish-form-stylesheets` Artisan command copies the stylesheet to the `resources` directory of your app.
+FilePond uses an *SCSS* stylesheet to style the library. Our stylesheet extends the vendor stylesheet (of FilePond) and adds some Tailwind-specific tweaks. Make sure your bundler handles SCSS stylesheets correctly, for example, by installing `sass`. The `splade:publish-form-stylesheets` Artisan command copies the stylesheet to the `resources` directory of your app.
 
 ```bash
 npm install sass -D
