@@ -113,11 +113,11 @@ There are three ways of handling the temporary upload. First, you may use the `H
 
 ```php
 use Illuminate\Http\Request;
-use ProtoneMedia\Splade\FileUploads\HandleSpladeFileUploads;
+use ProtoneMedia\Splade\FileUploads\HandleSpladeFileUploads;    // [tl! add]
 
 public function store(Request $request)
 {
-    HandleSpladeFileUploads::forRequest($request);
+    HandleSpladeFileUploads::forRequest($request);  // [tl! add]
 
     $request->validate([
         'photo' => ['required', 'file', 'image'],
@@ -137,19 +137,19 @@ The second option is to use a Route Middleware. You may use the same `HandleSpla
 
 ```php
 Route::post('podcast', StorePodcastController::class)
-    ->middleware(HandleSpladeFileUploads::class);
+    ->middleware(HandleSpladeFileUploads::class);   // [tl! add]
 
 Route::post('podcast', StorePodcastController::class)
-    ->middleware(HandleSpladeFileUploads::for('photo'));
+    ->middleware(HandleSpladeFileUploads::for('photo'));    // [tl! add]
 ```
 
 The last option is to use a [Form Request](https://laravel.com/docs/9.x/validation#form-request-validation). Then, you only have to implement the `HasSpladeFileUploads` interface and use the `file` validation rule. Splade will automatically extract the keys from the rules.
 
 ```php
 use Illuminate\Foundation\Http\FormRequest;
-use ProtoneMedia\Splade\FileUploads\HasSpladeFileUploads;
+use ProtoneMedia\Splade\FileUploads\HasSpladeFileUploads;   // [tl! add]
 
-class StorePodcastRequest extends FormRequest implements HasSpladeFileUploads
+class StorePodcastRequest extends FormRequest implements HasSpladeFileUploads   [tl! add]
 {
     public function rules()
     {
