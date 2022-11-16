@@ -109,7 +109,7 @@ Next, in the template, add the `server` attribute to the component. From now on,
 
 Splade will store the file in a temporary directory and report the path to the file back to the File component. So when the user submits the form, it will send this path instead of uploading the file.
 
-There are three ways of handling the temporary upload. First, you may use the `HandleSpladeFileUploads` class, for example, in your controller:
+There are three ways of handling the temporary upload. You may choose the option that best fits your needs. First, you may use the `HandleSpladeFileUploads` class, for example, in your controller:
 
 ```php
 use Illuminate\Http\Request;
