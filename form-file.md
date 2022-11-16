@@ -107,6 +107,14 @@ Next, in the template, add the `server` attribute to the component. By default, 
 <x-splade-file name="avatar" filepond server />
 ```
 
+From now on, when a user drops a file into the FilePond instance, it will automatically start uploading it to the server. It will store the file in a temporary directory. By default, this the `/storage/splade-temporary-file-uploads` directory. If you want to use a custom [Filesystem disk](https://laravel.com/docs/9.x/filesystem#configuration), you may update the `file_uploads.disk` key in the `splade.php` [configuration file](/customization.md).
+
+### Cleanup temporary uploads
+
+```bash
+php artisan splade:cleanup-uploads
+```
+
 ### Customize FilePond styling
 
 FilePond uses a *SCSS* stylesheet to style the library. Our stylesheet extends the vendor stylesheet (of FilePond) and adds some Tailwind-specific tweaks. Make sure your bundler handles SCSS stylesheets correctly, for example, by installing `sass`. The `splade:publish-form-stylesheets` Artisan command copies the stylesheet to the `resources` directory of your app.
