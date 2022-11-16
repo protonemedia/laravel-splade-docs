@@ -102,4 +102,4 @@ Here's a summary of all the cool things Splade can do:
 * `<x-transition>` component to add animations to your templates.
 * `Toast` component to display toasts on your page. It supports nine positions, four styles, backdrop background, and auto-dismiss.
 * `Table` component to automatically generate tables with support for auto-fill, searching, filtering, sorting, toggling columns, and pagination.
-* `Form` components to rapidly build forms. Support for model binding, validation, Eloquent Relationships, textarea autosize, Choices.js searchable/taggable selects, and Flatpickr for date/time/range picking.
+* `Form` components to rapidly build forms. Support for model binding, validation, Eloquent Relationships, textarea autosize, Choices.js searchable/taggable selects, Flatpickr for date/time/range picking, and FilePond file uploads.
