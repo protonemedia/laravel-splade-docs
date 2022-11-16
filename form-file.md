@@ -101,19 +101,78 @@ FilePond supports uploading the file to the server before the form is submitted.
 Route::spladeUploads();
 ```
 
-Next, in the template, add the `server` attribute to the component. By default, it points to the registed route, but you may also specify a custom route and handle the upload manually.
+Next, in the template, add the `server` attribute to the component. From now on, when a user drops a file into the FilePond instance, it will immediately start uploading to the server.
 
 ```blade
 <x-splade-file name="avatar" filepond server />
 ```
 
-From now on, when a user drops a file into the FilePond instance, it will automatically start uploading it to the server. It will store the file in a temporary directory. By default, this the `/storage/splade-temporary-file-uploads` directory. If you want to use a custom [Filesystem disk](https://laravel.com/docs/9.x/filesystem#configuration), you may update the `file_uploads.disk` key in the `splade.php` [configuration file](/customization.md).
+Splade will store the file in a temporary directory and report the path to the file back to the File component. So when the user submits the form, instead of uploading the file, it will submit this path.
+
+There are three ways of handling the temporary upload. First, you may use the `HandleSpladeFileUploads` class, for example, in your controller:
+
+```php
+use Illuminate\Http\Request;
+use ProtoneMedia\Splade\FileUploads\HandleSpladeFileUploads;
+
+public function store(Request $request)
+{
+    HandleSpladeFileUploads::forRequest($request);
+
+    $request->validate([
+        'photo' => ['required', 'file', 'image'],
+    ]);
+
+    $path = $request->file('photo')->store('images');
+}
+```
+
+The `HandleSpladeFileUploads` class will loop through the request data and transform paths to temporary uploads back into `UploadedFile` instances. Make sure you call the `forRequest()` method *before* validating the request. Instead of looping through all request data, you may also pass the key (or an array of keys):
+
+```php
+HandleSpladeFileUploads::forRequest($request, 'photo');
+```
+
+The second option is to use a Route Middleware. You may use the same `HandleSpladeFileUploads` class as the example above. Using the *fully qualified class name* will loop through all request data, but you may also specify one or more keys using the static `for` method.
+
+```php
+Route::post('podcast', StorePodcastController::class)
+    ->middleware(HandleSpladeFileUploads::class);
+
+Route::post('podcast', StorePodcastController::class)
+    ->middleware(HandleSpladeFileUploads::for('photo'));
+```
+
+The last option is to use [Form Request](https://laravel.com/docs/9.x/validation#form-request-validation). You only have to implement the `HasSpladeFileUploads` interface and make sure to use the `file` validation rule. Splade will automatically extract the keys from the rules.
+
+```php
+use Illuminate\Foundation\Http\FormRequest;
+use ProtoneMedia\Splade\FileUploads\HasSpladeFileUploads;
+
+class StorePodcastRequest extends FormRequest implements HasSpladeFileUploads
+{
+    public function rules()
+    {
+        return [
+            'photo' => 'required|file|image',
+        ];
+    }
+}
+```
+
+### Custom temporary directory
+
+By default, Splade uses the `/storage/splade-temporary-file-uploads` directory for temporary uploads. If you want to use a custom [Filesystem disk](https://laravel.com/docs/9.x/filesystem#configuration), you may update the `file_uploads.disk` key in the `splade.php` [configuration file](/customization.md). For now, it only supports local disks.
 
 ### Cleanup temporary uploads
+
+It may happen that temporary uploaded files are not being used, and end up filling the temporary directory. Splade comes with a built-in Artisan command to delete all files that are older than one hour:
 
 ```bash
 php artisan splade:cleanup-uploads
 ```
+
+You may change the lifetime of temporary files with the `file_uploads.temporary_file_lifetime` key in the `splade.php` [configuration file](/customization.md).
 
 ### Customize FilePond styling
 
