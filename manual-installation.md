@@ -86,7 +86,7 @@ createApp({
     .mount(el);
 ```
 
-As you can see at the top, there's also a default stylesheet to support the Choices.js and Flatpickr integrations of the [Form Components](/form-overview.md). Though you probably want to import this default stylesheet into your main JavaScript file, it's completely optional.
+As you can see at the top, there's also a default stylesheet to support the Choices.js, FilePond, and Flatpickr integrations of the [Form Components](/form-overview.md). Though you probably want to import this default stylesheet into your main JavaScript file, it's completely optional.
 
 In your Blade root layout, you may use the `@splade` directive inside the `body`, and the `@spladeHead` directive inside the `head`. This will render the title and meta tags, and the default `<div id="app"></div>` element where the Vue app will be mounted.
 
