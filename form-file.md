@@ -42,7 +42,7 @@ You can instantiate FilePond with a [custom set of options](https://pqina.nl/fil
 ```blade
 <x-splade-file name="avatar" filepond="{ allowDrop: false }" />
 
-<x-splade-file name="avatar" :filepond="['allowDrop' => false ]" />
+<x-splade-file name="avatar" :filepond="['allowDrop' => false]" />
 ```
 
 ### Image Preview
