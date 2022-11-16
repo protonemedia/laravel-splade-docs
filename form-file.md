@@ -143,7 +143,7 @@ Route::post('podcast', StorePodcastController::class)
     ->middleware(HandleSpladeFileUploads::for('photo'));
 ```
 
-The last option is to use [Form Request](https://laravel.com/docs/9.x/validation#form-request-validation). Then, you only have to implement the `HasSpladeFileUploads` interface and use the `file` validation rule. Splade will automatically extract the keys from the rules.
+The last option is to use a [Form Request](https://laravel.com/docs/9.x/validation#form-request-validation). Then, you only have to implement the `HasSpladeFileUploads` interface and use the `file` validation rule. Splade will automatically extract the keys from the rules.
 
 ```php
 use Illuminate\Foundation\Http\FormRequest;
