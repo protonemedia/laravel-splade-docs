@@ -1,6 +1,6 @@
 # Table with the built-in Query Builder
 
-Besides rendering the head, body, and pagination, the component supports many other features like filtering, searching, sorting, and more.
+Besides rendering the head, body, and pagination, the component supports many other features like filtering, searching, sorting, and more. The built-in Query Builder has been tested with MySQL, PostgreSQL and SQLite.
 
 ## Search Fields
 
