@@ -162,7 +162,7 @@ class StorePodcastRequest extends FormRequest implements HasSpladeFileUploads   
 
 ### Cleanup temporary uploads
 
-It may happen that temporarily uploaded files are not being used and will fill the temporary directory. Splade comes with a built-in Artisan command to delete all files that are older than one hour:
+It may happen that temporarily uploaded files are not being used and will fill the temporary directory. Splade comes with a built-in Artisan command to delete all unused files that are older than one hour:
 
 ```bash
 php artisan splade:cleanup-uploads
