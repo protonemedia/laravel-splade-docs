@@ -149,7 +149,7 @@ The last option is to use a [Form Request](https://laravel.com/docs/9.x/validati
 use Illuminate\Foundation\Http\FormRequest;
 use ProtoneMedia\Splade\FileUploads\HasSpladeFileUploads;   // [tl! add]
 
-class StorePodcastRequest extends FormRequest implements HasSpladeFileUploads   [tl! add]
+class StorePodcastRequest extends FormRequest implements HasSpladeFileUploads   // [tl! add]
 {
     public function rules()
     {
