@@ -148,3 +148,21 @@ Then import the stylesheet in your main JavaScript file (instead of the default 
 ```js
 import "../css/choices.scss"
 ```
+
+### Laravel Dusk macro
+
+Splade has two macros that help you test Choices.js instances with [Laravel Dusk](https://laravel.com/docs/9.x/dusk). Instead of calling `select` with the *field* and *value* arguments, you may use the `choicesSelect` method:
+
+```php
+$browser->select('size', 'Large');  // [tl! remove]
+
+$browser->choicesSelect('size', 'Large');  // [tl! add]
+```
+
+If you want to remove an item from a Choices.js instance with multiple options, you may use the `choicesRemoveItem` method:
+
+```php
+$browser->choicesRemoveItem('countries[]', 'NL');
+```
+
+You may change the name of the macros with the `dusk.choices_select_macro` and `dusk.choices_remove_item_macro` keys in the `splade.php` [configuration file](/customization.md).
