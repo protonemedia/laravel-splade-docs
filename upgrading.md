@@ -15,3 +15,11 @@ php artisan view:clear
 ```
 
 Lastly, if you've published the config file or the Blade templates, make sure your customizations are up-to-date with the defaults.
+
+## Verify installed packages
+
+You may use the built-in Artisan Command to show the installed versions of the packages:
+
+```bash
+php artisan splade:show-versions
+```
