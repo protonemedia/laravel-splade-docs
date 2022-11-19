@@ -69,12 +69,12 @@ module.exports = {
 };
 ```
 
-In the `createApp` section of your main JavaScript file, you need to use the Splade plugin, as well as the custom render method:
+In the `createApp` section of your main JavaScript file, you need to use the Splade plugin, as well as the custom render method. Note how it imports the `createApp` method from the *bundler* Vue build, as that build includes the [Vue template compiler](https://vuejs.org/guide/scaling-up/tooling.html#note-on-in-browser-template-compilation).
 
 ```js
 import "@protonemedia/laravel-splade/dist/style.css";
 
-import { createApp } from 'vue'
+import { createApp } from "vue/dist/vue.esm-bundler.js";
 import { renderSpladeApp, SpladePlugin } from '@protonemedia/laravel-splade'
 
 const el = document.getElementById('app')
@@ -104,20 +104,4 @@ Splade assumes the path of this file is `resources/views/root.blade.php`. If you
 
 ```php
 Splade::setRootView('base-layout');
-```
-
-Lastly, in the `vite.config.js` file, you need to add an alias for the [Vue template compiler](https://vuejs.org/guide/scaling-up/tooling.html#note-on-in-browser-template-compilation):
-
-```js
-export default defineConfig({
-    ...
-
-    resolve: {
-        alias: {
-            vue: 'vue/dist/vue.esm-bundler'
-        }
-    },
-
-    ...
-});
 ```
