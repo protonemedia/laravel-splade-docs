@@ -46,3 +46,33 @@ createApp({ render: renderSpladeApp({ el }) })
     })
     .mount(el);
 ```
+
+## Method, Headers, and Request Data
+
+By default, the asynchronous page load is a `GET` request, but you may change this with the `method` attribute:
+
+```blade
+<Link href="/template/new" method="POST">Start new template</Link>
+```
+
+The component also supports custom headers and request data. While you can use the `headers` and `data` attributes on the `Link` component, there's also a Blade variant of the component. Just like the [Data component](/x-data.md), it allows you to pass a PHP value *or* a JavaScript object:
+
+The value passed to the `data` attribute will be parsed by Vue, not by PHP.
+
+```blade
+<x-splade-link href="/template/new" method="POST" data="{ name: 'Untitled Template' }">
+```
+
+If you want to parse the value by PHP, you may use the `:data` attribute (note the colon).
+
+```blade
+<x-splade-link href="/template/new" method="POST" :data="['name' => 'Untitled Template']">
+```
+
+You can do the same for adding headers:
+
+```blade
+<x-splade-link href="/template/new" method="POST" headers="{ 'X-Redirect-To-Billing-Portal': 1 }">
+
+<x-splade-link href="/template/new" method="POST" :headers="['X-Redirect-To-Billing-Portal' => 1]">
+```
