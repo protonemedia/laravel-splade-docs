@@ -66,6 +66,26 @@ Instead of fully unguarding the form, you may specify which attributes to unguar
 
 You can read more about this behaviour on the [Form Model Binding](/form-model-binding-attributes.md) page. Even better, the dedicated [Form Components](/form-overview.md) handle this automatically for you.
 
+## Using Data
+
+Besides binding form data to an input element, you may the form data the build interactive elements just like the [Data component](/x-data.md). For example, you could use the `form` object to toggle classes or show an element.
+
+```blade
+<x-splade-form>
+    {{-- Interact with the value of the data --}}
+    <input type="text" v-model="form.name" />
+    <p>Your name is: <span v-text="form.name" /></p>
+
+    {{-- Toggle classes based on the value of the data --}}
+    <input type="checkbox" v-model="form.newsletter" />
+    <svg :class="{ 'text-green-500': form.newsletter, 'text-red-500': !form.newsletter }" />
+
+    {{-- Show elements based on the value of the data --}}
+    <input type="checkbox" v-model="form.agree_with_terms" />
+    <button type="submit" v-show="form.agree_with_terms">Submit</button>
+</x-splade-form>
+```
+
 ## Confirmation
 
 You may use the `confirm` attribute to show a confirmation dialog before the form is submitted:
