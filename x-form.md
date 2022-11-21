@@ -197,31 +197,31 @@ There are several props that you can use to show the state of the form:
 
 The `form` object has several additional methods and properties that you could use. With the `$put` method, you can set a value:
 
-```vue
+```blade
 <button @click.prevent="form.$put('plan', 'pro')">Set Plan to Pro</button>
 ```
 
 The `$all` property could help you debug the Form by printing all values:
 
-```vue
+```blade
 <pre v-text="form.$all" />
 ```
 
 If you'd somehow need to submit the Form with a custom trigger, you can use the `submit` method:
 
-```vue
+```blade
 <div @click.prevent="form.submit">Start</div>
 ```
 
 As shown above, there's an `errors` object to evaluate validation errors, but there's also a `hasError` method to determine whether there is an error:
 
-```vue
+```blade
 <svg v-show="form.hasError('avatar')">...</svg>
 ```
 
 If you want full access to the server-side error bag, you may use the `rawErrors` object.
 
-```vue
+```blade
 <div v-for="(errorArray, key) in form.rawErrors">
     ...
 </div>
