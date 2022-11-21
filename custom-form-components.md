@@ -6,6 +6,8 @@ Splade comes with a great set of [built-in Form Components](/form-overview.md), 
 
 The component we'll be implementing is a *card selector*. In this example, two cards represent a subscription plan (*basic* or *pro*). Clicking on one of the cards will update the form data, as the cards are built around a `radio` input element. Here's what it looks like:
 
+<img src="/splade-plan-selector.png" style="width: 100%; max-width: 500px;" />
+
 ## Blade implementation
 
 First, let's take a look at a Blade implementation. This implementation works without any custom Vue components. For the sake of simplicity, we'll hard-code both plans, and we don't extract each card into a separate component.
@@ -277,4 +279,15 @@ export default {
     emits: ["update:modelValue"],
 };
 </script>
+```
+
+You can use the new `Plan` component in the Blade template:
+
+```blade
+<x-splade-form default="{ plan: 'basic' }">
+    <div class="flex flex-row justify-center space-x-4">
+        <Plan v-model="form.plan" plan="basic" title="Plan Basic" price="9.99" />
+        <Plan v-model="form.plan" plan="pro" title="Plan Pro" price="19.99" />
+    </div>
+</x-splade-form>
 ```
