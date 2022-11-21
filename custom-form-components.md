@@ -236,7 +236,7 @@ Again, this works fine, but you don't want to hardcode the plans into the Vue co
 
 ### Extract Card into Vue Component
 
-Let's take the Vue implementation one step further, and extract the Cards into a dedicated Vue component. We'll name this component `Card.vue`. As the plans are now dynamic, we'll add a `plan`, `price`, and `title` property:
+Let's take the Vue implementation one step further, and extract the Cards into a dedicated Vue component. We'll name this component `CardLabel.vue`. As the plans are now dynamic, we'll add a `plan`, `price`, and `title` property:
 
 ```vue
 <template>
@@ -281,13 +281,13 @@ export default {
 </script>
 ```
 
-You can use the new `Plan` component in the Blade template:
+You can use the new `CardLabel` component in the Blade template:
 
 ```blade
 <x-splade-form default="{ plan: 'basic' }">
     <div class="flex flex-row justify-center space-x-4">
-        <Plan v-model="form.plan" plan="basic" title="Plan Basic" price="9.99" />
-        <Plan v-model="form.plan" plan="pro" title="Plan Pro" price="19.99" />
+        <CardLabel v-model="form.plan" plan="basic" title="Plan Basic" price="9.99" />
+        <CardLabel v-model="form.plan" plan="pro" title="Plan Pro" price="19.99" />
     </div>
 </x-splade-form>
 ```
