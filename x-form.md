@@ -229,4 +229,4 @@ If you want full access to the server-side error bag, you may use the `rawErrors
 
 ## Form components
 
-While writing traditional input elements is fine, Splade comes with various components to build forms even faster. Make sure to check out the [documentation page](/form-overview.md)!
+While writing traditional input elements is fine, Splade comes with various components to build forms even faster. Make sure to check out the [documentation page](/form-overview.md). There's also an extensive guide about creating [custom form components](/custom-form-components.md).
