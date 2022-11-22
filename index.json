@@ -31,7 +31,8 @@
         "State": "x-state",
         "Teleport": "x-teleport",
         "Toggle": "x-toggle",
-        "Transition": "x-transition"
+        "Transition": "x-transition",
+        "Custom components": "form-custom"
     },
     "Form components": {
         "Overview": "form-overview",
@@ -54,7 +55,8 @@
     },
     "Vue components and libraries": {
         "Custom components": "custom-vue-components",
-        "Vue libraries": "using-vue-libraries"
+        "Vue libraries": "using-vue-libraries",
+        "Form components": "custom-form-components"
     },
     "Advanced": {
         "State management": "state-management",
