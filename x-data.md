@@ -1,6 +1,6 @@
 # X-Splade-Data Component
 
-You may use the **Data Component** to interact with a set of reactive data *inside* the component. To get started, you don't even need to define a structure of a default set of data.
+You may use the **Data Component** to interact with a set of reactive data *inside* the component. To get started, you don't even need to define a structure or a default set of data.
 
 ```blade
 <x-splade-data>
