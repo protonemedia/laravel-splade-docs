@@ -96,3 +96,5 @@ Then import the stylesheet in your main JavaScript file (instead of the default 
 ```js
 import "../css/flatpickr.styl"
 ```
+
+In a future Splade release, we'll work on migrating the *Stylus* stylesheet to a more Tailwind-friendly preprocessor (or plain CSS).

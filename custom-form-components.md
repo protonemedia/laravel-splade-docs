@@ -291,3 +291,50 @@ You can use the new `CardLabel` component in the Blade template:
     </div>
 </x-splade-form>
 ```
+
+## Renderless Vue component
+
+Vue also supports renderless components, which don't include a *template* section. So in the example below, the `total` value will be updated whenever the `price` or `amount` value change.
+
+```blade
+<x-splade-form>
+    <Calculator :form="form">
+        <x-splade-input label="Price" name="price" />
+        <x-splade-input label="Amount" name="amount" />
+        <x-splade-input label="Total" name="total" disabled />
+    </Calculator>
+</x-splade-form>
+```
+
+We'll pass the `form` object to the Vue component again and then set up watchers for the `price` and `amount` values, which will call the `updateTotal` method:
+
+```vue
+<script>
+export default {
+    props: {
+        form: Object,
+    },
+
+    watch: {
+        "form.amount"() {
+            this.updateTotal();
+        },
+        "form.price"() {
+            this.updateTotal();
+        },
+    },
+
+    methods: {
+        updateTotal() {
+            this.form.total = this.form.price && this.form.amount
+                ? this.form.price * this.form.amount
+                : 0;
+        },
+    },
+
+    render() {
+        return this.$slots.default({});
+    },
+};
+</script>
+```
