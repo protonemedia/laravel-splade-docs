@@ -5,7 +5,7 @@ The **Defer Component** allows you to load data asynchronously. The component ex
 ```blade
 <x-splade-defer url="https://api.com/quote/random">
     <p v-show="processing">Loading random quote...</p>
-    <p v-if="response" v-text="response.data.quote" />
+    <p v-if="response.data" v-text="response.data.quote" />
     <button @click.prevent="reload">New quote</button>
 </x-splade-defer>
 ```
