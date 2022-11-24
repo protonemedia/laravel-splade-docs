@@ -12,7 +12,7 @@ Splade is super easy to use but rather complicated under the hood. Let's break d
 
 First, the Blade compiler will render the `x-data` component. This Blade component is essentially a wrapper around a corresponding Vue component. It understands that the given data (the default array) is *jsonable*, so it passes the data as a JSON-encoded string to the `SpladeData` Vue component as a property.
 
-```vue
+```blade
 <SpladeData :default="@js($data)">
     <template #default="data">
         <input v-model="data.name" />
