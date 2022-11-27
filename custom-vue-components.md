@@ -79,7 +79,7 @@ createApp({
         "progress_bar": true
     })
     .component('Counter', Counter)   // [tl! remove]
-    .component("Counter", defineAsyncComponent(() => import("./Components/Counter.vue")))   // [tl! add]
+    .component('Counter', defineAsyncComponent(() => import("./Components/Counter.vue")))   // [tl! add]
     .mount(el);
 ```
 
