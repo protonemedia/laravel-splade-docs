@@ -60,6 +60,29 @@ Now you may use the component in a Blade template:
 </x-layout>
 ```
 
+## Async Components
+
+When you register components in the main `app.js`, like in the example above, the components will end up in the `app.js` bundle when you build the assets for production use. You may also use *dynamic imports*, which will only load a component from the server when needed. Vue has a [built-in](https://vuejs.org/guide/components/async.html) `defineAsyncComponent` function to accomplish this.
+
+```js
+import { createApp } from "vue/dist/vue.esm-bundler.js";  // [tl! remove]
+import { createApp, defineAsyncComponent } from "vue/dist/vue.esm-bundler.js";  // [tl! add]
+
+import Counter from "./Components/Counter.vue";  // [tl! remove]
+
+createApp({
+    render: renderSpladeApp({ el })
+})
+    .use(SpladePlugin, {
+        "max_keep_alive": 10,
+        "transform_anchors": false,
+        "progress_bar": true
+    })
+    .component('Counter', Counter)   // [tl! remove]
+    .component("Counter", defineAsyncComponent(() => import("./Components/Counter.vue")))   // [tl! add]
+    .mount(el);
+```
+
 ## Passing data
 
 If you need to pass data to a Vue component (as a property), you may use the `@js` directive:
