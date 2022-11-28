@@ -11,3 +11,5 @@ By default, the element is rendered as a `div`, but you may customize it, as wel
 ```blade
 <x-splade-content as="article" class="prose" :html="$renderedMarkdown" />
 ```
+
+As [stated in the Vue documentation](https://vuejs.org/api/built-in-directives.html#v-text), only use this component with trusted content and never on user-provided content, as it may lead to XSS attacks.

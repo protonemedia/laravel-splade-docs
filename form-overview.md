@@ -82,3 +82,5 @@ By default, Splade scrolls to the first element with a validation error. You may
     ...
 </x-splade-form>
 ```
+
+Splade escapes Validation errors by default, so if you use raw HTML in one of your messages, Vue won't insert those as plain HTML. If you want to disable this behavior, set the `blade.escape_validation_messages` key in the `splade.php` [configuration file](/customization.md) to `false`. Only disable this on trusted content and never on user-provided content, as it may lead to XSS attacks.
