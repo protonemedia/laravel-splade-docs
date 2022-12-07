@@ -93,6 +93,24 @@ Alternatively, you may specify a minimum or maximum resolution:
 <x-splade-file name="header" filepond :max-resolution="1500 * 1200" />
 ```
 
+### Adding remote files
+
+FilePond can upload a file using a Remote URL. The `form` object has an `$addFile` method that allows you to pass a URL to a FilePond instance. You must pass the *field* as the first argument and the *URL* as the second argument. In the example below, we'll use a regular input element to set the Remote URL:
+
+```blade
+<x-splade-form>
+    <x-splade-file filepond server name="avatar" />
+
+    <x-splade-input name="remote_url" label="Remote URL" />
+
+    <button @click.prevent="form.$addFile('avatar', form.remote_url)">
+        Add from Remote URL
+    </button>
+</x-splade-form>
+```
+
+If you need to add multiple files at once, you may use the `$addFiles` method, which accepts an array as a second argument.
+
 ### Asynchronous uploads
 
 FilePond supports uploading the file to the server before the form is submitted. First, you must register a supporting route using the `spladeUploads()` method on the `Route` facade. As of version 0.7.6, the automatic installer does this for you. If you need to register the route manually, make sure it uses the `web` Middleware, for example, in `web.php`:
@@ -188,4 +206,94 @@ Then import the stylesheet in your main JavaScript file (instead of the default 
 
 ```js
 import "../css/filepond.scss"
+```
+
+## Working with existing files
+
+FilePond allows you to show existing files in the UI. Splade comes with a set of tools to help you present and preserve existing files. Imagine you use the file input to replace a user's avatar while still showing the current one. You may use the `ExistingFile` class to load the current avatar:
+
+```php
+use ProtoneMedia\Splade\FileUploads\ExistingFile;
+
+$avatar = ExistingFile::fromDisk('public')->get('avatars/user.jpeg');
+```
+
+Then in the Blade template, you may use the `ExistingFile` instance as default form data:
+
+```blade
+<x-splade-form :default="['avatar' => $avatar]">
+    <x-splade-file filepond preview name="avatar" />
+    <x-splade-submit />
+</x-splade-form>
+```
+
+If you submit the form *without* changing the avatar, the `avatar` field will be empty, but Splade will submit an `avatar_existing` field to inform you the current avatar hasn't changed. When you access that key from the `Request` instance, it will give you an instance of `ExistingFile` again:
+
+```php
+public function update(Request $request)
+{
+    HandleSpladeFileUploads::forRequest($request);
+
+    // This is an instance of ExistingFile:
+    $existingAvatar = $request->avatar_existing;
+}
+```
+
+```php
+use ProtoneMedia\Splade\FileUploads\SpladeFile;
+
+public function update(Request $request)
+{
+    $request->orderedSpladeFileUploads('photos')->each(function (SpladeFile $file) {
+        if ($file->exists()) {
+            // This is an instance of ExistingFile:
+            $file->existing;
+        }
+
+        if ($file->doesntExist()) {
+            // This is an instance of UploadedFile:
+            $file->upload;
+        }
+    })
+}
+```
+
+### Spatie Media Library
+
+```php
+ExistingFile::fromMediaLibrary($model->getMedia());
+```
+
+```php
+ExistingFile::fromMediaLibrary(
+    media: $model->getMedia(),
+    previewConversionName: 'thumb',
+    previewUrlExpiration: now()->addMinutes(15),
+    previewUrlOptions: ['ResponseContentType' => 'application/octet-stream']
+);
+```
+
+```php
+public function update(Request $request)
+{
+    $user = $request->user();
+
+    HandleSpladeFileUploads::syncMediaLibrary($request, $user, 'photos');
+}
+```
+
+```php
+HandleSpladeFileUploads::syncMediaLibrary(
+    request: $request,
+    subject: $user,
+    key: 'photos',
+    collectionName: 'photos',
+    diskName: 's3'
+);
+```
+
+### Additional helper methods
+
+```php
+$existingFile->metadata(['id' => $template->id]);
 ```
