@@ -1,3 +1,9 @@
+---
+description: The Splade File component can display the selected file and integrates with FilePond and Spatie's Media Library. It supports handling existing files, reordering files, async uploads, and image validation.
+
+keywords: laravel file upload, laravel filepond, filepond spatie media library, filepond file manager, laravel file manager, laravel image library, laravel async upload, laravel image preview, laravel multiple file upload
+---
+
 # X-Splade-File Component
 
 The **File Component** is a dedicated component you can use to select files. This component is based mainly on the [Input component](/form-input.md) but provides additional logic to display the filename of the selected file. You don't have to manually use the input event to bind the selected files to the form. Splade does this for you.
