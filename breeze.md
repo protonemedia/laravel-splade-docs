@@ -12,4 +12,6 @@ cd example-app
 composer require protonemedia/laravel-splade-breeze
 
 php artisan breeze:install
+
+npm run dev
 ```
