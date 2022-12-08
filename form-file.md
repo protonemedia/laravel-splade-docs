@@ -12,7 +12,7 @@ The component supports selecting multiple files as well by adding the `multiple`
 
 ```blade
 <x-splade-form :default="['documents' => []]">
-    <x-splade-file name="documents" multiple />
+    <x-splade-file name="documents[]" multiple />
 </x-splade-form>
 ```
 
@@ -34,7 +34,7 @@ Now you may add the `filepond` attribute to the component:
 This works for uploading multiple files as well:
 
 ```blade
-<x-splade-file name="avatar" multiple filepond />
+<x-splade-file name="avatars[]" multiple filepond />
 ```
 
 You can instantiate FilePond with a [custom set of options](https://pqina.nl/filepond/docs/api/instance/properties/) by passing a *JavaScript* object to the `filepond` attribute. To pass a PHP array, you may use the `:filepond` attribute (note the colon).
@@ -239,6 +239,39 @@ public function update(Request $request)
 }
 ```
 
+### Multiple existing files
+
+You may also use multiple existing files with a file input that allows uploading multiple files. For example, instead of passing one instance of `ExistingFile`, you may now use an array:
+
+```php
+$photos = [
+    ExistingFile::fromDisk('public')->get('photos/1.jpeg'),
+    ExistingFile::fromDisk('public')->get('photos/2.jpeg'),
+];
+```
+
+Luckily, the `get` method also accepts an array:
+
+```php
+$photos = ExistingFile::fromDisk('public')->get([
+    'photos/1.jpeg',
+    'photos/2.jpeg',
+]);
+```
+
+Just like using a single existing file as default form data, you may do the same for multiple files:
+
+```blade
+<x-splade-form :default="['photos' => $photos]">
+    <x-splade-file filepond multiple preview name="photos[]" />
+    <x-splade-submit />
+</x-splade-form>
+```
+
+The user may submit the form with existing and new files when dealing with multiple files. In addition, FilePond allows the user to reorder the files as well. So how would you handle such forms in the controller? Like the avatar example, Splade will submit a `photos` array with new files and a `photos_existing` array with the existing files. Additionally, the request data will have a `photos_order` key representing the order, as a user can mix existing and new files.
+
+You can combine existing and new files with their order manually. However, Splade comes with a `orderedSpladeFileUploads()` method that you may call on a `Request` instance. This method returns a `Collection` with `SpladeFile` instances. The files are already in the correct order, and have helper methods like `exists()` and `doesntExist()` to determine the file's nature.
+
 ```php
 use ProtoneMedia\Splade\FileUploads\SpladeFile;
 
@@ -260,9 +293,13 @@ public function update(Request $request)
 
 ### Spatie Media Library
 
+The FilePond integration has built-in support for [Spatie's Media Library package](https://spatie.be/docs/laravel-medialibrary/v10/introduction). The `ExampleFile` class has a helper method to load media collections. Instead of loading a collection, it also works with the `getFirstMedia()` method.
+
 ```php
 ExistingFile::fromMediaLibrary($model->getMedia());
 ```
+
+Additionally, you may specify the [conversion name](https://spatie.be/docs/laravel-medialibrary/v10/converting-images/defining-conversions) that FilePond should use for a preview image. There's also support for customizing the expiration and options of the Temporary URL (S3 disk only).
 
 ```php
 ExistingFile::fromMediaLibrary(
@@ -273,6 +310,8 @@ ExistingFile::fromMediaLibrary(
 );
 ```
 
+Instead of using the `orderedSpladeFileUploads()` method and syncing the media collection, you may use the `syncMediaLibrary` method. This method will add and delete files and set the order. You must pass the `Request` instance, the Eloquent model that interacts with media (the subject), and the request key containing the files.
+
 ```php
 public function update(Request $request)
 {
@@ -281,6 +320,8 @@ public function update(Request $request)
     HandleSpladeFileUploads::syncMediaLibrary($request, $user, 'photos');
 }
 ```
+
+Optionally, there's a fourth and fifth argument to customize the name of the media collection and the name of the disk:
 
 ```php
 HandleSpladeFileUploads::syncMediaLibrary(
@@ -294,6 +335,18 @@ HandleSpladeFileUploads::syncMediaLibrary(
 
 ### Additional helper methods
 
+To help you identify existing files, you may set an array with metadata:
+
 ```php
 $existingFile->metadata(['id' => $template->id]);
 ```
+
+To retrieve the metadata, you may call the `getMetadata()` method to get the array, or pass a key to retrieve a value:
+
+```php
+$allMetadata = $existingFile->getMetadata();
+
+$id = $existingFile->getMetadata('id');
+```
+
+Splade will automatically serialize Eloquent models and collections, and the metadata will be encrypted before it's passed to the Vue frontend.
