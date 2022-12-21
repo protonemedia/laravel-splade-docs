@@ -10,8 +10,4 @@ cd example-app
 composer require protonemedia/laravel-splade
 
 php artisan splade:install
-
-npm install
-
-npm run dev
 ```
