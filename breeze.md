@@ -12,6 +12,10 @@ cd example-app
 composer require protonemedia/laravel-splade-breeze
 
 php artisan breeze:install
-
-npm run dev
 ```
+
+The `breeze:install` command will also build the frontend assets. Just like [regular Laravel applications](https://laravel.com/docs/9.x/vite#running-vite), you may run the Vite development server:
+
+```bash
+npm run dev
+````
