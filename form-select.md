@@ -124,6 +124,31 @@ Just like the regular pre-defined options, it supports objects as well:
 <x-splade-select remote-url="/api/servers" option-label="ip" option-value="uuid" />
 ```
 
+You might want to load the remote options from a nested dataset. In the example below, you want to extract the options from the `data.users` path.
+
+```json
+{
+    "data": {
+        "users": [
+            {
+                "id": 1,
+                "name": "John"
+            },
+            {
+                "id": 2,
+                "name": "Jane"
+            }
+        ]
+    }
+}
+```
+
+You may use the `remote-root` attribute to set a base path for the options:
+
+```blade
+<x-splade-select remote-url="/api/users" remote-root="data.users" option-label="name" option-value="id" />
+```
+
 The `remote-url` attribute supports *Template literals*, making it perfect for building dependent selects:
 
 ```blade
