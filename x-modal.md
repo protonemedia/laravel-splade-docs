@@ -60,6 +60,14 @@ You can control the size of the modal with the `max-width` attribute. Valid valu
 <x-splade-modal max-width="lg">
 ```
 
+## Position
+
+By default, the modal is vertically centered. However, you may customize this with the `position` attribute, which you can set to either `top`, `center`, or `bottom`:
+
+```blade
+<x-splade-modal position="top">
+```
+
 ## Close Button
 
 The modal and slideover have a *close button*, which you can disable with the `close-button` attribute.
