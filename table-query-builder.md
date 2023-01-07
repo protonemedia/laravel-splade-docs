@@ -152,7 +152,7 @@ When using auto-fill, you may want to transform the presented data for a specifi
 
 ```blade
 <x-splade-table :for="$users">
-    <x-splade-cell actions>
+    <x-splade-cell action>
         <Link href="/users/{{ $item->id }}/edit"> Edit </Link>
     </x-splade-cell>
 </x-splade-table>
