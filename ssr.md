@@ -21,7 +21,7 @@ node bootstrap/ssr/ssr.mjs
 By default, it starts on port 9000, but you may choose another port. Don't forget to update the port in the `splade.php` [configuration file](/customization.md).
 
 ```bash
-node bootstrap/ssr/ssr.js --port=4242
+node bootstrap/ssr/ssr.mjs --port=4242
 ```
 
 If you create a daemon that runs the server, don't forget to restart it after every deployment.
