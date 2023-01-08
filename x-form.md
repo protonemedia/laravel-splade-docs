@@ -167,6 +167,12 @@ If you want to stay on the same page after a successful request and want to pres
 <x-splade-form stay>
 ```
 
+Additionally, a `preserve-scroll` attribute prevents the page from scrolling to the top. This can be useful when submitting a form from a [Table component](/table-overview.md) while returning `redirect()->back()` from the controller:
+
+```blade
+<x-splade-form preserve-scroll>
+```
+
 ### Reset and restore on success
 
 You may choose to reset or restore the form data automatically. You can do this with the `reset-on-success` and `restore-on-success` attributes:

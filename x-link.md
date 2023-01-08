@@ -76,3 +76,9 @@ You can do the same for adding headers:
 
 <x-splade-link href="/template/new" method="POST" :headers="['X-Redirect-To-Billing-Portal' => 1]">
 ```
+
+Additionally, a `preserve-scroll` attribute prevents the page from scrolling to the top. This can be useful when submitting a form from a [Table component](/table-overview.md) while returning `redirect()->back()` from the controller:
+
+```blade
+<x-splade-link href="/project/touch" method="POST" :data="['id' => $item->id]" preserve-scroll>
+```
