@@ -14,7 +14,7 @@ class Handler extends ExceptionHandler
 }
 ```
 
-If you want to add a custom handler, you may pass a second argument with a closure. This implementation is similar to Laravel's [default implementation](https://laravel.com/docs/9.x/errors#rendering-exceptions).
+If you want to add a custom handler, you may pass a second argument with a closure to the `exceptionHandler()` method. This implementation is similar to Laravel's [default implementation](https://laravel.com/docs/9.x/errors#rendering-exceptions).
 
 ```php
 SpladeCore::exceptionHandler($this, function (Throwable $e, Request $request) {
