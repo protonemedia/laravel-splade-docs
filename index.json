@@ -7,8 +7,8 @@
         "Breeze starter kit": "breeze",
         "Upgrading": "upgrading",
         "Roadmap": "roadmap",
-        "Inertia.js comparison": "splade-vs-livewire",
-        "Livewire comparison": "splade-vs-inertia"
+        "Inertia.js comparison": "splade-vs-inertia",
+        "Livewire comparison": "splade-vs-livewire"
     },
     "Basics": {
         "Navigation and routing": "navigation-routing",
