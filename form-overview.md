@@ -25,7 +25,7 @@ All elements allow passing in a label, which will be rendered above the input el
 
     <x-splade-input name="username" :label="__('Username')" />
 
-    <x-splade-submit>
+    <x-splade-submit />
 </x-splade-form>
 ```
 
