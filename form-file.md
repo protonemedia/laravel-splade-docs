@@ -24,7 +24,7 @@ The component supports selecting multiple files as well by adding the `multiple`
 
 ## Image preview
 
-You might want to show a preview of the selected image. You may use the `$fileAsUrl` method to generate a *base64-encoded* representation of the image, and use it as the source of an `img` element. In addition, with the `show-filename` attribute, you can disable displaying the filename.
+You might want to show a preview of the selected image. You may use the `form.$fileAsUrl` method to generate a *base64-encoded* representation of the image, and use it as the source of an `img` element. In addition, with the `show-filename` attribute, you can disable displaying the filename.
 
 ```blade
 <x-splade-form>
