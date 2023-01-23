@@ -29,6 +29,8 @@
         "Form": "x-form",
         "Link": "x-link",
         "Modal": "x-modal",
+        "Rehydrate": "x-rehydrate",
+        "Script": "x-script",
         "State": "x-state",
         "Teleport": "x-teleport",
         "Toggle": "x-toggle",
@@ -62,6 +64,7 @@
     "Advanced": {
         "State management": "state-management",
         "Persistent layout": "persistent-layout",
+        "Event bus": "event-bus",
         "Customization": "customization",
         "Translations": "translations",
         "Exception handling": "exception-handling",

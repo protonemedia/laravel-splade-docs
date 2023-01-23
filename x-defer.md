@@ -60,6 +60,6 @@ The component can watch a passed value for changes using the `watch-value` attri
 
 If you want to watch all form data, you may pass `form.$all` to the `watch-value` attribute.
 
-## Async templates
+## Async templates and Rehydration
 
-If you want to load sections of your template asynchronously, check out the [Lazy Loading](/lazy-loading.md) section.
+If you want to load sections of your template asynchronously, check out the [Lazy Loading](/lazy-loading.md) section. There's also a [Rehydrate Component](/x-rehydrate.md) to reload a section of your Blade template.
