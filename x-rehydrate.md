@@ -34,3 +34,13 @@ If there's a form that stays on this page after a successful request, you may em
 ```
 
 Of course, when the form doesn't have the `stay` attribute and redirects back to the same page, it will reload the complete page, including the list, but you'll lose the state of other components on the page. This pattern can help avoid that.
+
+## Poll
+
+You may also use this component to poll for new data. With the `poll` attribute, you can specify the interval in milliseconds.
+
+```blade
+<x-splade-rehydrate poll="5000">
+    Today's score: {{ $score }}
+</x-splade-rehydrate>
+```
