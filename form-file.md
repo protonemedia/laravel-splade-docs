@@ -22,6 +22,18 @@ The component supports selecting multiple files as well by adding the `multiple`
 </x-splade-form>
 ```
 
+## Image preview
+
+You might want to show a preview of the selected image. You may use the `$fileAsUrl` method to generate a *base64-encoded* representation of the image, and use it as the source of an `img` element. In addition, with the `show-filename` attribute, you can disable displaying the filename.
+
+```blade
+<x-splade-form>
+    <x-splade-file name="avatar" :show-filename="false" />
+
+    <img v-if="form.avatar" :src="form.$fileAsUrl('avatar')" />
+ </x-splade-form>
+ ```
+
 ## FilePond
 
 The [FilePond](https://pqina.nl/filepond/) integration comes with a default stylesheet which you should import into the main JavaScript file. If you've used the automatic installer, it has already done this for you.
