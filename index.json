@@ -29,6 +29,7 @@
         "Form": "x-form",
         "Link": "x-link",
         "Modal": "x-modal",
+        "Rehydrate": "x-rehydrate",
         "Script": "x-script",
         "State": "x-state",
         "Teleport": "x-teleport",
