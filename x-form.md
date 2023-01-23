@@ -105,6 +105,26 @@ In addition, you may customize the confirmation dialog:
 >
 ```
 
+### Password Confirmation
+
+It's even possible to require the user to confirm their password within the confirmation dialog. First, you must register a supporting route using the `spladePasswordConfirmation()` method on the `Route` facade. As of version 1.2.2, the automatic installer does this for you. If you need to register the route manually, make sure it uses the `web` Middleware, for example, in `web.php`:
+
+```php
+Route::spladePasswordConfirmation();
+```
+
+Now you may add the `require-password` attribute:
+
+```blade
+<x-splade-form confirm require-password>
+```
+
+Only when the password is correct it submits the form. Splade will add the entered password to the form data as a `password` field. This way, you may recheck the password *server-side* in the form target action. For security reasons, this is disabled for `GET` requests. You can change the field by passing a value to the `require-password` attribute:
+
+```blade
+<x-splade-form confirm require-password="password_confirmation">
+```
+
 ## File uploads
 
 You may use the input event to bind the selected file to your form data:

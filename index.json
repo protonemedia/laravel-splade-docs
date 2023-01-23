@@ -29,6 +29,7 @@
         "Form": "x-form",
         "Link": "x-link",
         "Modal": "x-modal",
+        "Script": "x-script",
         "State": "x-state",
         "Teleport": "x-teleport",
         "Toggle": "x-toggle",
