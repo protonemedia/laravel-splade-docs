@@ -82,15 +82,17 @@ If you don't want to include the content directly into the slot, you may define 
 Don't wrap the Lazy Component into an *if-statement*, but always put the statement *within* the component:
 
 ```blade
-@if($user->canViewNewsItems())  // [tl! remove]
-    <x-splade-lazy>  // [tl! remove]
-        ...  // [tl! remove]
-    </x-splade-lazy>  // [tl! remove]
-@endif  // [tl! remove]
+<!-- Instead of this -->
+@if($user->canViewNewsItems())
+    <x-splade-lazy>
+        ...
+    </x-splade-lazy>
+@endif
 
-<x-splade-lazy>  // [tl! add]
-    @if($user->canViewNewsItems())  // [tl! add]
-        ...  // [tl! add]
-    @endif  // [tl! add]
-</x-splade-lazy>  // [tl! add]
+<!-- Do this -->
+<x-splade-lazy>
+    @if($user->canViewNewsItems())
+        ...
+    @endif
+</x-splade-lazy>
 ```

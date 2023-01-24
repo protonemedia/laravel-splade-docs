@@ -60,15 +60,17 @@ You may also use this component to poll for new data. With the `poll` attribute,
 Don't wrap the Rehydrate Component into an *if-statement*, but always put the statement *within* the component:
 
 ```blade
-@if($user->canUpdateTeam())  // [tl! remove]
-    <x-splade-rehydrate>  // [tl! remove]
-        ...  // [tl! remove]
-    </x-splade-rehydrate>  // [tl! remove]
-@endif  // [tl! remove]
+<!-- Instead of this -->
+@if($user->canUpdateTeam())
+    <x-splade-rehydrate>
+        ...
+    </x-splade-rehydrate>
+@endif
 
-<x-splade-rehydrate>  // [tl! add]
-    @if($user->canUpdateTeam())  // [tl! add]
-        ...  // [tl! add]
-    @endif  // [tl! add]
-</x-splade-rehydrate>  // [tl! add]
+<!-- Do this -->
+<x-splade-rehydrate>
+    @if($user->canUpdateTeam())
+        ...
+    @endif
+</x-splade-rehydrate>
 ```
