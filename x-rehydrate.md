@@ -35,6 +35,16 @@ If there's a form that stays on this page after a successful request, you may em
 
 Of course, when the form doesn't have the `stay` attribute and redirects back to the same page, it will reload the complete page, including the list, but you'll lose the state of other components on the page. This pattern can help avoid that.
 
+### Listen to multiple events
+
+You may listen to multiple events with an array or string:
+
+```blade
+<x-splade-rehydrate on="profile-updated, team-updated">
+
+<x-splade-rehydrate :on="['profile-updated', 'team-updated']">
+```
+
 ## Poll
 
 You may also use this component to poll for new data. With the `poll` attribute, you can specify the interval in milliseconds.
@@ -43,4 +53,22 @@ You may also use this component to poll for new data. With the `poll` attribute,
 <x-splade-rehydrate poll="5000">
     Today's score: {{ $score }}
 </x-splade-rehydrate>
+```
+
+## Conditionals
+
+Don't wrap the Rehydrate Component into an *if-statement*, but always put the statement *within* the component:
+
+```blade
+@if($user->canUpdateTeam()) // [tl! remove]
+    <x-splade-rehydrate> // [tl! remove]
+        ... // [tl! remove]
+    </x-splade-rehydrate> // [tl! remove]
+@endif // [tl! remove]
+
+<x-splade-rehydrate> // [tl! add]
+    @if($user->canUpdateTeam()) // [tl! add]
+        ... // [tl! add]
+    @endif // [tl! add]
+</x-splade-rehydrate> // [tl! add]
 ```
