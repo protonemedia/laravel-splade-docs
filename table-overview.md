@@ -131,21 +131,32 @@ SpladeTable::hidePaginationWhenResourceContainsOnePage();
 
 ## Custom head and body
 
-You may use slots if you want to write the head or body yourself.
+You may use slots to write the head or body yourself. Then, passing the instance to the `for` attribute will automatically render the pagination, but you must manually loop over the items in the head and body sections.
+
+You may use the `columns()` method and `resource` property of the table instance:
 
 ```blade
 <x-splade-table :for="$users">
     <x-slot name="head">
         <thead>
-            ...
+            <tr>
+                @foreach($users->columns() as $column)
+                    <th>{{ $column->label }}</th>
+                @endforeach
+            </tr>
         </thead>
     </x-slot>
 
     <x-slot name="body">
         <tbody>
-            ...
+            @foreach($users->resource as $user)
+                <tr>
+                    ...
+                </tr>
+            @endforeach
         </tbody>
     </x-slot>
 </x-splade-table>
 ```
 
+Also, check out the [default Blade templates](https://github.com/protonemedia/laravel-splade/tree/main/resources/views/table) for other related features.
