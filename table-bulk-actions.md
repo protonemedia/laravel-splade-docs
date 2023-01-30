@@ -70,7 +70,7 @@ It's even possible to require the user to confirm their password within the conf
 Route::spladePasswordConfirmation();
 ```
 
-Now you may add the `require-password` attribute:
+Now you may set the `requirePassword` argument to `true`:
 
 ```php
 $table->bulkAction(
