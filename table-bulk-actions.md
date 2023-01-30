@@ -62,6 +62,25 @@ $table->bulkAction(
 );
 ```
 
+### Password Confirmation
+
+It's even possible to require the user to confirm their password within the confirmation dialog. First, you must register a supporting route using the `spladePasswordConfirmation()` method on the `Route` facade. As of version 1.2.2, the automatic installer does this for you. If you need to register the route manually, make sure it uses the `web` Middleware, for example, in `web.php`:
+
+```php
+Route::spladePasswordConfirmation();
+```
+
+Now you may add the `require-password` attribute:
+
+```php
+$table->bulkAction(
+    label: 'Delete projects',
+    each: fn (Project $project) => $project->delete(),
+    confirm: true,
+    requirePassword: true
+);
+```
+
 ## Authorization
 
 Just like [Form Requests](https://laravel.com/docs/9.x/validation#authorizing-form-requests), you may use the `authorize` method to determine if the user has the authority to perform a Bulk Action:
