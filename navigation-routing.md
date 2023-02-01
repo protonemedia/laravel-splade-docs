@@ -39,6 +39,14 @@ You may use the `@preserveScroll` directive on an element to tell Splade to keep
 </div>
 ```
 
+Alternatively, you may use the Vue equivalent of the directive:
+
+```blade
+<div v-SpladePreserveScroll:sidebar>
+    ...
+</div>
+```
+
 ## Redirects
 
 Splade automatically handles redirects, both internally and externally. The default Laravel redirect methods just work:
