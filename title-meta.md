@@ -29,6 +29,16 @@ The `keywords` method accepts an array as well:
 SEO::keywords(['laravel', 'splade', 'course']);
 ```
 
+As of v1.2.11, you may also use Blade Directives to set the values within a template:
+
+```blade
+<x-layout>
+    @seoTitle('Laravel Splade Course')
+    @seoDescription('Become the Splade expert!')
+    @seoKeywords('laravel, splade, course')
+</x-layout>
+```
+
 You may publish and customize the `splade-seo.php` configuration file to set default values. In previous versions of Splade, the SEO configuration was part of the `splade.php` configuration file. As of v0.6.9, there is a separate file for the SEO configuration.
 
 ```bash
