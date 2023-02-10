@@ -10,7 +10,7 @@ The **Defer Component** allows you to load data asynchronously. The component ex
 </x-splade-defer>
 ```
 
-## Request body
+## Request body and headers
 
 By default, the component performs a `GET` request with an `application/json` accept header. You may change this with the `method` and `accept-header` attributes. In case you need to post data, you may use the `request` attribute. Just like the [Data component](/x-data.md), it allows you to pass a PHP value *or* a JavaScript object. The value passed to the `request` attribute will be parsed by Vue, not by PHP.
 
