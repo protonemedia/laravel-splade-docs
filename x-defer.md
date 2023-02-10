@@ -12,12 +12,26 @@ The **Defer Component** allows you to load data asynchronously. The component ex
 
 ## Request body
 
-By default, the component performs a `GET` request with an `application/json` accept header. You may change this with the `method` and `accept-header` attributes. In case you need to post data, you may use the `request` attribute:
+By default, the component performs a `GET` request with an `application/json` accept header. You may change this with the `method` and `accept-header` attributes. In case you need to post data, you may use the `request` attribute. Just like the [Data component](/x-data.md), it allows you to pass a PHP value *or* a JavaScript object. The value passed to the `request` attribute will be parsed by Vue, not by PHP.
 
 ```blade
 <x-splade-defer method="POST" url="/post/increase" request="{ post_id: 1 }">
     ...
 </x-splade-defer>
+```
+
+If you want to parse the value by PHP, you may use the `:request` attribute (note the colon).
+
+```blade
+<x-splade-defer method="POST" url="/post/increase" :request="['post_id' => 1]">
+```
+
+You can do the same for adding headers:
+
+```blade
+<x-splade-defer method="POST" url="/post/increase" headers="{ 'In-Background': 1 }">
+
+<x-splade-defer method="POST" url="/post/increase" :headers="['In-Background' => 1]">
 ```
 
 ## Poll
@@ -59,6 +73,25 @@ The component can watch a passed value for changes using the `watch-value` attri
 ```
 
 If you want to watch all form data, you may pass `form.$all` to the `watch-value` attribute.
+
+## Event
+
+The component emits `success` and `error` events, allowing you to interact with the response data within your template. For example, you may set a form value on a successful request. Note that the `url` attribute supports *Template literals*, making it perfect for generating dynamic URLs:
+
+```blade
+<x-splade-form>
+    <x-splade-input name="zip" label="ZIP code" />
+    <x-splade-input name="city" label="City" />
+
+    <x-splade-defer
+        url="`https://example-city-api.com/${form.zip}/json/`"
+        watch-value="form.zip"
+        watch-debounce="100"
+        manual
+        @success="(response) => form.city = response.city"
+    />
+</x-splade-form>
+```
 
 ## Async templates and Rehydration
 

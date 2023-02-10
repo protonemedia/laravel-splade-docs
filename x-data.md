@@ -72,3 +72,23 @@ The remembered state will be lost whenever the user fully refreshes the app. You
     <button @click.prevent="data.accepted = true">Accept</button>
 </x-splade-data>
 ```
+
+## Global Store
+
+Sometimes you want to use a set of reactive data through the template or layout. Instead of wrapping everything inside the data component, you may also define a store and use it at other places in your template.
+
+```blade
+<x-splade-data store="navigation" default="{ opened: false }" />
+
+<!-- other elements... -->
+
+<button @click.prevent="navigation.opened = true">
+    Open Navigation
+</button>
+
+<nav v-show="navigation.opened">
+    ...
+</nav>
+```
+
+You must pass a key to the `store` attribute and avoid generic naming. For example, don't use keys like *data*, *form*, and *toggle* as they might interfere with other scoped Vue components.

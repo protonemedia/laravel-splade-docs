@@ -14,3 +14,11 @@ You may also use a slot:
     <span>Send now</span>
 </x-splade-submit>
 ```
+
+In addition to providing a custom template with a slot, you may change the styling of the default submit button with the `danger` or `secondary` attributes:
+
+```blade
+<x-splade-submit danger label="Remove account" />
+
+<x-splade-submit secondary label="Save for later" />
+```

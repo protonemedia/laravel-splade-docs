@@ -68,6 +68,12 @@ By default, the modal is vertically centered. However, you may customize this wi
 <x-splade-modal position="top">
 ```
 
+The slideover opens on the right side by default, but you may change that as well with the `position` attribute:
+
+```blade
+<x-splade-modal position="left">
+```
+
 ## Close Button
 
 The modal and slideover have a *close button*, which you can disable with the `close-button` attribute.
@@ -116,3 +122,9 @@ To use a slideover, you must put the attribute on the `x-splade-component` inste
     <p>...</p>
 </x-splade-modal>
 ```
+
+Additionally, it's possible to immediately show the modal on page load with the `opened` attribute:
+
+<x-splade-modal opened>
+    <pre>secret-token</pre>
+</x-splade-modal>

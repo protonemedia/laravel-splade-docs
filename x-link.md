@@ -27,6 +27,8 @@ In addition, you may customize the confirmation dialog:
 </Link>
 ```
 
+Instead of the `confirm` attribute, you may also use the `confirm-danger` attribute to render a red confirmation button.
+
 ## Redirecting To External Domains
 
 When the URL is outside your application pointing to an external domain, you'd typically use a regular `<a>` element. Still, you may use the `away` attribute on the `Link` component. This can be useful when you have wrapped the component into another component and don't want to change the tag dynamically.

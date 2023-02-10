@@ -105,6 +105,8 @@ In addition, you may customize the confirmation dialog:
 >
 ```
 
+Instead of the `confirm` attribute, you may also use the `confirm-danger` attribute to render a red confirmation button.
+
 ### Password Confirmation
 
 It's even possible to require the user to confirm their password within the confirmation dialog. First, you must register a supporting route using the `spladePasswordConfirmation()` method on the `Route` facade. As of version 1.2.2, the automatic installer does this for you. If you need to register the route manually, make sure it uses the `web` Middleware, for example, in `web.php`:
@@ -125,6 +127,12 @@ Only when the password is correct it submits the form. Splade will add the enter
 <x-splade-form confirm require-password="password_confirmation">
 ```
 
+To prevent users from re-entering their password over and over, you may use the `require-password-once` attribute. Once the user has successfully entered their password, it won't be asked again until the number of seconds (defined with the `auth.password_timeout` config key) has elapsed:
+
+```blade
+<x-splade-form confirm require-password-once>
+```
+
 ## File uploads
 
 You may use the input event to bind the selected file to your form data:
@@ -138,6 +146,23 @@ You may use the input event to bind the selected file to your form data:
 ```
 
 The dedicated [File Component](/form-file.md) provides a cleaner solution, and has support for selecting multiple files as well as displaying the filename of the selected file.
+
+
+## State
+
+There are several props that you can use to show the state of the form:
+
+```blade
+<x-splade-form>
+    <p v-if="form.processing">Submitting the data...</p>
+</x-splade-form>
+
+<x-splade-form stay>
+    <p v-if="form.wasSuccessful">Successfully submitted!</p>
+
+    <p v-if="form.recentlySuccessful">Flash message to show success!</p>
+</x-splade-form>
+```
 
 ## Submit on change
 
@@ -155,6 +180,26 @@ In addition, you may optionally specify one or more values (with an `array` or `
 <x-splade-form submit-on-change="name, email">
 
 <x-splade-form :submit-on-change="['name', 'email']">
+```
+
+While this is great for elements like checkboxes, radios, and selects, it might lead to a bad user experience when applied to text inputs, as the form disables user input on submission. To overcome this, you may use the `background` attribute. This prevents to form from disabling user input and leaves the state properties (`processing`, `wasSuccessful`, and `recentlySuccessful`) untouched. In addition, to prevent the form from submitting on every keystroke, you may use the `debounce` attribute to set a debounce time in milliseconds:
+
+```blade
+<x-splade-form submit-on-change background debounce="500">
+    <input v-model="form.message" />
+</x-splade-form>
+```
+
+If you still want to indicate whether the form is processing, you may use the `processingInBackground` property:
+
+```blade
+<x-splade-form submit-on-change background debounce="500">
+    <input v-model="form.message" />
+
+    <p v-if="form.processingInBackground">Saving message in background...</p>
+
+    <button type="submit">Send message</button>
+</x-splade-form>
 ```
 
 ## Reset and restore form
@@ -203,21 +248,6 @@ You may choose to reset or restore the form data automatically. You can do this 
 <x-splade-form stay restore-on-success>
 ```
 
-## State
-
-There are several props that you can use to show the state of the form:
-
-```blade
-<x-splade-form>
-    <p v-if="form.processing">Submitting the data...</p>
-</x-splade-form>
-
-<x-splade-form stay>
-    <p v-if="form.wasSuccessful">Successfully submitted!</p>
-
-    <p v-if="form.recentlySuccessful">Flash message to show success!</p>
-</x-splade-form>
-```
 
 ## Form API
 

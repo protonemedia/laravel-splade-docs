@@ -14,7 +14,7 @@ To summarize:
 
 ## Components
 
-Livewire works by building **Livewire-specific** Components. It has its own syntax in Blade templates with `wire:*` attributes and directives. Splade works with Laravel's *native* [Blade Components](https://laravel.com/docs/9.x/blade) and Vue Components. Though some features of Splade require a single Middleware (like the SPA-navigation features), it doesn't need a custom compiler or engine to work.
+Livewire works by building **Livewire-specific** Components. It has its own syntax in Blade templates with `wire:*` attributes and directives. Splade works with Laravel's *native* [Blade Components](https://laravel.com/docs/9.x/blade) and Vue Components. Though some features of Splade require a single Middleware (like the SPA-navigation features), you don't need to create *Splade-specific* components, it's all just Blade and Vue.
 
 To summarize:
 * Splade doesn't need the creation of *special* components as it uses native Laravel and Vue implementations to achieve reactivity.
