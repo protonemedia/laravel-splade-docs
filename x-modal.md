@@ -125,6 +125,8 @@ To use a slideover, you must put the attribute on the `x-splade-component` inste
 
 Additionally, it's possible to immediately show the modal on page load with the `opened` attribute:
 
+```blade
 <x-splade-modal opened>
     <pre>secret-token</pre>
 </x-splade-modal>
+```
