@@ -62,4 +62,4 @@ Now you can use the preset in your template:
 
 ## Included animations
 
-The included animations are `default`, `opacity`, `fade`, and `slide-right`.
+The included animations are `default`, `opacity`, `fade`, `slide-left`, and `slide-right`.
