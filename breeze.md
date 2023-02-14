@@ -16,6 +16,14 @@ php artisan breeze:install
 
 The `breeze:install` command will also build the frontend assets. Just like [regular Laravel applications](https://laravel.com/docs/9.x/vite#running-vite), you may run the Vite development server:
 
+### npm
+
 ```bash
 npm run dev
-````
+```
+
+### yarn
+
+```bash
+yarn dev
+```
