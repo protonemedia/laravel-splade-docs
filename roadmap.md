@@ -7,5 +7,9 @@ Splade has been in public development since July 2022. Finally, in November 2022
 * <del>Make Inertia.js Tables and Form Components Pro compatible with Splade</del> ✅
 * <del>More examples of combining Blade and Vue</del> ✅
 * <del>Show key features on splade.dev</del> ✅
-* Demo application (like Ping CRM)
 * <del>Support for actions and exports in the Table Component</del> ✅
+* Demo application (like Ping CRM)
+* Dark Mode and RTL support
+* Form Builder
+* Table filter improvements
+* Support for Bootstrap 5 (under consideration)
