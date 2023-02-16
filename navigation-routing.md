@@ -1,6 +1,6 @@
 # Navigation and Routing
 
-To fully leverage Splade's page loading capabilities, you must use the *Splade Middleware* on according routes. There are many ways of [Registering Middlewares](https://laravel.com/docs/9.x/middleware#registering-middleware), but we recommend wrapping all routes into a group:
+To fully leverage Splade's page loading capabilities, you must use the *Splade Middleware* on according routes. There are many ways of [Registering Middlewares](https://laravel.com/docs/10.x/middleware#registering-middleware), but we recommend wrapping all routes into a group:
 
 ```php
 Route::middleware('splade')->group(function () {
@@ -59,7 +59,7 @@ return redirect()->route('profile', ['id' => 1]);
 return redirect()->away('https://www.google.com');
 ```
 
-Splade detects when you redirect to an external domain outside of your app. You may use Laravel's [built-in](https://laravel.com/docs/9.x/responses#redirecting-external-domains) `away()` method on the `redirect()` helper method. Still, you may also use the `redirectAway()` method on the Splade facade to explicitly tell Splade to redirect away from the app:
+Splade detects when you redirect to an external domain outside of your app. You may use Laravel's [built-in](https://laravel.com/docs/10.x/responses#redirecting-external-domains) `away()` method on the `redirect()` helper method. Still, you may also use the `redirectAway()` method on the Splade facade to explicitly tell Splade to redirect away from the app:
 
 ```php
 return Splade::redirectAway('https://www.google.com');

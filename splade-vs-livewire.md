@@ -14,7 +14,7 @@ To summarize:
 
 ## Components
 
-Livewire works by building **Livewire-specific** Components. It has its own syntax in Blade templates with `wire:*` attributes and directives. Splade works with Laravel's *native* [Blade Components](https://laravel.com/docs/9.x/blade) and Vue Components. Though some features of Splade require a single Middleware (like the SPA-navigation features), you don't need to create *Splade-specific* components, it's all just Blade and Vue.
+Livewire works by building **Livewire-specific** Components. It has its own syntax in Blade templates with `wire:*` attributes and directives. Splade works with Laravel's *native* [Blade Components](https://laravel.com/docs/10.x/blade) and Vue Components. Though some features of Splade require a single Middleware (like the SPA-navigation features), you don't need to create *Splade-specific* components, it's all just Blade and Vue.
 
 To summarize:
 * Splade doesn't need the creation of *special* components as it uses native Laravel and Vue implementations to achieve reactivity.
@@ -22,7 +22,7 @@ To summarize:
 
 ## Passing data
 
-By default, data stored in public properties of Livewire components will be available client-side (in the browser). Of course, you may use a transformation layer (like [Fractal](https://fractal.thephpleague.com) or Laravel's [API Resources](https://laravel.com/docs/9.x/eloquent-resources)), but you still have to worry about the data size and not sharing sensitive data with the browser.
+By default, data stored in public properties of Livewire components will be available client-side (in the browser). Of course, you may use a transformation layer (like [Fractal](https://fractal.thephpleague.com) or Laravel's [API Resources](https://laravel.com/docs/10.x/eloquent-resources)), but you still have to worry about the data size and not sharing sensitive data with the browser.
 
 In Splade applications, almost all data is rendered using standard server-side Blade templates. Once rendered in Blade, the raw data won't be available client-side (in the browser). Of course, you may pass data to the frontend, for example, with the [Data](/x-data.md) and [Form](/x-form.md) components, but that’s very explicit. The Form component even helps you guard data against being passed to the browser.
 

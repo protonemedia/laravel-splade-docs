@@ -74,7 +74,7 @@ $table
 
 ## Authorization
 
-Just like [Form Requests](https://laravel.com/docs/9.x/validation#authorizing-form-requests), you may use the `authorize` method to determine if the user has the authority to perform a Bulk Action:
+Just like [Form Requests](https://laravel.com/docs/10.x/validation#authorizing-form-requests), you may use the `authorize` method to determine if the user has the authority to perform a Bulk Action:
 
 ```php
 class Projects extends AbstractTable

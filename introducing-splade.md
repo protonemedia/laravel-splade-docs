@@ -1,6 +1,6 @@
 # Introducing Splade
 
-Splade provides a **super easy** way to build *Single Page Applications* (SPA) using standard [Laravel Blade](https://laravel.com/docs/9.x/blade) templates, enhanced with [renderless Vue 3 components](https://adamwathan.me/renderless-components-in-vuejs/). In essence, you can write your app using the simplicity of Blade, and besides that magic *SPA-feeling*, you can sparkle it to make it interactive. All without ever leaving Blade.
+Splade provides a **super easy** way to build *Single Page Applications* (SPA) using standard [Laravel Blade](https://laravel.com/docs/10.x/blade) templates, enhanced with [renderless Vue 3 components](https://adamwathan.me/renderless-components-in-vuejs/). In essence, you can write your app using the simplicity of Blade, and besides that magic *SPA-feeling*, you can sparkle it to make it interactive. All without ever leaving Blade.
 
 **Wow! Sounds interesting? Let's take a closer look.**
 
@@ -68,7 +68,7 @@ The dedicated form component allows you to send forms asynchronously. It catches
 
 First, let's explain the `x-form` component: it's a wrapper around a Vue component. Yes, each Splade component consists of a renderless Vue component (where all interactive magic happens) wrapped in a Blade component.
 
-In the following example, the form component is given some default data, that of the authenticated user. Note that the user data is passed to the frontend, so please be sure sensitive attributes [hidden](https://laravel.com/docs/9.x/eloquent-serialization#hiding-attributes-from-json).
+In the following example, the form component is given some default data, that of the authenticated user. Note that the user data is passed to the frontend, so please be sure sensitive attributes [hidden](https://laravel.com/docs/10.x/eloquent-serialization#hiding-attributes-from-json).
 
 ```blade
 <x-form :action="route('user.current.update')" :default="auth()->user()">

@@ -6,7 +6,7 @@ The **Checkbox Component** has a default value of `true`, but you may customize 
 <x-splade-checkbox name="newsletter" value="1" label="Subscribe to newsletter" />
 ```
 
-The default `true` value works great if you use the `boolean` type [Attribute Casting](https://laravel.com/docs/9.x/eloquent-mutators#attribute-casting) in Eloquent Models. Accordingly, the *unchecked* value is `false`, but you may customize it with the `false-value` attribute:
+The default `true` value works great if you use the `boolean` type [Attribute Casting](https://laravel.com/docs/10.x/eloquent-mutators#attribute-casting) in Eloquent Models. Accordingly, the *unchecked* value is `false`, but you may customize it with the `false-value` attribute:
 
 ```blade
 <x-splade-checkbox name="newsletter" value="yes" false-value="no" label="Subscribe to newsletter" />

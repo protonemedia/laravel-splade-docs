@@ -49,7 +49,7 @@ This will result in more readable `<x-form>`, `<x-input>`, and `<x-submit>` comp
 
 ## Model Binding
 
-To bind a resource to a form, for example, an [Eloquent Model](https://laravel.com/docs/9.x/eloquent), you may use the `default` attribute. Instead of using the `v-model` attribute on the input element, you may now use the `name` attribute. Splade will take care of the two-way binding with the User model.
+To bind a resource to a form, for example, an [Eloquent Model](https://laravel.com/docs/10.x/eloquent), you may use the `default` attribute. Instead of using the `v-model` attribute on the input element, you may now use the `name` attribute. Splade will take care of the two-way binding with the User model.
 
 ```blade
 <x-splade-form :default="$user">

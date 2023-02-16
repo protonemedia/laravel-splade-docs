@@ -1,6 +1,6 @@
 # X-Splade-Event Component
 
-The **Event Component** might be the most incredible Splade component of all. It allows you to listen for broadcasted events using [Laravel Echo](https://laravel.com/docs/9.x/broadcasting#client-side-installation).
+The **Event Component** might be the most incredible Splade component of all. It allows you to listen for broadcasted events using [Laravel Echo](https://laravel.com/docs/10.x/broadcasting#client-side-installation).
 
 ## Setup
 

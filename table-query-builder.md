@@ -88,7 +88,7 @@ $table->defaultSort('name', 'desc');
 
 ### Sort by Relationship column
 
-The Table component supports sorting the results by a [Relationship](https://laravel.com/docs/9.x/eloquent-relationships) column. This requires the installation of the [`kirschbaum-development/eloquent-power-joins`](https://github.com/kirschbaum-development/eloquent-power-joins) package.
+The Table component supports sorting the results by a [Relationship](https://laravel.com/docs/10.x/eloquent-relationships) column. This requires the installation of the [`kirschbaum-development/eloquent-power-joins`](https://github.com/kirschbaum-development/eloquent-power-joins) package.
 
 ```php
 $table->column(

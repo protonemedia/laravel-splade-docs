@@ -176,7 +176,7 @@ import "../css/choices.scss"
 
 ### Laravel Dusk macro
 
-Splade has two macros that help you test Choices.js instances with [Laravel Dusk](https://laravel.com/docs/9.x/dusk). Instead of calling `select` with the *field* and *value* arguments, you may use the `choicesSelect` method:
+Splade has two macros that help you test Choices.js instances with [Laravel Dusk](https://laravel.com/docs/10.x/dusk). Instead of calling `select` with the *field* and *value* arguments, you may use the `choicesSelect` method:
 
 ```php
 $browser->select('size', 'Large');  // [tl! remove]

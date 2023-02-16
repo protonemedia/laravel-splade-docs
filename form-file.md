@@ -85,7 +85,7 @@ You may use the `min-size` or `max-size` attribute to validate the file size. Yo
 <x-splade-file name="avatar" filepond min-size="100KB" max-size="5MB" />
 ```
 
-Please be aware that both features are *client-side* validation. For security reasons, make sure you use [server-side validation](https://laravel.com/docs/9.x/validation#validating-files) as well.
+Please be aware that both features are *client-side* validation. For security reasons, make sure you use [server-side validation](https://laravel.com/docs/10.x/validation#validating-files) as well.
 
 ### Validate images
 
@@ -179,7 +179,7 @@ Route::post('podcast', StorePodcastController::class)
     ->middleware(HandleSpladeFileUploads::for('photo'));    // [tl! add]
 ```
 
-The last option is to use a [Form Request](https://laravel.com/docs/9.x/validation#form-request-validation). Then, you only have to implement the `HasSpladeFileUploads` interface and use the `file` validation rule. Splade will automatically extract the keys from the rules.
+The last option is to use a [Form Request](https://laravel.com/docs/10.x/validation#form-request-validation). Then, you only have to implement the `HasSpladeFileUploads` interface and use the `file` validation rule. Splade will automatically extract the keys from the rules.
 
 ```php
 use Illuminate\Foundation\Http\FormRequest;
@@ -208,7 +208,7 @@ You may change the lifetime of temporary files with the `file_uploads.temporary_
 
 ### Custom temporary directory
 
-By default, Splade uses the `/storage/splade-temporary-file-uploads` directory for temporary uploads. If you want to use a custom [Filesystem disk](https://laravel.com/docs/9.x/filesystem#configuration), you may update the `file_uploads.disk` key in the `splade.php` [configuration file](/customization.md). For now, it only supports local disks.
+By default, Splade uses the `/storage/splade-temporary-file-uploads` directory for temporary uploads. If you want to use a custom [Filesystem disk](https://laravel.com/docs/10.x/filesystem#configuration), you may update the `file_uploads.disk` key in the `splade.php` [configuration file](/customization.md). For now, it only supports local disks.
 
 ### Customize FilePond styling
 

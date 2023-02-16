@@ -8,7 +8,7 @@ composer update protonemedia/laravel-splade
 npm upgrade @protonemedia/laravel-splade
 ```
 
-Make sure to clear Laravel's [view cache](https://laravel.com/docs/9.x/views#optimizing-views) after upgrading:
+Make sure to clear Laravel's [view cache](https://laravel.com/docs/10.x/views#optimizing-views) after upgrading:
 
 ```bash
 php artisan view:clear

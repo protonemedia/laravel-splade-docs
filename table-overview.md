@@ -96,7 +96,7 @@ public function configure(SpladeTable $table)
 
 ### Implementing the `authorize` method
 
-The `authorize` method is only used for Bulk Actions and Exports. Just like [Form Requests](https://laravel.com/docs/9.x/validation#authorizing-form-requests), you may determine if the user has the authority to perform such actions:
+The `authorize` method is only used for Bulk Actions and Exports. Just like [Form Requests](https://laravel.com/docs/10.x/validation#authorizing-form-requests), you may determine if the user has the authority to perform such actions:
 
 ```php
 public function authorize(Request $request)
