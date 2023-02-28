@@ -32,7 +32,7 @@ When no Transformer has been configured, Splade won't transform the given data a
 Splade::requireTransformer();
 ```
 
-### Transform using a Fractal Transformer
+## Transform using a Fractal Transformer
 
 To use Fractal Transformers, you need to install the [`spatie/fractalistic`](https://github.com/spatie/fractalistic) package.
 
@@ -40,7 +40,7 @@ To use Fractal Transformers, you need to install the [`spatie/fractalistic`](htt
 Splade::transformUsing(User::class, UserTransformer::class);
 ```
 
-### Transform using a Closure
+## Transform using a Closure
 
 For simple transformations, you may pass a closure:
 
