@@ -72,6 +72,22 @@ That's it! You don't have to register a route or controller for each new compone
 <x-fake-email :user="$user" />
 ```
 
+## Security
+
+Please be very aware that all public properties are exposed to the browser and thus visible to the end user. Be sure sensitive Model attributes are [hidden](https://laravel.com/docs/10.x/eloquent-serialization#hiding-attributes-from-json), or use the built-in [Transformer feature](/transformers.md).
+
+## Collections
+
+Similar to not using Blade's curly braces, you should use Vue's [`v-for` directive](https://vuejs.org/guide/essentials/list.html) to loop over data instead of Blade's `@foreach` directive. This way, the list will reflect updates that may happen server-side.
+
+```blade
+<ul>
+    <li v-for="(user, index) in props.users" :key="index">
+        <span v-text="user.name" />
+    </li>
+</ul>
+```
+
 ## Renderless example
 
 Instead of using the view template, you may also omit the `render` method and use the component directly in your template. The great thing about that is that you may reuse the same logic repeatedly but still be able to fully customize the UI. So first, let's remove the method:
@@ -118,10 +134,6 @@ Now you can use the component in other templates and provide the UI with a slot:
 </x-fake-email>
 ```
 
-## Collections
-
-...
-
 ## Inline Component View
 
 Instead of using a dedicated file for the template, you may also use an [Inline Component View](https://laravel.com/docs/10.x/blade#inline-component-views):
@@ -162,7 +174,7 @@ class FindIp extends Component
 
 ## Toasts and Redirects
 
-You may send a [Toast](./toasts.md) from a component method to the frontend:
+You may send a [Toast](/toasts.md) from a component method to the frontend:
 
 ```php
 use ProtoneMedia\Splade\Facades\Toast;
@@ -190,7 +202,7 @@ public function fake()
 }
 ```
 
-## Middleware and Security
+## Middleware and Rate Limiting
 
 By default, component methods called from the frontend will use the same Middleware stack as the original route. In addition, you may call the `middleware` method to apply additional constraints:
 
@@ -204,7 +216,5 @@ public function fake()
     ]);
 }
 ```
-
-Please be very aware that all public properties are exposed to the browser and thus visible to the end user. Be sure sensitive Model attributes are [hidden](https://laravel.com/docs/10.x/eloquent-serialization#hiding-attributes-from-json).
 
 Also, just like controller methods, public component methods may be manually invoked by users. Therefore, always validate incoming data and, when necessary, use a [Rate Limiter](https://laravel.com/docs/10.x/rate-limiting#main-content).

@@ -17,6 +17,7 @@
         "Toasts": "toasts",
         "Shared data": "shared-data",
         "Title and meta tags": "title-meta",
+        "Transformers": "transformers",
         "Lazy loading": "lazy-loading",
         "Server-side rendering (SSR)": "ssr"
     },
@@ -63,6 +64,7 @@
         "Form components": "custom-form-components"
     },
     "Advanced": {
+        "Bridge Components": "bridge-components",
         "State management": "state-management",
         "Persistent layout": "persistent-layout",
         "Event bus": "event-bus",
