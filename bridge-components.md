@@ -1,6 +1,9 @@
-# Bridge Components
+# Bridge Components (in beta)
 
 As of version 1.3, Splade supports bridging Blade Components and Vue Templates. This means there's two-way binding of the public PHP properties and the templates' properties, and you may call public methods from within the template as if they were JavaScript methods.
+
+> **Warning**
+> This feature is still in beta and therefore experimental. Use with care!
 
 ## Prerequirement
 
@@ -113,6 +116,48 @@ Now you can use the component in other templates and provide the UI with a slot:
 
     <button @click="fake">Fake Email</button>
 </x-fake-email>
+```
+
+## Collections
+
+...
+
+## Inline Component View
+
+Instead of using a dedicated file for the template, you may also use an [Inline Component View](https://laravel.com/docs/10.x/blade#inline-component-views):
+
+```php
+<?php
+
+namespace App\View\Components;
+
+use Illuminate\View\Component;
+use ProtoneMedia\Splade\Components\WithVue;
+
+class FindIp extends Component
+{
+    use WithVue;
+
+    public function __construct(
+        public $hostname = '',
+        public $ip = '',
+    ) {
+    }
+
+    public function find()
+    {
+        $this->ip = gethostbyname($this->hostname);
+    }
+
+    public function render()
+    {
+        return <<<'blade'
+            <input v-model="props.hostname" />
+            <button @click="find">Find IP</button>
+            <p v-text="props.ip" />
+        blade;
+    }
+}
 ```
 
 ## Toasts and Redirects
