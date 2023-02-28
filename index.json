@@ -64,10 +64,10 @@
         "Form components": "custom-form-components"
     },
     "Advanced": {
-        "Bridge Components": "bridge-components",
         "State management": "state-management",
         "Persistent layout": "persistent-layout",
         "Event bus": "event-bus",
+        "Bridge Components (Beta)": "bridge-components",
         "Customization": "customization",
         "Translations": "translations",
         "Exception handling": "exception-handling",
