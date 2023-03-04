@@ -483,6 +483,11 @@ The `->required()` option is an alias for `->rules('required')`.
          ])
 ```
 
+### v-if
+```php
+    ->if('!modal')          // Adds v-if="!modal"
+```
+
 ### Appends, prepends, placeholders, disabled and readonly
 ```php
 ->append('Text')        // Adds an append text to an input
@@ -490,6 +495,5 @@ The `->required()` option is an alias for `->rules('required')`.
 ->placeholder('Text')   // Adds a placeholder to the input
 ->disabled()            // Makes an input disabled
 ->readonly()            // Makes an input readonly
-->if('!modal')          // Adds v-if="!modal"
 ```
 All these options may be combined.
