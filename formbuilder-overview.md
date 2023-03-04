@@ -443,6 +443,17 @@ or at once:
     Submit::make()->label('Send')
 ```
 
+### Button
+```php
+    Button::make('button1')
+        ->class('bg-green-500 text-white')
+        ->click('modal.close')  // @click("modal.close")
+        ->if('modal')           // v-if="modal"
+//        ->danger()
+//        ->secondary()
+        ->label('Close modal'),
+```
+
 ## Other inputfield options
 
 ### Rules
@@ -479,5 +490,6 @@ The `->required()` option is an alias for `->rules('required')`.
 ->placeholder('Text')   // Adds a placeholder to the input
 ->disabled()            // Makes an input disabled
 ->readonly()            // Makes an input readonly
+->if('!modal')          // Adds v-if="!modal"
 ```
 All these options may be combined.
