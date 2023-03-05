@@ -131,9 +131,7 @@ class ExampleForm extends AbstractForm
         return [
             Text::make('...')
                 ->label(__('...')),
-
             //
-
             Submit::make()
                 ->label(__('Save')),
         ];
@@ -177,12 +175,12 @@ class ExampleFormRequest extends FormRequest
 and the store-method:
 
 ```php
-public function store(ExampleFormRequest $request)
-{
-    $validated = $request->validated();
-
-    dd($validated);
-}
+    public function store(ExampleFormRequest $request)
+    {
+        $validated = $request->validated();
+    
+        dd($validated);
+    }
 ```
 That's all that is needed for the formvalidation! All rulles will be extracted from the `->rules(...)` in the fields of your form.
 
@@ -197,27 +195,27 @@ Using Eloquent Models is possible as well: `SpladeForm::build()->data(Post::firs
 Adding multiple forms to the same page is possible, even from the same FormBuilder-class.
 All options like action, method, classes and name (in the `->build('...')`-method) may be overwritten and additional fields can be added:
 ```php
-return view('form.formbuilder', [
-    'forms' => [
-        'example1' => FormClass::class,
-        'example2' => FormClass::build('form2')
-            ->action(route('form2.store'))
-            ->fields([
-                Text::make('additional_field')->label('This is an additional field'),
-            ]),
-    ],
-]);
+    return view('form.formbuilder', [
+        'forms' => [
+            'example1' => FormClass::class,
+            'example2' => FormClass::build('form2')
+                ->action(route('form2.store'))
+                ->fields([
+                    Text::make('additional_field')->label('This is an additional field'),
+                ]),
+        ],
+    ]);
 ```
 And the blade:
 ```blade
-<x-splade-formbuilder :for="$form['example1']" />
-<x-splade-formbuilder :for="$form['example2']" />
-
-{{-- or: --}}
+    <x-splade-formbuilder :for="$form['example1']" />
+    <x-splade-formbuilder :for="$form['example2']" />
     
-@foreach($forms as $form)
-    <x-splade-formbuilder :for="$form" />
-@endforeach
+    {{-- or: --}}
+        
+    @foreach($forms as $form)
+        <x-splade-formbuilder :for="$form" />
+    @endforeach
 ```
 
 ## Available fields
@@ -326,20 +324,20 @@ At this moment there is support for the fields types as shown below in the `Prot
 ```
 there are several other options available for files:
 ```php
-        ->minSize('1Mb')
-        ->maxSize('10Mb')
-
-        ->width(120)
-        ->height(120)
-
-        ->minWidth(150)
-        ->maxWidth(500)
-
-        ->minHeight(150)
-        ->maxHeight(500)
-
-        ->minResolution(150)
-        ->maxResolution(99999)
+    ->minSize('1Mb')
+    ->maxSize('10Mb')
+    
+    ->width(120)
+    ->height(120)
+    
+    ->minWidth(150)
+    ->maxWidth(500)
+    
+    ->minHeight(150)
+    ->maxHeight(500)
+    
+    ->minResolution(150)
+    ->maxResolution(99999)
 ```
 
 ### Checkboxes
@@ -447,8 +445,12 @@ or at once:
 ```php
     Button::make('button1')
         ->class('bg-green-500 text-white')
-        ->click('modal.close')  // @click("modal.close")
-        ->if('modal')           // v-if="modal"
+
+        ->if('modal')                   // becomes: v-if="modal"
+        ->click('modal.close')          // becomes: @click("modal.close")
+
+        ->clickPrevent('form.restore')  // becomes: @click.prevent="form.restore"
+
 //        ->danger()
 //        ->secondary()
         ->label('Close modal'),
@@ -460,16 +462,38 @@ or at once:
 You may pass one or more [Laravel validation rules](https://laravel.com/docs/10.x/validation#available-validation-rules) to the `->rules(...)` option.
 The following formats are supported:
 ```php
-->rules('required|unique:posts|max:255')
-->rules('required', 'unique:posts', 'max:255')
-->rules(['required', 'unique:posts', 'max:255'])
-->rules('required', 'string', 'max:255', \Illuminate\Validation\Rules\Password::min(8)->symbols()),
+    ->rules('required|unique:posts|max:255')
+    ->rules('required', 'unique:posts', 'max:255')
+    ->rules(['required', 'unique:posts', 'max:255'])
+    ->rules('required', 'string', 'max:255', \Illuminate\Validation\Rules\Password::min(8)->symbols()),
 ```
 
 ### Required
 The `->required()` option is an alias for `->rules('required')`.
 
+### Hiding or showing fields
+A `v-if="..."`-condition can be added with the `->if('...')` option:
+```php
+    // Adds v-if="modal" / v-if="!modal"
+    ->if('modal')           // The field will only be visible when the form is loaded within a modal
+    ->if('!modal')          // or when not in a modal
+    
+    // Only show a field when another field is not empty or checked:
+    ->if("form.otherFieldsName != ''")
+```
+
+### Appends, prepends, placeholders, disabled and readonly
+```php
+    ->append('Text')        // Adds an append text to an input
+    ->prepend('Text')       // Adds a prepend text to an input
+    ->placeholder('Text')   // Adds a placeholder to the input
+    ->disabled()            // Makes an input disabled
+    ->readonly()            // Makes an input readonly
+```
+These options may be combined.
+
 ### Classes
+Classes can be added to both the form and to the input fields:
 ```php
     SpladeForm::build()
         ->action(...)
@@ -483,17 +507,59 @@ The `->required()` option is an alias for `->rules('required')`.
          ])
 ```
 
-### v-if
+## Confirmation
+You may use the confirm option to show a confirmation dialog before the form is submitted:
 ```php
-    ->if('!modal')          // Adds v-if="!modal"
+    ->confirm()
+    // or add one or more options:
+    ->confirm(
+        confirm: 'Delete profile',
+        text: 'Are you sure you want to delete your profile?',
+        confirm_button: 'Yes, delete everything!',
+        cancel_button: 'No, I want to stay!',
+        danger: true,               // If true, the conformation modal will render a red confirmation button
+        require_password: true,     // Require the user to confirm their password within the confirmation dialog
+        require_password_once: true // Prevents users from re-entering their password over and over
+    )
 ```
 
-### Appends, prepends, placeholders, disabled and readonly
+## Password Confirmation
+For the password confirmation dialog the `->requirePassword(...)`-alias may be used instead of `->confirm(require_password: true)`:
 ```php
-->append('Text')        // Adds an append text to an input
-->prepend('Text')       // Adds a prepend text to an input
-->placeholder('Text')   // Adds a placeholder to the input
-->disabled()            // Makes an input disabled
-->readonly()            // Makes an input readonly
+    ->requirePassword(
+        require_password_once: true,
+        heading: 'Please enter your password',
+        text: 'Please confirm your password before continuing',
+        confirm_button: 'Confirm',
+        cancel_button: 'Cancel',
+        danger: false
+    )
 ```
-All these options may be combined.
+
+## Submit-on-change
+Submit the form whenever a value changes:
+```php
+    ->submitOnChange(
+        // watch_fields are optional, all formfields will be watched if none are provided
+        watch_fields: ['fieldname1', 'fieldname2'], // or as a string: 'fieldname1, fieldname2'
+
+        // These defaults may be overwritten:
+        background: true,
+        debounce: 500
+    )
+```
+_Be carefull when combining `->submitOnChange()` with `->confirm()` or `->requirePassword()` because it will save the data in the background without the confirmation!_
+
+## Prevent navigation on submit
+Stay on the same page after a successful request by using one of these options:
+```php
+    ->stay()
+    ->stay(action_on_success: 'reset')      // Reset on success
+    ->stay(action_on_success: 'restore')    // Restore on success
+```
+
+## Preserve-scroll
+The preserve-scroll attribute prevents the page from scrolling to the top:
+```php
+    ->preserveScroll()
+```
