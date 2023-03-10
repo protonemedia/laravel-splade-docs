@@ -36,3 +36,5 @@ Form::guardWhen(function ($resource) {
     return $resource instanceof Model;
 });
 ```
+
+Also, check out the [Transformers](./transformers.md) section.

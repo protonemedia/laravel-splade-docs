@@ -51,6 +51,10 @@
         "Submit": "form-submit",
         "Model Binding": "form-model-binding-attributes"
     },
+    "Form Builder": {
+        "Overview": "form-builder-overview",
+        "Available fields": "form-builder-fields"
+    },
     "Table component": {
         "Overview": "table-overview",
         "Built-in Query Builder": "table-query-builder",
