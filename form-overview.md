@@ -87,4 +87,4 @@ Splade escapes Validation errors by default, so if you use raw HTML in one of yo
 
 ## Form Builder
 
-In addition to building forms in Blade templates, you may also build forms in PHP with the [Form Builder](./form-builder-overview.md).
+In addition to building forms in Blade templates, you may also build forms in PHP with the [Form Builder](/form-builder-overview.md).

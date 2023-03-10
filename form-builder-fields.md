@@ -1,10 +1,10 @@
 # Form Builder Fields
 
-Here's an overview of all fields that are available in the [Form Builder](./form-builder-overview.md).
+Here's an overview of all fields that are available in the [Form Builder](/form-builder-overview.md).
 
 ## Text Input Field
 
-Renders an [Input Component](./form-input.md).
+Renders an [Input Component](/form-input.md).
 
 ```php
 Input::make('name')
@@ -95,7 +95,7 @@ Input::make('color')->color();
 
 ## Textarea
 
-Renders a [Textarea Component](./form-textarea.md).
+Renders a [Textarea Component](/form-textarea.md).
 
 ```php
 Textarea::make('textarea')->autosize();
@@ -103,7 +103,7 @@ Textarea::make('textarea')->autosize();
 
 ## Date and Time
 
-Renders an [Input Component](./form-input.md) with Flatpickr.js integation.
+Renders an [Input Component](/form-input.md) with Flatpickr.js integation.
 
 ### Date
 
@@ -129,7 +129,7 @@ Datetime::make('datetime');
 
 ## Files
 
-Renders an [File Component](./form-file.md) with optional Filepond integation.
+Renders an [File Component](/form-file.md) with optional Filepond integation.
 
 ```php
 File::make('photo')
@@ -165,7 +165,7 @@ File::make('photo')
 
 ## Checkboxes
 
-Renders a [Checkbox Component](./form-checkbox.md).
+Renders a [Checkbox Component](/form-checkbox.md).
 
 Checkboxes can be defined as separate fields:
 
@@ -189,7 +189,7 @@ Checkboxes::make('options')
 
 ## Radios
 
-Renders a [Radio Component](./form-radio.md).
+Renders a [Radio Component](/form-radio.md).
 
 Radios can be defined as separate inputs:
 
@@ -214,7 +214,7 @@ Radios::make('theme')
 
 ## Selects
 
-Renders a [Select Component](./form-select.md).
+Renders a [Select Component](/form-select.md).
 
 ```php
 $options = [
@@ -265,7 +265,7 @@ Select::make('user')
 
 ## Submit
 
-Renders a [Submit Component](./form-submit.md).
+Renders a [Submit Component](/form-submit.md).
 
 ```php
 Submit::make()->label('Send')

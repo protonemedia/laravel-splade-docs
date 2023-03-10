@@ -37,4 +37,4 @@ Form::guardWhen(function ($resource) {
 });
 ```
 
-Also, check out the [Transformers](./transformers.md) section.
+Also, check out the [Transformers](/transformers.md) section.

@@ -5,7 +5,7 @@ keywords: laravel form, laravel forms, laravel formbuilder
 
 # Form Builder
 
-Splade has an advanced Form Builder that enables you to build forms from your controllers instead of in your templates. Check out the [Form Components](./form-overview.md) section to learn more about Splade's form capabilities.
+Splade has an advanced Form Builder that enables you to build forms from your controllers instead of in your templates. Check out the [Form Components](/form-overview.md) section to learn more about Splade's form capabilities.
 
 ## Basic example
 
@@ -97,7 +97,7 @@ SpladeForm::make()
     ->fill($project);
 ```
 
-Note that the Eloquent attributes are passed to the frontend, so be careful with sensitive attributes. By default, it only passes the attributes to the frontend that you use in the fields. You may use a [Transformer](./transformers.md) to help you safely pass data to the frontend. Also, check out the [Model Binding Attributes](/form-model-binding-attributes.md) section.
+Note that the Eloquent attributes are passed to the frontend, so be careful with sensitive attributes. By default, it only passes the attributes to the frontend that you use in the fields. You may use a [Transformer](/transformers.md) to help you safely pass data to the frontend. Also, check out the [Model Binding Attributes](/form-model-binding-attributes.md) section.
 
 ## Form Class
 
