@@ -97,6 +97,8 @@ SpladeForm::make()
     ->fill($project);
 ```
 
+Note that the Eloquent attributes are passed to the frontend, so be careful with sensitive attributes. By default, it only passes the attributes to the frontend that you use in the fields. You may use a [Transformer](./transformers.md) to help you safely pass data to the frontend. Also, check out the [Model Binding Attributes](/form-model-binding-attributes.md) section.
+
 ## Form Class
 
 Instead of using an *inline* `SpladeForm` in the controller, you may also use a dedicated class. There's an Artisan command to generate a Form class:

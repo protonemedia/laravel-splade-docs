@@ -4,7 +4,6 @@ In components such as [Data](/x-data.md) and [Form](/x-form.md), you may want to
 
 Splade makes it very easy to define a Transformer once, and use it throughout the application in the Data, Defer, Form, and Bridge Components. It supports [Eloquent API Resources](https://laravel.com/docs/10.x/eloquent-resources), [Fractal Transformers](https://fractal.thephpleague.com), and a simple closure.
 
-
 ## Transform using an Eloquent Resource Class
 
 Configuring a Transformer is as easy as calling the `transformUsing` method on the `Splade` facade, for example, in the `AppServiceProvider` class:
