@@ -49,8 +49,11 @@
         "File": "form-file",
         "Group": "form-group",
         "Submit": "form-submit",
-        "Model Binding": "form-model-binding-attributes",
-        "FormBuilder": "formbuilder-overview"
+        "Model Binding": "form-model-binding-attributes"
+    },
+    "Form Builder": {
+        "Overview": "form-builder-overview",
+        "Available fields": "form-builder-fields"
     },
     "Table component": {
         "Overview": "table-overview",
