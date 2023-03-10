@@ -1,6 +1,11 @@
 # Form Builder Fields
 
+Here's an overview of all fields that are available in the [Form Builder](./form-builder-overview.md).
+
 ## Text Input Field
+
+Renders an [Input Component](./form-input.md).
+
 ```php
 Input::make('name')
     ->label('Enter your name')
@@ -23,7 +28,22 @@ Input::make('text')
     ->rules('required|max:255');
 ```
 
-## Hidden Field
+There are some additional methods that you may call on the field:
+
+```php
+Input::make('text')
+    ->append('@splade.dev')    // Appends a text to the field
+    ->prepend('www.')          // Prepends a text to the field
+    ->placeholder('Text')      // Placeholder value for the field
+    ->disabled()               // Disables an input field
+    ->readonly()               // Makes an input read-only
+    ->class('w-1/2')           // Add additional classes to the field
+
+    ->attributes(['data-custom' => 'foo']);     // Add additional attributes
+```
+
+### Hidden Field
+
 ```php
 Hidden::make('hidden_field');
 
@@ -32,12 +52,8 @@ Hidden::make('hidden_field');
 Input::make('hidden_field')->hidden();
 ```
 
-## Textarea
-```php
-Textarea::make('textarea')->autosize();
-```
+### Number
 
-## Number
 ```php
 Number::make('number')
     ->label('Number input')
@@ -47,7 +63,8 @@ Number::make('number')
     ->step(0.01);
 ```
 
-## Email
+### Email
+
 ```php
 Email::make('email');
 
@@ -56,7 +73,8 @@ Email::make('email');
 Input::make('email')->email();
 ```
 
-## Passwords
+### Passwords
+
 ```php
 Password::make('password');
 
@@ -75,26 +93,44 @@ Color::make('color');
 Input::make('color')->color();
 ```
 
-## Date
+## Textarea
+
+Renders a [Textarea Component](./form-textarea.md).
+
+```php
+Textarea::make('textarea')->autosize();
+```
+
+## Date and Time
+
+Renders an [Input Component](./form-input.md) with Flatpickr.js integation.
+
+### Date
+
 ```php
 Date::make('date');
 
 Date::make('date')->date(['showMonths' => 2]);  // Flatpickr options
 ```
 
-## Time
+### Time
+
 ```php
 Time::make('time');
 
 Time::make('time')->time(['time_24hr' => false]);   // Flatpickr options
 ```
 
-## Datetime
+### Datetime
+
 ```php
 Datetime::make('datetime');
 ```
 
 ## Files
+
+Renders an [File Component](./form-file.md) with optional Filepond integation.
+
 ```php
 File::make('photo')
     ->multiple() // Enables selecting multiple files
@@ -129,6 +165,8 @@ File::make('photo')
 
 ## Checkboxes
 
+Renders a [Checkbox Component](./form-checkbox.md).
+
 Checkboxes can be defined as separate inputs:
 
 ```php
@@ -150,6 +188,9 @@ Checkboxes::make('options')
 ```
 
 ## Radios
+
+Renders a [Radio Component](./form-radio.md).
+
 Radios can be defined as separate inputs:
 
 ```php
@@ -172,6 +213,9 @@ Radios::make('theme')
 ```
 
 ## Selects
+
+Renders a [Select Component](./form-select.md).
+
 ```php
 $options = [
     'be' => 'Belgium',
@@ -221,17 +265,18 @@ Select::make('user')
 
 ## Submit
 
+Renders a [Submit Component](./form-submit.md).
+
 ```php
 Submit::make()->label('Send')
 ```
 
-## Button
+### Button
+
 ```php
 Button::make('close_button')
-    ->label('Close Modal'),
-    ->if('modal')                   // becomes: v-if="modal"
-    ->click('modal.close')          // becomes: @click("modal.close")
-    ->clickPrevent('form.restore')  // becomes: @click.prevent="form.restore"
+    ->label('Close Modal')
+    ->attributes(['@click.prevent' => 'form.restore'])
     ->danger()  // optional
     ->secondary();  // optional
 ```
