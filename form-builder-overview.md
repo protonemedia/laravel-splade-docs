@@ -232,6 +232,20 @@ return view('users.create', [
 ]);
 ```
 
+## Extending Form Fields
+
+All Form Fields are *macroable*, allowing you to easily add new methods:
+
+```php
+use ProtoneMedia\Splade\FormBuilder\Input;
+
+Input::macro('autocomplete', function ($value) {
+    return $this->attributes(['autocomplete' => $value]);
+});
+
+Input::make('password')->autocomplete('current-password');
+```
+
 ## Frontend behaviour
 
 In addition to configuring the form, fields, rules, and filled data, you may also configure its frontend behaviour:
@@ -281,15 +295,3 @@ SpladeForm::make()->submitOnChange(debounce: 1000);
 
 > **Warning**
 > The `submitOnChange()` method will not show a confirmation or password dialog.
-
-### Hiding or showing fields
-
-A `v-if="..."`-condition can be added with the `->if('...')` option:
-```php
-    // Adds v-if="modal" / v-if="!modal"
-    ->if('modal')           // The field will only be visible when the form is loaded within a modal
-    ->if('!modal')          // or when not in a modal
-
-    // Only show a field when another field is not empty or checked:
-    ->if("form.otherFieldsName != ''")
-```
