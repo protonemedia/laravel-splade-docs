@@ -64,7 +64,7 @@ Instead of fully unguarding the form, you may specify which attributes to unguar
 <x-splade-form ... :unguarded="['name', 'email']" />
 ```
 
-You can read more about this behaviour on the [Form Model Binding](/form-model-binding-attributes.md) page. Even better, the dedicated [Form Components](/form-overview.md) handle this automatically for you.
+You can read more about this behavior on the [Form Model Binding](/form-model-binding-attributes.md) page. Even better, the dedicated [Form Components](/form-overview.md) handle this automatically for you.
 
 ## Using Data
 

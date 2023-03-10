@@ -248,9 +248,9 @@ Input::macro('autocomplete', function ($value) {
 Input::make('password')->autocomplete('current-password');
 ```
 
-## Frontend behaviour
+## Frontend behavior
 
-In addition to configuring the form, fields, rules, and filled data, you may also configure its frontend behaviour:
+In addition to configuring the form, fields, rules, and filled data, you may also configure its frontend behavior:
 
 ### Prevent navigation on submit
 
@@ -275,7 +275,7 @@ When you stay on the same page after a succesful request, you may prevent the pa
 SpladeForm::make()->stay()->preserveScroll();
 ```
 
-### Submit-on-change
+### Submit on change
 
 You may watch form values, and automatically submit the form on changes.
 
