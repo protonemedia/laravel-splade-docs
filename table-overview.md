@@ -129,6 +129,18 @@ You may want the hide the pagination when the resource contains only one page, r
 SpladeTable::hidePaginationWhenResourceContainsOnePage();
 ```
 
+## Empty state
+
+When no results have been found, the component will render an empty table with a message saying *There are no items to show*. You may also pass a slot to provide a custom layout for the empty state:
+
+```blade
+<x-splade-table :for="$users">
+    <x-slot:empty-state>
+        <p>Whoops!</p>
+    </x-slot>
+</x-splade-table>
+```
+
 ## Custom head and body
 
 You may use slots to write the head or body yourself. Then, passing the instance to the `for` attribute will automatically render the pagination, but you must manually loop over the items in the head and body sections.
