@@ -135,8 +135,6 @@ Renders an [File Component](./form-file.md) with optional Filepond integation.
 File::make('photo')
     ->multiple() // Enables selecting multiple files
     ->filepond() // Enables filepond
-    ->server()   // Enables asynchronous uploads of files
-    ->preview()  // Only available with ->filepond() option
     ->accept('image/jpeg')
     ->accept(['image/png', 'image/jpeg']);
 ```
@@ -146,6 +144,8 @@ Additional Filepond configuration:
 ```php
 File::make('photo')
     ->filepond()
+    ->server()   // Enables asynchronous uploads of files
+    ->preview()  // Show image preview
 
     ->minSize('1Mb')
     ->maxSize('10Mb')
@@ -167,14 +167,14 @@ File::make('photo')
 
 Renders a [Checkbox Component](./form-checkbox.md).
 
-Checkboxes can be defined as separate inputs:
+Checkboxes can be defined as separate fields:
 
 ```php
 Checkbox::make('options[]')->label('Checkbox 1')->value('checkbox-1');
 Checkbox::make('options[]')->label('Checkbox 2')->value('checkbox-2');
 ```
 
-Or as an array:
+Or as an options array:
 
 ```php
 Checkboxes::make('options')
