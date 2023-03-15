@@ -238,7 +238,7 @@ Additionally, a `preserve-scroll` attribute prevents the page from scrolling to 
 <x-splade-form preserve-scroll>
 ```
 
-When the form has been submitted succesfully, you may access the response using the `form.$response` prop:
+When the form has been submitted successfully, you may access the response using the `form.$response` prop:
 
 ```blade
 <x-splade-form stay>
