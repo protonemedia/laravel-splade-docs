@@ -42,7 +42,6 @@ $table->selectFilter(
 );
 ```
 
-
 ## Columns
 
 With the `column` method, you can specify which columns you want to be toggleable, sortable, and searchable. You must pass in at least a key or label for each column.
@@ -67,6 +66,17 @@ SpladeTable::defaultColumnCanBeHidden(false);
 ```
 
 The `searchable` boolean is a shortcut to the `searchInput` method. The example above will essentially call `$table->searchInput('name', 'User Name')`.
+
+### Transform values
+
+Sometimes, you want to transform the value in the table without using a custom column cell. You may do this by providing a callback to the `as` argument. The callback takes two arguments: the original value and the item itself (typically the Eloquent Model).
+
+```php
+$table->column(
+    key: 'email',
+    as: fn ($email, $user) => Str::mask($email)
+);
+```
 
 ### Default sort
 
