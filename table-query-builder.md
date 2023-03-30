@@ -37,7 +37,7 @@ $table->selectFilter(
     key: 'language_code',
     options: $languages,
     label: 'Language',
-    noFilterOption: true
+    noFilterOption: true,
     noFilterOptionLabel: 'All languages'
 );
 ```
