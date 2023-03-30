@@ -6,7 +6,7 @@ The **Event Component** might be the most incredible Splade component of all. It
 
 This component assumes you've set up Laravel Echo as in the official docs. You need to make sure the Echo instance is accessible through `window.Echo`. Future releases of Splade might allow for other implementations.
 
-## Refresh on event
+## Redirect on event
 
 Imagine your app allows customers to make payments. The payment provider redirects back to a *status* page, and performs a webhook request once the payment has succeeded. On the status page, you may poll for an updated status, but also listen for a broadcasted event. With Splade, you may instruct the status page to listen to the `OrderWasPaid` event and redirect to another page when the event is fired.
 
