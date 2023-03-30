@@ -67,6 +67,18 @@ class OrderStatusWasUpdated implements ShouldBroadcast
 }
 ```
 
+Optionally, you may preserve the scroll state:
+
+```php
+Splade::refreshOnEvent()->preserveScroll();
+```
+
+Instead of doing this in the Event class, you may also use the `preserve-scroll` attribute in your Blade template:
+
+```blade
+<x-splade-event private channel="customer-1" listen="OrderStatusWasUpdated" preserve-scroll />
+```
+
 ## Toast on event
 
 Splade allows you to send toasts to the frontend using broadcasted events. Use the `Splade::toastOnEvent()` method to instantiate a new toast.
