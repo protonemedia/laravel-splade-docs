@@ -78,6 +78,17 @@ $table->column(
 );
 ```
 
+### Column alignment
+
+You may change the alignment of the column by setting it the `left` (default), `center`, or `right`.
+
+```php
+$table->column(
+    key: 'actions',
+    alignment: 'right'
+);
+```
+
 ### Default sort
 
 You may configure the default sorting with the `defaultSort()` method:
