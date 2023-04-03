@@ -131,6 +131,47 @@ $table->withGlobalSearch(columns: ['name', 'email']);
 $table->withGlobalSearch('Search through the data...', ['name', 'email']);
 ```
 
+### Sort by Closure
+
+The Table component supports sorting the results by Closure. For example, your model has
+`full_name` [accessor](https://laravel.com/docs/10.x/eloquent-mutators#defining-an-accessor):
+
+```php
+protected $appends = [
+    'full_name',
+];
+
+protected $fillable = [
+    'first_name',
+    'last_name',
+];
+
+public function fullName(): Attribute
+{
+    return Attribute::make(
+        get: fn () => trim(sprintf('%s %s', $this->first_name, $this->last_name)),
+    );
+}
+```
+
+Then you can do to sort by `full_name`:
+
+```php
+$table
+    ->withGlobalSearch(
+        columns: ['first_name', 'last_name'])
+    ->column(
+        key: 'full_name',
+        sortable: fn (Builder $query, string $direction) => $query
+            ->orderBy('first_name', $direction)
+            ->orderBy('last_name', $direction),
+    )
+    ->searchInput(
+        key: ['first_name', 'last_name'],
+        label: 'Full Name',
+    );
+```
+
 ## Example Table
 
 ```php
