@@ -37,7 +37,7 @@ $table->bulkAction(
 );
 ```
 
-The `before` and `after` callbacks receive the selected rows as an argument. You may use this to perform additional actions, for example, to send a notification to the selected users:
+The `before` and `after` callbacks receive the selected rows as an argument. You may use this to perform additional actions, for example, to send an email to the selected users:
 
 ```php
 $table->bulkAction(
@@ -48,6 +48,18 @@ $table->bulkAction(
         Mail::to($users)->send(new ImportantNotification);
     }
 );
+```
+
+Note that when all rows are selected, the callbacks receive an array with a single `*` item:
+
+```php
+function (array $selectedIds) {
+    $users = User::query()
+        ->unless($selectedIds === ['*'], fn ($query) => $query->whereIn('id', $selectedIds))
+        ->get();
+
+    Mail::to($users)->send(new ImportantNotification);
+}
 ```
 
 ## Confirmation
