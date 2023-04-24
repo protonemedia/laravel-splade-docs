@@ -37,6 +37,19 @@ $table->bulkAction(
 );
 ```
 
+The `before` and `after` callbacks receive the selected rows as an argument. You may use this to perform additional actions, for example, to send a notification to the selected users:
+
+```php
+$table->bulkAction(
+    label: 'Notify users',
+    before: function (array $selectedIds) {
+        $users = User::whereIn('id', $selectedIds)->get();
+
+        Mail::to($users)->send(new ImportantNotification);
+    }
+);
+```
+
 ## Confirmation
 
 You may use the `confirm` argument to show a confirmation dialog before Splade performs the action:
