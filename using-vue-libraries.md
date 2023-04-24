@@ -96,7 +96,7 @@ However, in this case, it would be way shorter to pass the entire `$chart` array
 <apexchart v-bind="@js($chart)" />
 ```
 
-Alternatively, if you don't want to use the `@js` directive, you could use Splade's [Data Component](./x-data.md) as a wrapper around the component:
+Alternatively, if you don't want to use the `@js` directive, you could use Splade's [Data Component](/x-data.md) as a wrapper around the component:
 
 ```blade
 <x-splade-data :default="$chart">
