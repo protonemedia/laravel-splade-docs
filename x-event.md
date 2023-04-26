@@ -1,12 +1,12 @@
 # X-Splade-Event Component
 
-The **Event Component** might be the most incredible Splade component of all. It allows you to listen for broadcasted events using [Laravel Echo](https://laravel.com/docs/9.x/broadcasting#client-side-installation).
+The **Event Component** might be the most incredible Splade component of all. It allows you to listen for broadcasted events using [Laravel Echo](https://laravel.com/docs/10.x/broadcasting#client-side-installation).
 
 ## Setup
 
 This component assumes you've set up Laravel Echo as in the official docs. You need to make sure the Echo instance is accessible through `window.Echo`. Future releases of Splade might allow for other implementations.
 
-## Refresh on event
+## Redirect on event
 
 Imagine your app allows customers to make payments. The payment provider redirects back to a *status* page, and performs a webhook request once the payment has succeeded. On the status page, you may poll for an updated status, but also listen for a broadcasted event. With Splade, you may instruct the status page to listen to the `OrderWasPaid` event and redirect to another page when the event is fired.
 
@@ -65,6 +65,18 @@ class OrderStatusWasUpdated implements ShouldBroadcast
         ];
     }
 }
+```
+
+Optionally, you may preserve the scroll state:
+
+```php
+Splade::refreshOnEvent()->preserveScroll();
+```
+
+Instead of doing this in the Event class, you may also use the `preserve-scroll` attribute in your Blade template:
+
+```blade
+<x-splade-event private channel="customer-1" listen="OrderStatusWasUpdated" preserve-scroll />
 ```
 
 ## Toast on event

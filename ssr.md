@@ -1,6 +1,6 @@
 # Server-Side Rendering (SSR)
 
-As Vue handles the template rendering client-side, you might want to enable SSR to improve the SEO score of your application. Splade uses the SSR functionality in the [Laravel Vite plugin](https://laravel.com/docs/9.x/vite#ssr).
+As Vue handles the template rendering client-side, you might want to enable SSR to improve the SEO score of your application. Splade uses the SSR functionality in the [Laravel Vite plugin](https://laravel.com/docs/10.x/vite#ssr).
 
 If you've used the automatic installer, everything is ready for you, and you can start the server almost immediately. However, if you need to set up SSR manually, check out the section below on preparing your app for SSR.
 

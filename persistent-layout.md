@@ -13,7 +13,7 @@ Luckily, Splade lets you use a Persistent Layout. So, instead of documenting all
 
 ## Make a Layout
 
-Create a new Blade Component using the Laravel Artisan CLI. You can read more about building Layouts with Blade Components in the [Laravel documentation](https://laravel.com/docs/9.x/blade#layouts-using-components).
+Create a new Blade Component using the Laravel Artisan CLI. You can read more about building Layouts with Blade Components in the [Laravel documentation](https://laravel.com/docs/10.x/blade#layouts-using-components).
 
 ```bash
 php artisan make:component VideoLayout

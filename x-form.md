@@ -64,7 +64,7 @@ Instead of fully unguarding the form, you may specify which attributes to unguar
 <x-splade-form ... :unguarded="['name', 'email']" />
 ```
 
-You can read more about this behaviour on the [Form Model Binding](/form-model-binding-attributes.md) page. Even better, the dedicated [Form Components](/form-overview.md) handle this automatically for you.
+You can read more about this behavior on the [Form Model Binding](/form-model-binding-attributes.md) page. Even better, the dedicated [Form Components](/form-overview.md) handle this automatically for you.
 
 ## Using Data
 
@@ -238,6 +238,14 @@ Additionally, a `preserve-scroll` attribute prevents the page from scrolling to 
 <x-splade-form preserve-scroll>
 ```
 
+When the form has been submitted successfully, you may access the response using the `form.$response` prop:
+
+```blade
+<x-splade-form stay>
+    <pre v-text="form.$response" />
+</x-splade-form>
+```
+
 ### Reset and restore on success
 
 You may choose to reset or restore the form data automatically. You can do this with the `reset-on-success` and `restore-on-success` attributes:
@@ -247,7 +255,6 @@ You may choose to reset or restore the form data automatically. You can do this 
 
 <x-splade-form stay restore-on-success>
 ```
-
 
 ## Form API
 

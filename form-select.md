@@ -149,6 +149,8 @@ You may use the `remote-root` attribute to set a base path for the options:
 <x-splade-select remote-url="/api/users" remote-root="data.users" option-label="name" option-value="id" />
 ```
 
+### Dynamic Remote URL
+
 The `remote-url` attribute supports *Template literals*, making it perfect for building dependent selects:
 
 ```blade
@@ -156,7 +158,28 @@ The `remote-url` attribute supports *Template literals*, making it perfect for b
 <x-splade-select name="region" remote-url="`/api/regions/${form.country}`" />
 ```
 
-When the user selects a country, it will reload the regions based on the chosen country. All remote options features work with the Choices.js integration as well. It doesn't support groups yet, but that's coming in a future version of Splade.
+When the user selects a country, it will reload the regions based on the chosen country.
+
+When you're dealing with dynamic options, you probably don't know the option values beforehand. Therefore, you may instruct the component to automatically choose the first option of the freshly loaded options using the `select-first-remote-option` attribute:
+
+```blade
+<x-splade-select name="region" remote-url="`/api/regions/${form.country}`" select-first-remote-option />
+```
+
+Additionally, you may clear the selected option whenever the Remote URL changes using the `reset-on-new-remote-url` attribute:
+
+```blade
+<x-splade-select name="region" remote-url="`/api/regions/${form.country}`" reset-on-new-remote-url />
+```
+
+Both options can be configured to be applied by default. You may use the static methods on the `Select` class, for example, in the `AppServiceProvider` class:
+
+```php
+Select::defaultResetOnNewRemoteUrl();
+Select::defaultSelectFirstRemoteOption();
+```
+
+All remote options features work with the Choices.js integration as well. It doesn't support groups yet, but that's coming in a future version of Splade.
 
 ### Customize Choices.js styling
 
@@ -176,7 +199,7 @@ import "../css/choices.scss"
 
 ### Laravel Dusk macro
 
-Splade has two macros that help you test Choices.js instances with [Laravel Dusk](https://laravel.com/docs/9.x/dusk). Instead of calling `select` with the *field* and *value* arguments, you may use the `choicesSelect` method:
+Splade has two macros that help you test Choices.js instances with [Laravel Dusk](https://laravel.com/docs/10.x/dusk). Instead of calling `select` with the *field* and *value* arguments, you may use the `choicesSelect` method:
 
 ```php
 $browser->select('size', 'Large');  // [tl! remove]

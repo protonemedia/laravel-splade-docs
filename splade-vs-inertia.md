@@ -12,7 +12,7 @@ To summarize:
 
 ## Passing data
 
-Passing data from the Controller to templates is handled very differently. With Inertia.js, **all data** you pass from the Controller to a template will be available client-side (in the browser). Of course, you may use a transformation layer (like [Fractal](https://fractal.thephpleague.com) or Laravel's [API Resources](https://laravel.com/docs/9.x/eloquent-resources)), but you still have to worry about the data size and not sharing sensitive data with the browser.
+Passing data from the Controller to templates is handled very differently. With Inertia.js, **all data** you pass from the Controller to a template will be available client-side (in the browser). Of course, you may use a transformation layer (like [Fractal](https://fractal.thephpleague.com) or Laravel's [API Resources](https://laravel.com/docs/10.x/eloquent-resources)), but you still have to worry about the data size and not sharing sensitive data with the browser.
 
 In Splade applications, almost all data is rendered using standard server-side Blade templates. Once rendered in Blade, the raw data won't be available client-side (in the browser). Of course, you may pass data to the frontend, for example, with the [Data](/x-data.md) and [Form](/x-form.md) components, but that’s very explicit. The Form component even helps you guard data against being passed to the browser.
 

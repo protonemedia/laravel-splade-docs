@@ -49,7 +49,7 @@ This will result in more readable `<x-form>`, `<x-input>`, and `<x-submit>` comp
 
 ## Model Binding
 
-To bind a resource to a form, for example, an [Eloquent Model](https://laravel.com/docs/9.x/eloquent), you may use the `default` attribute. Instead of using the `v-model` attribute on the input element, you may now use the `name` attribute. Splade will take care of the two-way binding with the User model.
+To bind a resource to a form, for example, an [Eloquent Model](https://laravel.com/docs/10.x/eloquent), you may use the `default` attribute. Instead of using the `v-model` attribute on the input element, you may now use the `name` attribute. Splade will take care of the two-way binding with the User model.
 
 ```blade
 <x-splade-form :default="$user">
@@ -84,3 +84,7 @@ By default, Splade scrolls to the first element with a validation error. You may
 ```
 
 Splade escapes Validation errors by default, so if you use raw HTML in one of your messages, Vue won't insert those as plain HTML. If you want to disable this behavior, set the `blade.escape_validation_messages` key in the `splade.php` [configuration file](/customization.md) to `false`. Only disable this on trusted content and never on user-provided content, as it may lead to XSS attacks.
+
+## Form Builder
+
+In addition to building forms in Blade templates, you may also build forms in PHP with the [Form Builder](/form-builder-overview.md).

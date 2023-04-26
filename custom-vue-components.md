@@ -162,7 +162,7 @@ Now you can use the renderless Vue component in a Blade template, and use the `i
 <x-layout>
 ```
 
-Note that you can't use the `{{ counter.count }}` Vue syntax to echo out the count value, as the template is rendered first by the Blade engine, and Blade [uses the same syntax](https://laravel.com/docs/9.x/blade#blade-and-javascript-frameworks). You may use the `@` symbol to inform Blade the expression should remain untouched. This would result in `@{{ counter.count }}`. Though this works fine, using the `v-text` attribute seems neater.
+Note that you can't use the `{{ counter.count }}` Vue syntax to echo out the count value, as the template is rendered first by the Blade engine, and Blade [uses the same syntax](https://laravel.com/docs/10.x/blade#blade-and-javascript-frameworks). You may use the `@` symbol to inform Blade the expression should remain untouched. This would result in `@{{ counter.count }}`. Though this works fine, using the `v-text` attribute seems neater.
 
 You may also use the *destructuring assignment syntax* in the slot:
 

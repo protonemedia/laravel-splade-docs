@@ -74,6 +74,20 @@ The slideover opens on the right side by default, but you may change that as wel
 <x-splade-modal position="left">
 ```
 
+## Close behavior
+
+By default, the modal closes when the user presses the *escape* key or clicks outside of the modal. However, you may disable this with the `close-explicitly` attribute:
+
+```blade
+<x-splade-modal close-explicitly>
+```
+
+Suppose you want this to be the default behavior. In that case, you may call the `defaultModalCloseExplicitly` method on the `Splade` facade, for example, in the `AppServiceProvider` class:
+
+```php
+Splade::defaultModalCloseExplicitly();
+```
+
 ## Close Button
 
 The modal and slideover have a *close button*, which you can disable with the `close-button` attribute.

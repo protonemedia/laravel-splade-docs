@@ -96,7 +96,7 @@ public function configure(SpladeTable $table)
 
 ### Implementing the `authorize` method
 
-The `authorize` method is only used for Bulk Actions and Exports. Just like [Form Requests](https://laravel.com/docs/9.x/validation#authorizing-form-requests), you may determine if the user has the authority to perform such actions:
+The `authorize` method is only used for Bulk Actions and Exports. Just like [Form Requests](https://laravel.com/docs/10.x/validation#authorizing-form-requests), you may determine if the user has the authority to perform such actions:
 
 ```php
 public function authorize(Request $request)
@@ -181,6 +181,18 @@ You may want the hide the pagination when the resource contains only one page, r
 
 ```php
 SpladeTable::hidePaginationWhenResourceContainsOnePage();
+```
+
+## Empty state
+
+When no results have been found, the component will render an empty table with a message saying *There are no items to show*. You may also pass a slot to provide a custom layout for the empty state:
+
+```blade
+<x-splade-table :for="$users">
+    <x-slot:empty-state>
+        <p>Whoops!</p>
+    </x-slot>
+</x-splade-table>
 ```
 
 ## Custom head and body

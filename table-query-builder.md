@@ -37,11 +37,10 @@ $table->selectFilter(
     key: 'language_code',
     options: $languages,
     label: 'Language',
-    noFilterOption: true
+    noFilterOption: true,
     noFilterOptionLabel: 'All languages'
 );
 ```
-
 
 ## Columns
 
@@ -68,6 +67,28 @@ SpladeTable::defaultColumnCanBeHidden(false);
 
 The `searchable` boolean is a shortcut to the `searchInput` method. The example above will essentially call `$table->searchInput('name', 'User Name')`.
 
+### Transform values
+
+Sometimes, you want to transform the value in the table without using a custom column cell. You may do this by providing a callback to the `as` argument. The callback takes two arguments: the original value and the item itself (typically the Eloquent Model).
+
+```php
+$table->column(
+    key: 'email',
+    as: fn ($email, $user) => Str::mask($email)
+);
+```
+
+### Column alignment
+
+You may change the alignment of the column by setting it the `left` (default), `center`, or `right`.
+
+```php
+$table->column(
+    key: 'actions',
+    alignment: 'right'
+);
+```
+
 ### Default sort
 
 You may configure the default sorting with the `defaultSort()` method:
@@ -88,7 +109,7 @@ $table->defaultSort('name', 'desc');
 
 ### Sort by Relationship column
 
-The Table component supports sorting the results by a [Relationship](https://laravel.com/docs/9.x/eloquent-relationships) column. This requires the installation of the [`kirschbaum-development/eloquent-power-joins`](https://github.com/kirschbaum-development/eloquent-power-joins) package.
+The Table component supports sorting the results by a [Relationship](https://laravel.com/docs/10.x/eloquent-relationships) column. This requires the installation of the [`kirschbaum-development/eloquent-power-joins`](https://github.com/kirschbaum-development/eloquent-power-joins) package.
 
 ```php
 $table->column(

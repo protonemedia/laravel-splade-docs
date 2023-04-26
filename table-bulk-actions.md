@@ -37,6 +37,31 @@ $table->bulkAction(
 );
 ```
 
+The `before` and `after` callbacks receive the selected rows as an argument. You may use this to perform additional actions, for example, to send an email to the selected users:
+
+```php
+$table->bulkAction(
+    label: 'Notify users',
+    before: function (array $selectedIds) {
+        $users = User::whereIn('id', $selectedIds)->get();
+
+        Mail::to($users)->send(new ImportantNotification);
+    }
+);
+```
+
+Note that when all rows are selected, the callbacks receive an array with a single `*` item:
+
+```php
+function (array $selectedIds) {
+    $users = User::query()
+        ->unless($selectedIds === ['*'], fn ($query) => $query->whereIn('id', $selectedIds))
+        ->get();
+
+    Mail::to($users)->send(new ImportantNotification);
+}
+```
+
 ## Confirmation
 
 You may use the `confirm` argument to show a confirmation dialog before Splade performs the action:
@@ -83,7 +108,7 @@ $table->bulkAction(
 
 ## Authorization
 
-Just like [Form Requests](https://laravel.com/docs/9.x/validation#authorizing-form-requests), you may use the `authorize` method to determine if the user has the authority to perform a Bulk Action:
+Just like [Form Requests](https://laravel.com/docs/10.x/validation#authorizing-form-requests), you may use the `authorize` method to determine if the user has the authority to perform a Bulk Action:
 
 ```php
 class Projects extends AbstractTable

@@ -5,6 +5,7 @@
         "Automatic installation": "automatic-installation",
         "Manual installation": "manual-installation",
         "Breeze starter kit": "breeze",
+        "Jetstream starter kit": "jetstream",
         "Upgrading": "upgrading",
         "Roadmap": "roadmap",
         "Inertia.js comparison": "splade-vs-inertia",
@@ -16,6 +17,7 @@
         "Toasts": "toasts",
         "Shared data": "shared-data",
         "Title and meta tags": "title-meta",
+        "Transformers": "transformers",
         "Lazy loading": "lazy-loading",
         "Server-side rendering (SSR)": "ssr"
     },
@@ -49,6 +51,10 @@
         "Submit": "form-submit",
         "Model Binding": "form-model-binding-attributes"
     },
+    "Form Builder": {
+        "Overview": "form-builder-overview",
+        "Available fields": "form-builder-fields"
+    },
     "Table component": {
         "Overview": "table-overview",
         "Built-in Query Builder": "table-query-builder",
@@ -65,6 +71,7 @@
         "State management": "state-management",
         "Persistent layout": "persistent-layout",
         "Event bus": "event-bus",
+        "Bridge Components (Beta)": "bridge-components",
         "Customization": "customization",
         "Translations": "translations",
         "Exception handling": "exception-handling",

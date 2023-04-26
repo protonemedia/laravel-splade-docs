@@ -75,3 +75,43 @@ Now you may use the library in a Blade template. Note how we loop over the `$pro
     </Carousel>
 </x-layout>
 ```
+
+## Passing Data
+
+You may use Laravel's built-in `@js` directive to pass data to Vue components. For example, you may pass multiple props to this `apexchart` Vue component:
+
+```blade
+<apexchart
+    :width="@js($chart['width'])"
+    :height="@js($chart['height'])"
+    :type="@js($chart['type'])"
+    :options="@js($chart['options'])"
+    :series="@js($chart['series'])"
+/>
+```
+
+However, in this case, it would be way shorter to pass the entire `$chart` array using Vue's `v-bind` directive:
+
+```blade
+<apexchart v-bind="@js($chart)" />
+```
+
+Alternatively, if you don't want to use the `@js` directive, you could use Splade's [Data Component](/x-data.md) as a wrapper around the component:
+
+```blade
+<x-splade-data :default="$chart">
+    <apexchart
+        :width="data.width"
+        :height="data.height"
+        :type="data.type"
+        :options="data.options"
+        :series="data.series"
+    />
+</x-splade-data>
+
+<!-- Or, using the shorthand syntax: -->
+
+<x-splade-data :default="$chart">
+    <apexchart v-bind="data" />
+</x-splade-data>
+```
