@@ -119,3 +119,19 @@ class Projects extends AbstractTable
     }
 }
 ```
+
+## Getting all selected data
+Maybe somtime we want to get all selected data in splade bulk action. It's posible to get all ids or selected data using method `before` or `after` from splade table. Here is the example:
+
+```php
+$table->bulkAction(
+    label: 'Notify users',
+    before: function (array $selectedIds) {
+        $users = User::query()
+            ->unless($selectedIds === ['*'], fn ($query) => $query->whereIn('id', $selectedIds))
+            ->get();
+ 
+        Mail::to($users)->send(new ImportantNotification);
+    }
+);
+```
