@@ -12,16 +12,16 @@ First, enable SSR in the Laravel configuration via the `SPLADE_SSR_ENABLED` envi
 SPLADE_SSR_ENABLED=true
 ```
 
-By running `npm run build`, Vite will build the SSR entry point and save it at `bootstrap/ssr/ssr.mjs`. Now you can use `node` to start the server:
+By running `npm run build`, Vite will build the SSR entry point and save it at `bootstrap/ssr/ssr.js`. Now you can use `node` to start the server. Note that in earlier versions of Splade, the file was generated as `ssr.mjs`.
 
 ```bash
-node bootstrap/ssr/ssr.mjs
+node bootstrap/ssr/ssr.js
 ```
 
 By default, it starts on port 9000, but you may choose another port. Don't forget to update the port in the `splade.php` [configuration file](/customization.md).
 
 ```bash
-node bootstrap/ssr/ssr.mjs --port=4242
+node bootstrap/ssr/ssr.js --port=4242
 ```
 
 If you create a daemon that runs the server, don't forget to restart it after every deployment.
