@@ -8,8 +8,8 @@ Splade has been in public development since July 2022. Finally, in November 2022
 * <del>More examples of combining Blade and Vue</del> ✅
 * <del>Show key features on splade.dev</del> ✅
 * <del>Support for actions and exports in the Table Component</del> ✅
-* <del>Form Builder</del>
-* Demo application (like Ping CRM)
+* <del>Form Builder</del> ✅
+* <del>Demo application</del> ✅
 * Dark Mode and RTL support
 * Table filter improvements
 * Support for Bootstrap 5 (under consideration)
