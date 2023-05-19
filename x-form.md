@@ -147,6 +147,16 @@ You may use the input event to bind the selected file to your form data:
 
 The dedicated [File Component](/form-file.md) provides a cleaner solution, and has support for selecting multiple files as well as displaying the filename of the selected file.
 
+## File downloads
+
+If the form submittion results in a file download, you may use the `blob` attribute to let Splade handle the download:
+
+```blade
+<x-splade-form blob>
+    <input v-model="form.code" />
+    <button type="submit">Download</button>
+</x-splade-form>
+```
 
 ## State
 
