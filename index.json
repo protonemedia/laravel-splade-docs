@@ -50,6 +50,7 @@
         "File": "form-file",
         "Group": "form-group",
         "Submit": "form-submit",
+        "Wysiwyg (Jodit)": "form-wysiwyg",
         "Model Binding": "form-model-binding-attributes"
     },
     "Form Builder": {

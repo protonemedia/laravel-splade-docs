@@ -1,6 +1,6 @@
 # Form Components
 
-Splade comes with a set of **Form Components** to rapidly build forms. It supports model binding and validation, includes default styling, and is still fully customizable! It integrates with [Autosize](https://www.jacklmoore.com/autosize/) to automatically adjust textarea height, [Choices.js](https://github.com/Choices-js/Choices) to make selects searchable and taggable, [Flatpickr](https://flatpickr.js.org) to provide a powerful datetime picker, and [FilePond](https://pqina.nl/filepond/) for smooth file uploads.
+Splade comes with a set of **Form Components** to rapidly build forms. It supports model binding and validation, includes default styling, and is still fully customizable! It integrates with [Autosize](https://www.jacklmoore.com/autosize/) to automatically adjust textarea height, [Choices.js](https://github.com/Choices-js/Choices) to make selects searchable and taggable, [Flatpickr](https://flatpickr.js.org) to provide a powerful datetime picker, [FilePond](https://pqina.nl/filepond/) for smooth file uploads, and [Jodit](https://xdsoft.net/jodit/) to provide a WYSIWYG editor.
 
 Available components:
 
@@ -12,6 +12,7 @@ Available components:
 * [Select](/form-select.md)
 * [Submit](/form-submit.md)
 * [Textarea](/form-textarea.md)
+* [Wysiwyg](/form-wysiwyg.md)
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-utQsyibvZM?controls=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
