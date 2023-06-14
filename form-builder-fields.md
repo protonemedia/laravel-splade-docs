@@ -247,7 +247,7 @@ Select::make('user')
 Select::make('user')
     ->label('Select with data from a remote URL with a remote root')
     ->remoteUrl('/api/users')
-    ->remoteRoute('data.users')
+    ->remoteRoot('data.users')
     ->optionLabel('name')
     ->optionValue('id');
 
