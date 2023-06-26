@@ -189,6 +189,10 @@ public function store(Request $request, CreateUserForm $form)
 }
 ```
 
+### Asterisk on required fields
+
+Splade can automatically add an asterisk to required fields. You may enable this feature by setting the `blade.asterisk_on_required_form_elements` key in the `splade.php` [configuration file](/customization.md) to `true`.
+
 ### Using Form Requests
 
 Instead of validating the request in the controller, you may also use Laravel's [Form Requests](https://laravel.com/docs/10.x/validation#form-request-validation) feature. To may use the form's validation rules in the Form Request, and to make it even more seamless, there's an Artisan command to generate a Form Request class:

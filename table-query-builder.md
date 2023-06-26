@@ -245,3 +245,17 @@ You may use the `striped` attribute to add a striped layout to the table.
 ```blade
 <x-splade-table :for="$users" striped />
 ```
+
+## Reset button
+
+By default, a *Reset-button* is rendered when the table is filtered, sorted, or searched. You may disable this button by setting the `reset-button` attribute to `false`:
+
+```blade
+<x-splade-table :for="$users" :reset-button="false" />
+```
+
+You may also disable it globally using the static `defaultResetButton` method, for example, in the `AppServiceProvider` class:
+
+```php
+SpladeTable::defaultResetButton(false);
+```

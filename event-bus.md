@@ -40,7 +40,7 @@ Splade.emit('checkout', { id: 1 });
 
 ## Emit on event
 
-It's also possible to call the `emit` method from another event. For example, the [Form Component](/x-form.md) emits `error` and `success` events that you can hook into:
+It's also possible to call the `emit` method from another event. For example, [Bridge Components](/bridge-components.md) and the [Form Component](/x-form.md) emit `error` and `success` events that you can hook into:
 
 ```blade
 <x-splade-form @error="$splade.emit('checkout-failed')">

@@ -64,3 +64,19 @@ Splade detects when you redirect to an external domain outside of your app. You 
 ```php
 return Splade::redirectAway('https://www.google.com');
 ```
+
+## View Transitions API
+
+View Transitions is a new API in modern browsers designed to animate page transitions in SPAs like Splade. You can read more about it in the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API). Note that this API is still experimental and not supported in all browsers.
+
+To enable View Transitions in your Splade app, you must update the plugin options in the main `app.js` file by setting the `view_transitions` option to `true`:
+
+```js
+createApp({ render: renderSpladeApp({ el }) })
+    .use(SpladePlugin, {
+        'view_transitions': true,
+    })
+    .mount(el);
+```
+
+Splade automatically detects if the browser supports the API.

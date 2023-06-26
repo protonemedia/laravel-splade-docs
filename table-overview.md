@@ -129,6 +129,20 @@ You may want the hide the pagination when the resource contains only one page, r
 SpladeTable::hidePaginationWhenResourceContainsOnePage();
 ```
 
+### Scroll behavior
+
+By default, the pagination links will scroll to the top of the page when clicked. This is not always desired, especially when the table is not at the top of the page. You may use the `pagination-scroll` attribute to change this behavior. The value can be `top` (default), `head`, or `preserve`.
+
+```blade
+<x-splade-table :for="$users" pagination-scroll="head" />
+```
+
+If you want to change this behavior globally, you may use the `paginationScroll` method on the `SpladeTable` class:
+
+```php
+SpladeTable::defaultPaginationScroll('preserve');
+```
+
 ## Empty state
 
 When no results have been found, the component will render an empty table with a message saying *There are no items to show*. You may also pass a slot to provide a custom layout for the empty state:
