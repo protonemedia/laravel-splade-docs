@@ -107,6 +107,60 @@ public function authorize(Request $request)
 
 Instead of always returning `true`, you may also remove the method if you don't want to use authorization.
 
+## Conditional in splade table
+Sometimes we need some ```condition``` in our data table. splade have build in conditional in splade data table.
+
+```php
+SpladeTable::for(User::class)
+    ->column('name')
+    ->when(Auth::user()->is_admin, function ($table) {
+        $table->column('email');
+    })
+    ->paginate(15);
+```
+
+You can also using inline function in php.
+```php
+SpladeTable::for(User::class)
+    ->column('name')
+    ->when(Auth::user()->is_admin, fn ($table) => $table->column('email'))
+    ->paginate(15);
+```
+
+You maybe need with ```Laravel-permission``` from spatie. here is the example.
+```php
+SpladeTable::for(User::class)
+    ->column('name')
+    ->when(Auth::user()->hasPermission("delete user"), function ($table) {
+        $table->bulkAction(
+                label: 'Delete data',
+                each: fn (User $user) => $user->delete(),
+                confirm: 'Delete users',
+                confirmText: 'Are you sure you want to delete the users?',
+                confirmButton: 'Yes, delete all selected rows!',
+                cancelButton: 'No, do not delete!',
+            );
+    })
+    ->paginate(15);
+```
+
+You can also using splade table class.
+```php
+// ...
+$table->column('name')
+    ->when(Auth::user()->hasPermission("delete user"), function ($table) {
+        $table->bulkAction(
+                label: 'Delete data',
+                each: fn (User $user) => $user->delete(),
+                confirm: 'Delete users',
+                confirmText: 'Are you sure you want to delete the users?',
+                confirmButton: 'Yes, delete all selected rows!',
+                cancelButton: 'No, do not delete!',
+            );
+    });
+// ...
+```
+
 ## Pagination
 
 When the dataset is paginated, it will, by default, show a select dropdown to customize the number of rows per page. In addition, you may define a custom set of options using the `perPageOptions` method on the `SpladeTable`:

@@ -50,8 +50,20 @@ class Handler extends ExceptionHandler
 
 On the frontend, you must ensure [Tailwind CSS 3.0](https://tailwindcss.com) and [Vue 3.0](https://vuejs.org) are correctly configured. Then, install the Splade frontend package:
 
+### npm
+
+Via npm
+
 ```bash
 npm install @protonemedia/laravel-splade
+```
+
+### yarn
+
+Via yarn
+
+```bash
+yarn add @protonemedia/laravel-splade
 ```
 
 In your Tailwind configuration file, make sure you add the Splade package to the content array:
@@ -69,21 +81,21 @@ module.exports = {
 };
 ```
 
-In the `createApp` section of your main JavaScript file, you need to use the Splade plugin, as well as the custom render method. Note how it imports the `createApp` method from the *bundler* Vue build, as that build includes the [Vue template compiler](https://vuejs.org/guide/scaling-up/tooling.html#note-on-in-browser-template-compilation).
+In the `createApp` section of your main JavaScript file, you need to use the Splade plugin, as well as the custom render method. Note how it imports the `createApp` method from the _bundler_ Vue build, as that build includes the [Vue template compiler](https://vuejs.org/guide/scaling-up/tooling.html#note-on-in-browser-template-compilation).
 
 ```js
 import "@protonemedia/laravel-splade/dist/style.css";
 
 import { createApp } from "vue/dist/vue.esm-bundler.js";
-import { renderSpladeApp, SpladePlugin } from '@protonemedia/laravel-splade'
+import { renderSpladeApp, SpladePlugin } from "@protonemedia/laravel-splade";
 
-const el = document.getElementById('app')
+const el = document.getElementById("app");
 
 createApp({
-    render: renderSpladeApp({ el })
+	render: renderSpladeApp({ el }),
 })
-    .use(SpladePlugin)
-    .mount(el);
+	.use(SpladePlugin)
+	.mount(el);
 ```
 
 As you can see at the top, there's also a default stylesheet to support the Choices.js, FilePond, and Flatpickr integrations of the [Form Components](/form-overview.md). Though you probably want to import this default stylesheet into your main JavaScript file, it's completely optional.
