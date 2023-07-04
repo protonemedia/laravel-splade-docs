@@ -116,7 +116,7 @@ Here's an example of a sensible root layout:
         @splade
     </body>
 </html>
-```blade
+```
 
 Splade assumes the path of this file is `resources/views/root.blade.php`. If you want to change it, you may call the `setRootView` method on the Splade facade, for example, in the `AppServiceProvider` class:
 
