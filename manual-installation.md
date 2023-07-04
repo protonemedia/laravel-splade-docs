@@ -100,6 +100,24 @@ In your Blade root layout, you may use the `@splade` directive inside the `body`
 </body>
 ```
 
+Here's an example of a sensible root layout:
+
+```blade
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        @vite(['resources/js/app.js'])
+        @spladeHead
+    </head>
+    <body class="font-sans antialiased">
+        @splade
+    </body>
+</html>
+```blade
+
 Splade assumes the path of this file is `resources/views/root.blade.php`. If you want to change it, you may call the `setRootView` method on the Splade facade, for example, in the `AppServiceProvider` class:
 
 ```php
