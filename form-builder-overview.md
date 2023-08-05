@@ -226,6 +226,15 @@ class CreateUserFormRequest extends FormRequest
 }
 ```
 
+Now this class can be used as a regular FormRequest:
+
+```php
+public function store(CreateUserFormRequest $request)
+{
+    $data = $request->validated();
+}
+```
+
 ### Extending Form classes
 
 Instead of providing the class name, you may also use an instance of the form using the `make()` method. This allows you to add additional fields to the form:
