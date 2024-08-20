@@ -7,10 +7,7 @@
         "Breeze starter kit": "breeze",
         "Jetstream starter kit": "jetstream",
         "Upgrading": "upgrading",
-        "Demo app": "demo-app-eddy",
-        "Roadmap": "roadmap",
-        "Inertia.js comparison": "splade-vs-inertia",
-        "Livewire comparison": "splade-vs-livewire"
+        "Roadmap": "roadmap"
     },
     "Basics": {
         "Navigation and routing": "navigation-routing",
