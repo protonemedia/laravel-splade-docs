@@ -14,4 +14,3 @@ Documentation for [splade.dev](https://splade.dev)
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
